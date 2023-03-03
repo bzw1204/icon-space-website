@@ -1,0 +1,138 @@
+{
+    "sourceFile": "src/app.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 30,
+            "patches": [
+                {
+                    "date": 1677748419969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677748430200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\n \t<div>\n \t\t<!-- <NuxtWelcome /> -->\n \t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n-\t\t<button @click=\"handleAddSize\">改变尺寸 {{  language }}</button>\n+\t\t<button @click=\"handleAddSize\">改变尺寸 {{ language }}</button>\n \t</div>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n"
+                },
+                {
+                    "date": 1677748759785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,12 @@\n \t\t<!-- <NuxtWelcome /> -->\n \t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n \t\t<button @click=\"handleAddSize\">改变尺寸 {{ language }}</button>\n \t</div>\n+\t<NuxtLayout>\n+    <NuxtLoadingIndicator /> <!-- here -->\n+    <NuxtPage />\n+  </NuxtLayout>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n"
+                },
+                {
+                    "date": 1677748789057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,16 @@\n <template>\n-\t<div>\n-\t\t<!-- <NuxtWelcome /> -->\n-\t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n-\t\t<button @click=\"handleAddSize\">改变尺寸 {{ language }}</button>\n-\t</div>\n \t<NuxtLayout>\n-    <NuxtLoadingIndicator /> <!-- here -->\n-    <NuxtPage />\n-  </NuxtLayout>\n+\t\t<NuxtLoadingIndicator />\n+\t\t<!-- here -->\n+\t\t<NuxtPage>\n+\t\t\t<div>\n+\t\t\t\t<!-- <NuxtWelcome /> -->\n+\t\t\t\t<button @click=\"handleAddSize\">改变尺寸 {{ language }}</button>\n+\t\t\t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n+\t\t\t</div>\n+\t\t</NuxtPage>\n+\t</NuxtLayout>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n"
+                },
+                {
+                    "date": 1677749001193,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\n \t<NuxtLayout>\n \t\t<NuxtLoadingIndicator />\n \t\t<!-- here -->\n-\t\t<NuxtPage>\n+\t\t<NuxtPage :foobar=\"123\">\n \t\t\t<div>\n \t\t\t\t<!-- <NuxtWelcome /> -->\n \t\t\t\t<button @click=\"handleAddSize\">改变尺寸 {{ language }}</button>\n \t\t\t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n"
+                },
+                {
+                    "date": 1677749011993,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,15 @@\n <template>\n \t<NuxtLayout>\n \t\t<NuxtLoadingIndicator />\n \t\t<!-- here -->\n-\t\t<NuxtPage :foobar=\"123\">\n-\t\t\t<div>\n+\t\t<div>\n \t\t\t\t<!-- <NuxtWelcome /> -->\n \t\t\t\t<button @click=\"handleAddSize\">改变尺寸 {{ language }}</button>\n \t\t\t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n \t\t\t</div>\n+\t\t<NuxtPage :foobar=\"123\">\n+\n \t\t</NuxtPage>\n \t</NuxtLayout>\n </template>\n <script lang=\"ts\" setup>\n"
+                },
+                {
+                    "date": 1677749170609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n \t\t\t\t<!-- <NuxtWelcome /> -->\n \t\t\t\t<button @click=\"handleAddSize\">改变尺寸 {{ language }}</button>\n \t\t\t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n \t\t\t</div>\n+\t\t\t<NuxtLink to=\"/\">Home</NuxtLink>\n \t\t<NuxtPage :foobar=\"123\">\n \n \t\t</NuxtPage>\n \t</NuxtLayout>\n"
+                },
+                {
+                    "date": 1677749188028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,15 @@\n <template>\n \t<NuxtLayout>\n \t\t<NuxtLoadingIndicator />\n \t\t<!-- here -->\n-\t\t<div>\n-\t\t\t\t<!-- <NuxtWelcome /> -->\n-\t\t\t\t<button @click=\"handleAddSize\">改变尺寸 {{ language }}</button>\n-\t\t\t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n-\t\t\t</div>\n-\t\t\t<NuxtLink to=\"/\">Home</NuxtLink>\n-\t\t<NuxtPage :foobar=\"123\">\n-\n-\t\t</NuxtPage>\n+\t\t<!-- <div>\n+\t\t\t<!-- <NuxtWelcome /> -->\n+\t\t\t<button @click=\"handleAddSize\">改变尺寸 {{ language }}</button>\n+\t\t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n+\t\t</div> -->\n+\t\t<NuxtLink to=\"/\">Home</NuxtLink>\n+\t\t<NuxtPage :foobar=\"123\"> </NuxtPage>\n \t</NuxtLayout>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n"
+                },
+                {
+                    "date": 1677749220021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n \t<NuxtLayout>\n \t\t<NuxtLoadingIndicator />\n \t\t<!-- here -->\n \t\t<!-- <div>\n-\t\t\t<!-- <NuxtWelcome /> -->\n \t\t\t<button @click=\"handleAddSize\">改变尺寸 {{ language }}</button>\n \t\t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n \t\t</div> -->\n \t\t<NuxtLink to=\"/\">Home</NuxtLink>\n@@ -13,8 +12,9 @@\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n+\tconst route = useRoute()\n \tconst { title, language } = useAppConfig()\n \tonMounted(() => {\n \t\tdocument.title = title\n \t})\n"
+                },
+                {
+                    "date": 1677749242389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,38 @@\n <template>\n-\t<NuxtLayout>\n-\t\t<NuxtLoadingIndicator />\n-\t\t<!-- here -->\n-\t\t<!-- <div>\n-\t\t\t<button @click=\"handleAddSize\">改变尺寸 {{ language }}</button>\n-\t\t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n-\t\t</div> -->\n-\t\t<NuxtLink to=\"/\">Home</NuxtLink>\n-\t\t<NuxtPage :foobar=\"123\"> </NuxtPage>\n-\t</NuxtLayout>\n+<NuxtExampleLayout example=\"routing/pages\">\n+    <NuxtLoadingIndicator />\n+    <NuxtPage />\n+\n+    <template #nav>\n+      <nav class=\"flex align-center gap-4 p-4\">\n+        <NuxtLink to=\"/\" class=\"n-link-base\">\n+          Home\n+        </NuxtLink>\n+        <NuxtLink to=\"/about\" class=\"n-link-base\">\n+          About\n+        </NuxtLink>\n+        <NuxtLink to=\"/parent\" class=\"n-link-base\">\n+          Parent (index)\n+        </NuxtLink>\n+        <NuxtLink to=\"/parent/b\" class=\"n-link-base\">\n+          Parent (b)\n+        </NuxtLink>\n+        <button class=\"n-link-base\" @click=\"$router.push(`/parent/reload-${(Math.random() * 100).toFixed()}`)\">\n+          Keyed child\n+        </button>\n+        <button class=\"n-link-base\" @click=\"$router.push(`/parent/static-${(Math.random() * 100).toFixed()}`)\">\n+          Non-keyed child\n+        </button>\n+      </nav>\n+    </template>\n+\n+    <template #footer>\n+      <div class=\"text-center p-4 op-50\">\n+        Current route: <code>{{ route.path }}</code>\n+      </div>\n+    </template>\n+  </NuxtExampleLayout>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n"
+                },
+                {
+                    "date": 1677749250764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,38 +1,30 @@\n <template>\n-<NuxtExampleLayout example=\"routing/pages\">\n-    <NuxtLoadingIndicator />\n-    <NuxtPage />\n+\t<NuxtExampleLayout example=\"routing/pages\">\n+\t\t<NuxtLoadingIndicator />\n+\t\t<NuxtPage />\n \n-    <template #nav>\n-      <nav class=\"flex align-center gap-4 p-4\">\n-        <NuxtLink to=\"/\" class=\"n-link-base\">\n-          Home\n-        </NuxtLink>\n-        <NuxtLink to=\"/about\" class=\"n-link-base\">\n-          About\n-        </NuxtLink>\n-        <NuxtLink to=\"/parent\" class=\"n-link-base\">\n-          Parent (index)\n-        </NuxtLink>\n-        <NuxtLink to=\"/parent/b\" class=\"n-link-base\">\n-          Parent (b)\n-        </NuxtLink>\n-        <button class=\"n-link-base\" @click=\"$router.push(`/parent/reload-${(Math.random() * 100).toFixed()}`)\">\n-          Keyed child\n-        </button>\n-        <button class=\"n-link-base\" @click=\"$router.push(`/parent/static-${(Math.random() * 100).toFixed()}`)\">\n-          Non-keyed child\n-        </button>\n-      </nav>\n-    </template>\n+\t\t<template #nav>\n+\t\t\t<nav class=\"flex align-center gap-4 p-4\">\n+\t\t\t\t<NuxtLink to=\"/\" class=\"n-link-base\"> Home </NuxtLink>\n+\t\t\t\t<NuxtLink to=\"/about\" class=\"n-link-base\"> About </NuxtLink>\n+\t\t\t\t<NuxtLink to=\"/parent\" class=\"n-link-base\"> Parent (index) </NuxtLink>\n+\t\t\t\t<NuxtLink to=\"/parent/b\" class=\"n-link-base\"> Parent (b) </NuxtLink>\n+\t\t\t\t<button class=\"n-link-base\" @click=\"$router.push(`/parent/reload-${(Math.random() * 100).toFixed()}`)\">\n+\t\t\t\t\tKeyed child\n+\t\t\t\t</button>\n+\t\t\t\t<button class=\"n-link-base\" @click=\"$router.push(`/parent/static-${(Math.random() * 100).toFixed()}`)\">\n+\t\t\t\t\tNon-keyed child\n+\t\t\t\t</button>\n+\t\t\t</nav>\n+\t\t</template>\n \n-    <template #footer>\n-      <div class=\"text-center p-4 op-50\">\n-        Current route: <code>{{ route.path }}</code>\n-      </div>\n-    </template>\n-  </NuxtExampleLayout>\n+\t\t<template #footer>\n+\t\t\t<div class=\"text-center p-4 op-50\">\n+\t\t\t\tCurrent route: <code>{{ route.path }}</code>\n+\t\t\t</div>\n+\t\t</template>\n+\t</NuxtExampleLayout>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n"
+                },
+                {
+                    "date": 1677750104492,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \t\t<NuxtPage />\n \n \t\t<template #nav>\n \t\t\t<nav class=\"flex align-center gap-4 p-4\">\n-\t\t\t\t<NuxtLink to=\"/\" class=\"n-link-base\"> Home </NuxtLink>\n+\t\t\t\t<NuxtLink to=\"/home\" class=\"n-link-base\"> Home </NuxtLink>\n \t\t\t\t<NuxtLink to=\"/about\" class=\"n-link-base\"> About </NuxtLink>\n \t\t\t\t<NuxtLink to=\"/parent\" class=\"n-link-base\"> Parent (index) </NuxtLink>\n \t\t\t\t<NuxtLink to=\"/parent/b\" class=\"n-link-base\"> Parent (b) </NuxtLink>\n \t\t\t\t<button class=\"n-link-base\" @click=\"$router.push(`/parent/reload-${(Math.random() * 100).toFixed()}`)\">\n"
+                },
+                {
+                    "date": 1677750164390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \t\t<NuxtPage />\n \n \t\t<template #nav>\n \t\t\t<nav class=\"flex align-center gap-4 p-4\">\n-\t\t\t\t<NuxtLink to=\"/home\" class=\"n-link-base\"> Home </NuxtLink>\n+\t\t\t\t<NuxtLink to=\"/\" class=\"n-link-base\"> Home </NuxtLink>\n \t\t\t\t<NuxtLink to=\"/about\" class=\"n-link-base\"> About </NuxtLink>\n \t\t\t\t<NuxtLink to=\"/parent\" class=\"n-link-base\"> Parent (index) </NuxtLink>\n \t\t\t\t<NuxtLink to=\"/parent/b\" class=\"n-link-base\"> Parent (b) </NuxtLink>\n \t\t\t\t<button class=\"n-link-base\" @click=\"$router.push(`/parent/reload-${(Math.random() * 100).toFixed()}`)\">\n"
+                },
+                {
+                    "date": 1677750178751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\n \t<NuxtExampleLayout example=\"routing/pages\">\n \t\t<NuxtLoadingIndicator />\n-\t\t<NuxtPage />\n \n+\n \t\t<template #nav>\n \t\t\t<nav class=\"flex align-center gap-4 p-4\">\n \t\t\t\t<NuxtLink to=\"/\" class=\"n-link-base\"> Home </NuxtLink>\n \t\t\t\t<NuxtLink to=\"/about\" class=\"n-link-base\"> About </NuxtLink>\n@@ -16,9 +16,9 @@\n \t\t\t\t\tNon-keyed child\n \t\t\t\t</button>\n \t\t\t</nav>\n \t\t</template>\n-\n+\t\t<NuxtPage />\n \t\t<template #footer>\n \t\t\t<div class=\"text-center p-4 op-50\">\n \t\t\t\tCurrent route: <code>{{ route.path }}</code>\n \t\t\t</div>\n"
+                },
+                {
+                    "date": 1677750205877,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n <template>\n \t<NuxtExampleLayout example=\"routing/pages\">\n \t\t<NuxtLoadingIndicator />\n \n-\n \t\t<template #nav>\n \t\t\t<nav class=\"flex align-center gap-4 p-4\">\n \t\t\t\t<NuxtLink to=\"/\" class=\"n-link-base\"> Home </NuxtLink>\n \t\t\t\t<NuxtLink to=\"/about\" class=\"n-link-base\"> About </NuxtLink>\n@@ -16,9 +15,11 @@\n \t\t\t\t\tNon-keyed child\n \t\t\t\t</button>\n \t\t\t</nav>\n \t\t</template>\n-\t\t<NuxtPage />\n+\t\t<div class=\"w-500px h-500px\">\n+\t\t\t<NuxtPage />\n+\t\t</div>\n \t\t<template #footer>\n \t\t\t<div class=\"text-center p-4 op-50\">\n \t\t\t\tCurrent route: <code>{{ route.path }}</code>\n \t\t\t</div>\n"
+                },
+                {
+                    "date": 1677750291396,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n \t\t\t\t</button>\n \t\t\t</nav>\n \t\t</template>\n \t\t<div class=\"w-500px h-500px\">\n+\t\t\t<h1>{{ language }}</h1>\n \t\t\t<NuxtPage />\n \t\t</div>\n \t\t<template #footer>\n \t\t\t<div class=\"text-center p-4 op-50\">\n"
+                },
+                {
+                    "date": 1677750443421,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,32 +1,6 @@\n <template>\n-\t<NuxtExampleLayout example=\"routing/pages\">\n-\t\t<NuxtLoadingIndicator />\n \n-\t\t<template #nav>\n-\t\t\t<nav class=\"flex align-center gap-4 p-4\">\n-\t\t\t\t<NuxtLink to=\"/\" class=\"n-link-base\"> Home </NuxtLink>\n-\t\t\t\t<NuxtLink to=\"/about\" class=\"n-link-base\"> About </NuxtLink>\n-\t\t\t\t<NuxtLink to=\"/parent\" class=\"n-link-base\"> Parent (index) </NuxtLink>\n-\t\t\t\t<NuxtLink to=\"/parent/b\" class=\"n-link-base\"> Parent (b) </NuxtLink>\n-\t\t\t\t<button class=\"n-link-base\" @click=\"$router.push(`/parent/reload-${(Math.random() * 100).toFixed()}`)\">\n-\t\t\t\t\tKeyed child\n-\t\t\t\t</button>\n-\t\t\t\t<button class=\"n-link-base\" @click=\"$router.push(`/parent/static-${(Math.random() * 100).toFixed()}`)\">\n-\t\t\t\t\tNon-keyed child\n-\t\t\t\t</button>\n-\t\t\t</nav>\n-\t\t</template>\n-\t\t<div class=\"w-500px h-500px\">\n-\t\t\t<h1>{{ language }}</h1>\n-\t\t\t<NuxtPage />\n-\t\t</div>\n-\t\t<template #footer>\n-\t\t\t<div class=\"text-center p-4 op-50\">\n-\t\t\t\tCurrent route: <code>{{ route.path }}</code>\n-\t\t\t</div>\n-\t\t</template>\n-\t</NuxtExampleLayout>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n"
+                },
+                {
+                    "date": 1677750450965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\n-\n+\t<NuxtPage />\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n"
+                },
+                {
+                    "date": 1677750465733,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,9 @@\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n-\tconst route = useRoute()\n-\tconst { title, language } = useAppConfig()\n+\n \tonMounted(() => {\n \t\tdocument.title = title\n \t})\n \tconst svgStore = useSvgStore()\n"
+                },
+                {
+                    "date": 1677750483290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,11 @@\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n \n-\tonMounted(() => {\n-\t\tdocument.title = title\n-\t})\n+\t// onMounted(() => {\n+\t// \tdocument.title = title\n+\t// })\n \tconst svgStore = useSvgStore()\n \tconst { size } = storeToRefs(svgStore)\n \tconst handleAddSize = () => {\n \t\tsize.value++\n"
+                },
+                {
+                    "date": 1677750695147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,41 @@\n <template>\n-\t<NuxtPage />\n+\t<NuxtExampleLayout example=\"routing/pages\">\n+\t\t<NuxtLoadingIndicator />\n+\n+\t\t<template #nav>\n+\t\t\t<nav class=\"flex align-center gap-4 p-4\">\n+\t\t\t\t<NuxtLink to=\"/\" class=\"n-link-base\"> Home </NuxtLink>\n+\t\t\t\t<NuxtLink to=\"/about\" class=\"n-link-base\"> About </NuxtLink>\n+\t\t\t\t<NuxtLink to=\"/parent\" class=\"n-link-base\"> Parent (index) </NuxtLink>\n+\t\t\t\t<NuxtLink to=\"/parent/b\" class=\"n-link-base\"> Parent (b) </NuxtLink>\n+\t\t\t\t<button class=\"n-link-base\" @click=\"$router.push(`/parent/reload-${(Math.random() * 100).toFixed()}`)\">\n+\t\t\t\t\tKeyed child\n+\t\t\t\t</button>\n+\t\t\t\t<button class=\"n-link-base\" @click=\"$router.push(`/parent/static-${(Math.random() * 100).toFixed()}`)\">\n+\t\t\t\t\tNon-keyed child\n+\t\t\t\t</button>\n+\t\t\t</nav>\n+\t\t</template>\n+\t\t<div class=\"w-500px h-500px\">\n+\t\t\t<h1>{{ language }}</h1>\n+\t\t\t<NuxtPage />\n+\t\t</div>\n+\t\t<template #footer>\n+\t\t\t<div class=\"text-center p-4 op-50\">\n+\t\t\t\tCurrent route: <code>{{ route.path }}</code>\n+\t\t\t</div>\n+\t\t</template>\n+\t</NuxtExampleLayout>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n-\n-\t// onMounted(() => {\n-\t// \tdocument.title = title\n-\t// })\n+\tconst route = useRoute()\n+\tconst { title, language } = useAppConfig()\n+\tonMounted(() => {\n+\t\tdocument.title = title\n+\t})\n \tconst svgStore = useSvgStore()\n \tconst { size } = storeToRefs(svgStore)\n \tconst handleAddSize = () => {\n \t\tsize.value++\n"
+                },
+                {
+                    "date": 1677750831008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,12 +15,12 @@\n \t\t\t\t\tNon-keyed child\n \t\t\t\t</button>\n \t\t\t</nav>\n \t\t</template>\n-\t\t<div class=\"w-500px h-500px\">\n+\t\t<!-- <div class=\"w-500px h-500px\">\n \t\t\t<h1>{{ language }}</h1>\n \t\t\t<NuxtPage />\n-\t\t</div>\n+\t\t</div> -->\n \t\t<template #footer>\n \t\t\t<div class=\"text-center p-4 op-50\">\n \t\t\t\tCurrent route: <code>{{ route.path }}</code>\n \t\t\t</div>\n"
+                },
+                {
+                    "date": 1677750858546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,10 @@\n \t\t\t</nav>\n \t\t</template>\n \t\t<!-- <div class=\"w-500px h-500px\">\n \t\t\t<h1>{{ language }}</h1>\n-\t\t\t<NuxtPage />\n \t\t</div> -->\n+\t\t<NuxtPage />\n \t\t<template #footer>\n \t\t\t<div class=\"text-center p-4 op-50\">\n \t\t\t\tCurrent route: <code>{{ route.path }}</code>\n \t\t\t</div>\n"
+                },
+                {
+                    "date": 1677750870486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,16 +5,8 @@\n \t\t<template #nav>\n \t\t\t<nav class=\"flex align-center gap-4 p-4\">\n \t\t\t\t<NuxtLink to=\"/\" class=\"n-link-base\"> Home </NuxtLink>\n \t\t\t\t<NuxtLink to=\"/about\" class=\"n-link-base\"> About </NuxtLink>\n-\t\t\t\t<NuxtLink to=\"/parent\" class=\"n-link-base\"> Parent (index) </NuxtLink>\n-\t\t\t\t<NuxtLink to=\"/parent/b\" class=\"n-link-base\"> Parent (b) </NuxtLink>\n-\t\t\t\t<button class=\"n-link-base\" @click=\"$router.push(`/parent/reload-${(Math.random() * 100).toFixed()}`)\">\n-\t\t\t\t\tKeyed child\n-\t\t\t\t</button>\n-\t\t\t\t<button class=\"n-link-base\" @click=\"$router.push(`/parent/static-${(Math.random() * 100).toFixed()}`)\">\n-\t\t\t\t\tNon-keyed child\n-\t\t\t\t</button>\n \t\t\t</nav>\n \t\t</template>\n \t\t<!-- <div class=\"w-500px h-500px\">\n \t\t\t<h1>{{ language }}</h1>\n"
+                },
+                {
+                    "date": 1677750883134,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n \t\t<template #nav>\n \t\t\t<nav class=\"flex align-center gap-4 p-4\">\n \t\t\t\t<NuxtLink to=\"/\" class=\"n-link-base\"> Home </NuxtLink>\n \t\t\t\t<NuxtLink to=\"/about\" class=\"n-link-base\"> About </NuxtLink>\n+\t\t\t\t<NuxtLink to=\"/test\" class=\"n-link-base\"> About </NuxtLink>\n \t\t\t</nav>\n \t\t</template>\n \t\t<!-- <div class=\"w-500px h-500px\">\n \t\t\t<h1>{{ language }}</h1>\n"
+                },
+                {
+                    "date": 1677808680528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,29 +1,13 @@\n <template>\n-\t<NuxtExampleLayout example=\"routing/pages\">\n-\t\t<NuxtLoadingIndicator />\n-\n-\t\t<template #nav>\n-\t\t\t<nav class=\"flex align-center gap-4 p-4\">\n-\t\t\t\t<NuxtLink to=\"/\" class=\"n-link-base\"> Home </NuxtLink>\n-\t\t\t\t<NuxtLink to=\"/about\" class=\"n-link-base\"> About </NuxtLink>\n-\t\t\t\t<NuxtLink to=\"/test\" class=\"n-link-base\"> About </NuxtLink>\n-\t\t\t</nav>\n-\t\t</template>\n-\t\t<!-- <div class=\"w-500px h-500px\">\n-\t\t\t<h1>{{ language }}</h1>\n-\t\t</div> -->\n-\t\t<NuxtPage />\n-\t\t<template #footer>\n-\t\t\t<div class=\"text-center p-4 op-50\">\n-\t\t\t\tCurrent route: <code>{{ route.path }}</code>\n-\t\t\t</div>\n-\t\t</template>\n-\t</NuxtExampleLayout>\n+\t<NuxtLayout :name=\"layout\">\n+\t</NuxtLayout>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n+\n+\tconst layout = 'custom'\n \tconst route = useRoute()\n \tconst { title, language } = useAppConfig()\n \tonMounted(() => {\n \t\tdocument.title = title\n"
+                },
+                {
+                    "date": 1677808688795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n <template>\n \t<NuxtLayout :name=\"layout\">\n+\t\t<h1>Hello</h1>\n \t</NuxtLayout>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n"
+                },
+                {
+                    "date": 1677808702301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n \n-\tconst layout = 'custom'\n+\tconst layout = 'default'\n \tconst route = useRoute()\n \tconst { title, language } = useAppConfig()\n \tonMounted(() => {\n \t\tdocument.title = title\n"
+                },
+                {
+                    "date": 1677814317742,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n <template>\n \t<NuxtLayout :name=\"layout\">\n \t\t<h1>Hello</h1>\n+\t\t<a-button type=\"primary\">按钮</a-button>\n \t</NuxtLayout>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n"
+                },
+                {
+                    "date": 1677829196126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\n-\t<NuxtLayout :name=\"layout\">\n+\t<NuxtLayout>\n \t\t<h1>Hello</h1>\n \t\t<a-button type=\"primary\">按钮</a-button>\n \t</NuxtLayout>\n </template>\n"
+                },
+                {
+                    "date": 1677830702436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\n-\t<NuxtLayout>\n+\t<NuxtLayout name=\"default\">\n \t\t<h1>Hello</h1>\n \t\t<a-button type=\"primary\">按钮</a-button>\n \t</NuxtLayout>\n </template>\n"
+                }
+            ],
+            "date": 1677748419969,
+            "name": "Commit-0",
+            "content": "<template>\n\t<div>\n\t\t<!-- <NuxtWelcome /> -->\n\t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n\t\t<button @click=\"handleAddSize\">改变尺寸 {{  language }}</button>\n\t</div>\n</template>\n<script lang=\"ts\" setup>\n\timport { storeToRefs } from 'pinia'\n\n\tconst { title, language } = useAppConfig()\n\tonMounted(() => {\n\t\tdocument.title = title\n\t})\n\tconst svgStore = useSvgStore()\n\tconst { size } = storeToRefs(svgStore)\n\tconst handleAddSize = () => {\n\t\tsize.value++\n\t}\n</script>\n"
+        }
+    ]
+}

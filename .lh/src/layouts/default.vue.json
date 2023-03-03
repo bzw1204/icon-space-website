@@ -1,0 +1,250 @@
+{
+    "sourceFile": "src/layouts/default.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 58,
+            "patches": [
+                {
+                    "date": 1677749878297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677749933833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-\t<div>\r\n+\t<div class=\"bg-gray-500\">\r\n \t\t<slot></slot>\r\n \t</div>\r\n </template>\r\n \r\n"
+                },
+                {
+                    "date": 1677749946905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n <template>\r\n \t<div class=\"bg-gray-500\">\r\n-\t\t<slot></slot>\r\n \t</div>\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n"
+                },
+                {
+                    "date": 1677749954680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +0,0 @@\n-<template>\r\n-\t<div class=\"bg-gray-500\">\r\n-\t</div>\r\n-</template>\r\n-\r\n-<script setup lang=\"ts\"></script>\r\n-\r\n-<style scoped></style>\r\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1677749981415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,9 @@\n-\n+<template>\r\n+\t<div class=\"bg-gray-500\">\r\n+    <div class=\"outline-solid-blue-gray-500\"></div>\r\n+\t</div>\r\n+</template>\r\n+\r\n+<script setup lang=\"ts\"></script>\r\n+\r\n+<style scoped></style>\r\n"
+                },
+                {
+                    "date": 1677749991202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n-\t<div class=\"bg-gray-500\">\r\n-    <div class=\"outline-solid-blue-gray-500\"></div>\r\n+\t<div class=\"w-full h-full bg-gray-500\">\r\n+\t\t<div class=\"outline-solid-blue-gray-500\"></div>\r\n \t</div>\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n"
+                },
+                {
+                    "date": 1677750004203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<div class=\"w-full h-full bg-gray-500\">\r\n-\t\t<div class=\"outline-solid-blue-gray-500\"></div>\r\n+\t\t<div class=\"w-full h-60px  outline-solid-blue-gray-500\"></div>\r\n \t</div>\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n"
+                },
+                {
+                    "date": 1677750010433,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n <template>\r\n \t<div class=\"w-full h-full bg-gray-500\">\r\n-\t\t<div class=\"w-full h-60px  outline-solid-blue-gray-500\"></div>\r\n+\t\t<div class=\"w-full h-60px outline-solid-blue-gray-500\">\r\n+      你好\r\n+    </div>\r\n \t</div>\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n"
+                },
+                {
+                    "date": 1677750021194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \t<div class=\"w-full h-full bg-gray-500\">\r\n \t\t<div class=\"w-full h-60px outline-solid-blue-gray-500\">\r\n       你好\r\n     </div>\r\n+    <NuxtPage />\r\n \t</div>\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n"
+                },
+                {
+                    "date": 1677750040925,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,9 @@\n <template>\r\n \t<div class=\"w-full h-full bg-gray-500\">\r\n-\t\t<div class=\"w-full h-60px outline-solid-blue-gray-500\">\r\n-      你好\r\n-    </div>\r\n-    <NuxtPage />\r\n+\t\t<div class=\"w-full h-60px outline-solid-blue-gray-500\">你好</div>\r\n+\t\t<NuxtPage />\r\n+    <slot name=\"nav\" />\r\n \t</div>\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n"
+                },
+                {
+                    "date": 1677750443420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,32 @@\n <template>\r\n-\t<div class=\"w-full h-full bg-gray-500\">\r\n-\t\t<div class=\"w-full h-60px outline-solid-blue-gray-500\">你好</div>\r\n-\t\t<NuxtPage />\r\n-    <slot name=\"nav\" />\r\n-\t</div>\r\n+\t<NuxtExampleLayout example=\"routing/pages\">\r\n+\t\t<NuxtLoadingIndicator />\r\n+\r\n+\t\t<template #nav>\r\n+\t\t\t<nav class=\"flex align-center gap-4 p-4\">\r\n+\t\t\t\t<NuxtLink to=\"/\" class=\"n-link-base\"> Home </NuxtLink>\r\n+\t\t\t\t<NuxtLink to=\"/about\" class=\"n-link-base\"> About </NuxtLink>\r\n+\t\t\t\t<NuxtLink to=\"/parent\" class=\"n-link-base\"> Parent (index) </NuxtLink>\r\n+\t\t\t\t<NuxtLink to=\"/parent/b\" class=\"n-link-base\"> Parent (b) </NuxtLink>\r\n+\t\t\t\t<button class=\"n-link-base\" @click=\"$router.push(`/parent/reload-${(Math.random() * 100).toFixed()}`)\">\r\n+\t\t\t\t\tKeyed child\r\n+\t\t\t\t</button>\r\n+\t\t\t\t<button class=\"n-link-base\" @click=\"$router.push(`/parent/static-${(Math.random() * 100).toFixed()}`)\">\r\n+\t\t\t\t\tNon-keyed child\r\n+\t\t\t\t</button>\r\n+\t\t\t</nav>\r\n+\t\t</template>\r\n+\t\t<div class=\"w-500px h-500px\">\r\n+\t\t\t<h1>{{ language }}</h1>\r\n+\t\t\t<NuxtPage />\r\n+\t\t</div>\r\n+\t\t<template #footer>\r\n+\t\t\t<div class=\"text-center p-4 op-50\">\r\n+\t\t\t\tCurrent route: <code>{{ route.path }}</code>\r\n+\t\t\t</div>\r\n+\t\t</template>\r\n+\t</NuxtExampleLayout>\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n \r\n"
+                },
+                {
+                    "date": 1677750465732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,7 +27,10 @@\n \t\t</template>\r\n \t</NuxtExampleLayout>\r\n </template>\r\n \r\n-<script setup lang=\"ts\"></script>\r\n+<script setup lang=\"ts\">\r\n+\tconst route = useRoute()\r\n+\tconst { title, language } = useAppConfig()\r\n+</script>\r\n \r\n <style scoped></style>\r\n"
+                },
+                {
+                    "date": 1677750577803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,32 +1,6 @@\n <template>\r\n-\t<NuxtExampleLayout example=\"routing/pages\">\r\n-\t\t<NuxtLoadingIndicator />\r\n-\r\n-\t\t<template #nav>\r\n-\t\t\t<nav class=\"flex align-center gap-4 p-4\">\r\n-\t\t\t\t<NuxtLink to=\"/\" class=\"n-link-base\"> Home </NuxtLink>\r\n-\t\t\t\t<NuxtLink to=\"/about\" class=\"n-link-base\"> About </NuxtLink>\r\n-\t\t\t\t<NuxtLink to=\"/parent\" class=\"n-link-base\"> Parent (index) </NuxtLink>\r\n-\t\t\t\t<NuxtLink to=\"/parent/b\" class=\"n-link-base\"> Parent (b) </NuxtLink>\r\n-\t\t\t\t<button class=\"n-link-base\" @click=\"$router.push(`/parent/reload-${(Math.random() * 100).toFixed()}`)\">\r\n-\t\t\t\t\tKeyed child\r\n-\t\t\t\t</button>\r\n-\t\t\t\t<button class=\"n-link-base\" @click=\"$router.push(`/parent/static-${(Math.random() * 100).toFixed()}`)\">\r\n-\t\t\t\t\tNon-keyed child\r\n-\t\t\t\t</button>\r\n-\t\t\t</nav>\r\n-\t\t</template>\r\n-\t\t<div class=\"w-500px h-500px\">\r\n-\t\t\t<h1>{{ language }}</h1>\r\n-\t\t\t<NuxtPage />\r\n-\t\t</div>\r\n-\t\t<template #footer>\r\n-\t\t\t<div class=\"text-center p-4 op-50\">\r\n-\t\t\t\tCurrent route: <code>{{ route.path }}</code>\r\n-\t\t\t</div>\r\n-\t\t</template>\r\n-\t</NuxtExampleLayout>\r\n+\t<div></div>\r\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n \tconst route = useRoute()\r\n"
+                },
+                {
+                    "date": 1677750586622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n <template>\r\n-\t<div></div>\r\n+\t<div>\r\n+\t\t<slot />\r\n+\t</div>\r\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n \tconst route = useRoute()\r\n"
+                },
+                {
+                    "date": 1677750686821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-<template>\r\n+<!-- <template>\r\n \t<div>\r\n \t\t<slot />\r\n \t</div>\r\n </template>\r\n@@ -8,5 +8,5 @@\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n </script>\r\n \r\n-<style scoped></style>\r\n+<style scoped></style> -->\r\n"
+                },
+                {
+                    "date": 1677808709454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-<!-- <template>\r\n+<template>\r\n \t<div>\r\n \t\t<slot />\r\n \t</div>\r\n </template>\r\n@@ -8,5 +8,5 @@\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n </script>\r\n \r\n-<style scoped></style> -->\r\n+<style scoped></style>\r\n"
+                },
+                {
+                    "date": 1677829207675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n <template>\r\n-\t<div>\r\n-\t\t<slot />\r\n-\t</div>\r\n+\t<a-layout class=\"w-full h-full\">\r\n+\t\t<a-layout-header>Header</a-layout-header>\r\n+\t\t<a-layout-content>Content</a-layout-content>\r\n+\t\t<a-layout-footer>Footer</a-layout-footer>\r\n+\t</a-layout>\r\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n \tconst route = useRoute()\r\n"
+                },
+                {
+                    "date": 1677829218096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>Header</a-layout-header>\r\n \t\t<a-layout-content>Content</a-layout-content>\r\n-\t\t<a-layout-footer>Footer</a-layout-footer>\r\n \t</a-layout>\r\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n"
+                },
+                {
+                    "date": 1677829230252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n-\t\t<a-layout-header>Header</a-layout-header>\r\n+\t\t<a-layout-header>\r\n+\t\t\t<slot></slot>\r\n+\t\t</a-layout-header>\r\n \t\t<a-layout-content>Content</a-layout-content>\r\n \t</a-layout>\r\n </template>\r\n \r\n"
+                },
+                {
+                    "date": 1677829245297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,13 +2,17 @@\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n \t\t\t<slot></slot>\r\n \t\t</a-layout-header>\r\n-\t\t<a-layout-content>Content</a-layout-content>\r\n+\t\t<a-layout-content>\r\n+\t\t\t<NuxtPage />\r\n+\t\t</a-layout-content>\r\n \t</a-layout>\r\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n+\timport { NuxtPage } from '~~/.nuxt/components'\r\n+\r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n </script>\r\n \r\n"
+                },
+                {
+                    "date": 1677829252714,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,8 @@\n \t</a-layout>\r\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n-\timport { NuxtPage } from '~~/.nuxt/components'\r\n \r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n </script>\r\n"
+                },
+                {
+                    "date": 1677829275261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n-\t\t\t<slot></slot>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content>\r\n \t\t\t<NuxtPage />\r\n \t\t</a-layout-content>\r\n"
+                },
+                {
+                    "date": 1677829301664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,24 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n+\t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n+      <a-menu-item key=\"0\" :style=\"{ padding: 0, marginRight: '38px' }\" disabled>\r\n+        <div\r\n+          :style=\"{\r\n+            width: '80px',\r\n+            height: '30px',\r\n+            borderRadius: '2px',\r\n+            background: 'var(--color-fill-3)',\r\n+            cursor: 'text',\r\n+          }\"\r\n+        />\r\n+      </a-menu-item>\r\n+      <a-menu-item key=\"1\">Home</a-menu-item>\r\n+      <a-menu-item key=\"2\">Solution</a-menu-item>\r\n+      <a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n+      <a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n+    </a-menu>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content>\r\n \t\t\t<NuxtPage />\r\n \t\t</a-layout-content>\r\n"
+                },
+                {
+                    "date": 1677829421278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,33 +1,33 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n-\t\t<a-layout-header>\r\n+\t\t<a-layout-header class=\"flex justify-between items-center\">\r\n+\t\t\t<div class=\"\"></div>\r\n \t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n-      <a-menu-item key=\"0\" :style=\"{ padding: 0, marginRight: '38px' }\" disabled>\r\n-        <div\r\n-          :style=\"{\r\n-            width: '80px',\r\n-            height: '30px',\r\n-            borderRadius: '2px',\r\n-            background: 'var(--color-fill-3)',\r\n-            cursor: 'text',\r\n-          }\"\r\n-        />\r\n-      </a-menu-item>\r\n-      <a-menu-item key=\"1\">Home</a-menu-item>\r\n-      <a-menu-item key=\"2\">Solution</a-menu-item>\r\n-      <a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n-      <a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n-    </a-menu>\r\n+\t\t\t\t<a-menu-item key=\"0\" :style=\"{ padding: 0, marginRight: '38px' }\" disabled>\r\n+\t\t\t\t\t<div\r\n+\t\t\t\t\t\t:style=\"{\r\n+\t\t\t\t\t\t\twidth: '80px',\r\n+\t\t\t\t\t\t\theight: '30px',\r\n+\t\t\t\t\t\t\tborderRadius: '2px',\r\n+\t\t\t\t\t\t\tbackground: 'var(--color-fill-3)',\r\n+\t\t\t\t\t\t\tcursor: 'text'\r\n+\t\t\t\t\t\t}\"\r\n+\t\t\t\t\t/>\r\n+\t\t\t\t</a-menu-item>\r\n+\t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n+\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n+\t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n+\t\t\t\t<a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n+\t\t\t</a-menu>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content>\r\n \t\t\t<NuxtPage />\r\n \t\t</a-layout-content>\r\n \t</a-layout>\r\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n-\r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n </script>\r\n \r\n"
+                },
+                {
+                    "date": 1677829458131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header class=\"flex justify-between items-center\">\r\n-\t\t\t<div class=\"\"></div>\r\n+\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\"></div>\r\n \t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n \t\t\t\t<a-menu-item key=\"0\" :style=\"{ padding: 0, marginRight: '38px' }\" disabled>\r\n \t\t\t\t\t<div\r\n \t\t\t\t\t\t:style=\"{\r\n"
+                },
+                {
+                    "date": 1677829463568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,19 +2,8 @@\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header class=\"flex justify-between items-center\">\r\n \t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\"></div>\r\n \t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n-\t\t\t\t<a-menu-item key=\"0\" :style=\"{ padding: 0, marginRight: '38px' }\" disabled>\r\n-\t\t\t\t\t<div\r\n-\t\t\t\t\t\t:style=\"{\r\n-\t\t\t\t\t\t\twidth: '80px',\r\n-\t\t\t\t\t\t\theight: '30px',\r\n-\t\t\t\t\t\t\tborderRadius: '2px',\r\n-\t\t\t\t\t\t\tbackground: 'var(--color-fill-3)',\r\n-\t\t\t\t\t\t\tcursor: 'text'\r\n-\t\t\t\t\t\t}\"\r\n-\t\t\t\t\t/>\r\n-\t\t\t\t</a-menu-item>\r\n \t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n \t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n \t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n \t\t\t\t<a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677829514754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header class=\"flex justify-between items-center\">\r\n-\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\"></div>\r\n+\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\" style=\"width: 80px;height: 30px\"></div>\r\n \t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n \t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n \t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n \t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677829530160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header class=\"flex justify-between items-center\">\r\n-\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\" style=\"width: 80px;height: 30px\"></div>\r\n+\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\" style=\"width: 80px;height: 30px;background-color: var(--color-fill-3);\"></div>\r\n \t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n \t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n \t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n \t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677829639826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header class=\"flex justify-between items-center\">\r\n-\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\" style=\"width: 80px;height: 30px;background-color: var(--color-fill-3);\"></div>\r\n+\t\t\t<div class=\"flex-1 w-80px h-30px bg-[var(--color-fill-3)]\" style=\"width: 80px;height: 30px;background-color: var(--color-fill-3);\"></div>\r\n \t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n \t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n \t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n \t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677829732027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n-\t\t<a-layout-header class=\"flex justify-between items-center\">\r\n+\t\t<a-layout-header class=\"flex justify-between items-center px-20px\">\r\n \t\t\t<div class=\"flex-1 w-80px h-30px bg-[var(--color-fill-3)]\" style=\"width: 80px;height: 30px;background-color: var(--color-fill-3);\"></div>\r\n \t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n \t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n \t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677829793611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header class=\"flex justify-between items-center px-20px\">\r\n \t\t\t<div class=\"flex-1 w-80px h-30px bg-[var(--color-fill-3)]\" style=\"width: 80px;height: 30px;background-color: var(--color-fill-3);\"></div>\r\n-\t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n+\t\t\t<a-menu mode=\"horizontal\" theme=\"dark\" :default-selected-keys=\"['1']\">\r\n \t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n \t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n \t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n \t\t\t\t<a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677829864942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,19 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header class=\"flex justify-between items-center px-20px\">\r\n-\t\t\t<div class=\"flex-1 w-80px h-30px bg-[var(--color-fill-3)]\" style=\"width: 80px;height: 30px;background-color: var(--color-fill-3);\"></div>\r\n-\t\t\t<a-menu mode=\"horizontal\" theme=\"dark\" :default-selected-keys=\"['1']\">\r\n-\t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n-\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n-\t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n-\t\t\t\t<a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n-\t\t\t</a-menu>\r\n+\t\t\t<div\r\n+\t\t\t\tclass=\"flex-1 w-80px h-30px bg-[var(--color-fill-3)]\"\r\n+\t\t\t\tstyle=\"width: 80px; height: 30px; background-color: var(--color-fill-3)\"\r\n+\t\t\t></div>\r\n+\t\t\t<div>\r\n+\t\t\t\t<a-menu mode=\"horizontal\" theme=\"dark\" :default-selected-keys=\"['1']\">\r\n+\t\t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n+\t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n+\t\t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n+\t\t\t\t\t<a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n+\t\t\t\t</a-menu>\r\n+\t\t\t</div>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content>\r\n \t\t\t<NuxtPage />\r\n \t\t</a-layout-content>\r\n"
+                },
+                {
+                    "date": 1677829887657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \t\t\t\tclass=\"flex-1 w-80px h-30px bg-[var(--color-fill-3)]\"\r\n \t\t\t\tstyle=\"width: 80px; height: 30px; background-color: var(--color-fill-3)\"\r\n \t\t\t></div>\r\n \t\t\t<div>\r\n-\t\t\t\t<a-menu mode=\"horizontal\" theme=\"dark\" :default-selected-keys=\"['1']\">\r\n+\t\t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n \t\t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n \t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n \t\t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n \t\t\t\t\t<a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677829904226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n-\t\t<a-layout-header class=\"flex justify-between items-center px-20px\">\r\n+\t\t<a-layout-header>\r\n \t\t\t<div\r\n \t\t\t\tclass=\"flex-1 w-80px h-30px bg-[var(--color-fill-3)]\"\r\n \t\t\t\tstyle=\"width: 80px; height: 30px; background-color: var(--color-fill-3)\"\r\n \t\t\t></div>\r\n"
+                },
+                {
+                    "date": 1677829914471,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<a-layout-header>\r\n \t\t\t<div\r\n \t\t\t\tclass=\"flex-1 w-80px h-30px bg-[var(--color-fill-3)]\"\r\n \t\t\t\tstyle=\"width: 80px; height: 30px; background-color: var(--color-fill-3)\"\r\n-\t\t\t></div>\r\n+\t\t\t>Logo</div>\r\n \t\t\t<div>\r\n \t\t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n \t\t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n \t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677829947129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,23 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n-\t\t\t<div\r\n+\t\t\t<div class=\"flex justify-between items-center \">\r\n+\t\t\t\t<div\r\n \t\t\t\tclass=\"flex-1 w-80px h-30px bg-[var(--color-fill-3)]\"\r\n \t\t\t\tstyle=\"width: 80px; height: 30px; background-color: var(--color-fill-3)\"\r\n-\t\t\t>Logo</div>\r\n+\t\t\t>\r\n+\t\t\t\tLogo\r\n+\t\t\t</div>\r\n \t\t\t<div>\r\n \t\t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n \t\t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n \t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n \t\t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n \t\t\t\t\t<a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n \t\t\t\t</a-menu>\r\n \t\t\t</div>\r\n+\t\t\t</div>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content>\r\n \t\t\t<NuxtPage />\r\n \t\t</a-layout-content>\r\n"
+                },
+                {
+                    "date": 1677829959961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n-\t\t\t<div class=\"flex justify-between items-center \">\r\n+\t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div\r\n \t\t\t\tclass=\"flex-1 w-80px h-30px bg-[var(--color-fill-3)]\"\r\n \t\t\t\tstyle=\"width: 80px; height: 30px; background-color: var(--color-fill-3)\"\r\n \t\t\t>\r\n"
+                },
+                {
+                    "date": 1677830512586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div\r\n-\t\t\t\tclass=\"flex-1 w-80px h-30px bg-[var(--color-fill-3)]\"\r\n+\t\t\t\tclass=\"w-80px h-30px bg-[var(--color-fill-3)]\"\r\n \t\t\t\tstyle=\"width: 80px; height: 30px; background-color: var(--color-fill-3)\"\r\n \t\t\t>\r\n \t\t\t\tLogo\r\n \t\t\t</div>\r\n"
+                },
+                {
+                    "date": 1677830525608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div\r\n \t\t\t\tclass=\"w-80px h-30px bg-[var(--color-fill-3)]\"\r\n-\t\t\t\tstyle=\"width: 80px; height: 30px; background-color: var(--color-fill-3)\"\r\n \t\t\t>\r\n \t\t\t\tLogo\r\n \t\t\t</div>\r\n \t\t\t<div>\r\n"
+                },
+                {
+                    "date": 1677830656111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,18 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n-\t\t\t\t<div\r\n-\t\t\t\tclass=\"w-80px h-30px bg-[var(--color-fill-3)]\"\r\n-\t\t\t>\r\n-\t\t\t\tLogo\r\n+\t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n+\t\t\t\t<div>\r\n+\t\t\t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n+\t\t\t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n+\t\t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n+\t\t\t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n+\t\t\t\t\t\t<a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n+\t\t\t\t\t</a-menu>\r\n+\t\t\t\t</div>\r\n \t\t\t</div>\r\n-\t\t\t<div>\r\n-\t\t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n-\t\t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n-\t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n-\t\t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n-\t\t\t\t\t<a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n-\t\t\t\t</a-menu>\r\n-\t\t\t</div>\r\n-\t\t\t</div>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content>\r\n \t\t\t<NuxtPage />\r\n \t\t</a-layout-content>\r\n@@ -25,7 +21,8 @@\n \r\n <script setup lang=\"ts\">\r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n+\tconst router = useRouter()\r\n </script>\r\n \r\n <style scoped></style>\r\n"
+                },
+                {
+                    "date": 1677830663223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,7 +22,8 @@\n <script setup lang=\"ts\">\r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n \tconst router = useRouter()\r\n+\tconsole.log('router.getRoutes()',router.getRoutes())\r\n </script>\r\n \r\n <style scoped></style>\r\n"
+                },
+                {
+                    "date": 1677830777023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,11 @@\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div>\r\n \t\t\t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n-\t\t\t\t\t\t<a-menu-item key=\"1\">Home</a-menu-item>\r\n+\t\t\t\t\t\t<a-menu-item key=\"1\">\r\n+\t\t\t\t\t\t\t<NuxtLink to=\"/home\">Home</NuxtLink>\r\n+\t\t\t\t\t\t</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n \t\t\t\t\t</a-menu>\r\n"
+                },
+                {
+                    "date": 1677830805112,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div>\r\n-\t\t\t\t\t<a-menu mode=\"horizontal\" :default-selected-keys=\"['1']\">\r\n+\t\t\t\t\t<a-menu mode=\"horizontal\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<NuxtLink to=\"/home\">Home</NuxtLink>\r\n \t\t\t\t\t\t</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n@@ -24,8 +24,9 @@\n <script setup lang=\"ts\">\r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n \tconst router = useRouter()\r\n+\tconst\r\n \tconsole.log('router.getRoutes()',router.getRoutes())\r\n </script>\r\n \r\n <style scoped></style>\r\n"
+                },
+                {
+                    "date": 1677830811777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n <script setup lang=\"ts\">\r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n \tconst router = useRouter()\r\n-\tconst\r\n+\t// const\r\n \tconsole.log('router.getRoutes()',router.getRoutes())\r\n </script>\r\n \r\n <style scoped></style>\r\n"
+                },
+                {
+                    "date": 1677830831776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div>\r\n \t\t\t\t\t<a-menu mode=\"horizontal\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n-\t\t\t\t\t\t\t<NuxtLink to=\"/home\">Home</NuxtLink>\r\n+\t\t\t\t\t\t\t<NuxtLink to=\"/about\">Home</NuxtLink>\r\n \t\t\t\t\t\t</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677830951394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div>\r\n-\t\t\t\t\t<a-menu mode=\"horizontal\">\r\n+\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<NuxtLink to=\"/about\">Home</NuxtLink>\r\n \t\t\t\t\t\t</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n@@ -21,12 +21,14 @@\n \t</a-layout>\r\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n+\tconst selectedKes = ref<string[]>([])\r\n+\r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n \tconst router = useRouter()\r\n \t// const\r\n-\tconsole.log('router.getRoutes()',router.getRoutes())\r\n+\tconsole.log('router.getRoutes()', router.getRoutes())\r\n </script>\r\n \r\n <style scoped></style>\r\n"
+                },
+                {
+                    "date": 1677831007056,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div>\r\n-\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"\">\r\n+\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menu-item-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<NuxtLink to=\"/about\">Home</NuxtLink>\r\n \t\t\t\t\t\t</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n@@ -23,8 +23,12 @@\n \r\n <script setup lang=\"ts\">\r\n \tconst selectedKes = ref<string[]>([])\r\n \r\n+\tconst handleMenuClick = (key: string) => {\r\n+\t\tselectedKes.value = [key]\r\n+\t}\r\n+\r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n \tconst router = useRouter()\r\n \t// const\r\n"
+                },
+                {
+                    "date": 1677831019136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,9 @@\n <script setup lang=\"ts\">\r\n \tconst selectedKes = ref<string[]>([])\r\n \r\n \tconst handleMenuClick = (key: string) => {\r\n+\t\tconsole.log('key', key)\r\n \t\tselectedKes.value = [key]\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n"
+                },
+                {
+                    "date": 1677831033755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div>\r\n-\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menu-item-click=\"handleMenuClick\">\r\n+\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" :menu-item-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<NuxtLink to=\"/about\">Home</NuxtLink>\r\n \t\t\t\t\t\t</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677831094772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div>\r\n-\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" :menu-item-click=\"handleMenuClick\">\r\n+\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menu-item-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<NuxtLink to=\"/about\">Home</NuxtLink>\r\n \t\t\t\t\t\t</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677831104094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n-\t\t\t\t<div>\r\n+\t\t\t\t<div class=\"w-full h-full\">\r\n \t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menu-item-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<NuxtLink to=\"/about\">Home</NuxtLink>\r\n \t\t\t\t\t\t</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677831134810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,10 @@\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div class=\"w-full h-full\">\r\n \t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menu-item-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n-\t\t\t\t\t\t\t<NuxtLink to=\"/about\">Home</NuxtLink>\r\n+\t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n+\t\t\t\t\t\t\tHome\r\n \t\t\t\t\t\t</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677831153140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n \tconst selectedKes = ref<string[]>([])\r\n \r\n \tconst handleMenuClick = (key: string) => {\r\n \t\tconsole.log('key', key)\r\n-\t\tselectedKes.value = [key]\r\n+\t\t// selectedKes.value = [key]\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n"
+                },
+                {
+                    "date": 1677831182468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div class=\"w-full h-full\">\r\n-\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menu-item-click=\"handleMenuClick\">\r\n+\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menu-item-click=\"handleMenuClick\" @sub-menu-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n \t\t\t\t\t\t\tHome\r\n \t\t\t\t\t\t</a-menu-item>\r\n@@ -22,9 +22,9 @@\n \t</a-layout>\r\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n-\tconst selectedKes = ref<string[]>([])\r\n+\tconst selectedKes = ref<string[]>(['1'])\r\n \r\n \tconst handleMenuClick = (key: string) => {\r\n \t\tconsole.log('key', key)\r\n \t\t// selectedKes.value = [key]\r\n"
+                },
+                {
+                    "date": 1677831206540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div class=\"w-full h-full\">\r\n-\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menu-item-click=\"handleMenuClick\" @sub-menu-click=\"handleMenuClick\">\r\n+\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menuItemClick=\"handleMenuClick\" @sub-menu-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n \t\t\t\t\t\t\tHome\r\n \t\t\t\t\t\t</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677831270146,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div class=\"w-full h-full\">\r\n-\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menuItemClick=\"handleMenuClick\" @sub-menu-click=\"handleMenuClick\">\r\n+\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" :menuItemClick=\"handleMenuClick\" @sub-menu-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n \t\t\t\t\t\t\tHome\r\n \t\t\t\t\t\t</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677831327801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div class=\"w-full h-full\">\r\n-\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" :menuItemClick=\"handleMenuClick\" @sub-menu-click=\"handleMenuClick\">\r\n+\t\t\t\t\t<a-menu mode=\"horizontal\" theme=\"dark\" :default-selected-keys=\"['1']\" >\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n \t\t\t\t\t\t\tHome\r\n \t\t\t\t\t\t</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677831910177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div class=\"w-full h-full\">\r\n-\t\t\t\t\t<a-menu mode=\"horizontal\" theme=\"dark\" :default-selected-keys=\"['1']\" >\r\n+\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" :menuItemClick=\"handleMenuClick\" :sub-menu-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n \t\t\t\t\t\t\tHome\r\n \t\t\t\t\t\t</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1677831917729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div class=\"w-full h-full\">\r\n-\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" :menuItemClick=\"handleMenuClick\" :sub-menu-click=\"handleMenuClick\">\r\n+\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menuItemClick=\"handleMenuClick\" @sub-menu-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n \t\t\t\t\t\t\tHome\r\n \t\t\t\t\t\t</a-menu-item>\r\n"
+                }
+            ],
+            "date": 1677749878297,
+            "name": "Commit-0",
+            "content": "<template>\r\n\t<div>\r\n\t\t<slot></slot>\r\n\t</div>\r\n</template>\r\n\r\n<script setup lang=\"ts\"></script>\r\n\r\n<style scoped></style>\r\n"
+        }
+    ]
+}

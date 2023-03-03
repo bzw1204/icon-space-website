@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/layouts/custom.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1677808647425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1677808647425,
+            "name": "Commit-0",
+            "content": "<template>\r\n\t<div>\r\n\t\t我试自定义\r\n\t\t<slot />\r\n\t</div>\r\n</template>\r\n\r\n<script setup lang=\"ts\"></script>\r\n\r\n<style scoped></style>\r\n"
+        }
+    ]
+}

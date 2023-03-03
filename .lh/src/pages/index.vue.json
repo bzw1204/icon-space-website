@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/pages/index.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1677749676449,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677750509040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n <template>\r\n-\t<div>\r\n+\t<div class=\"flex justify-center items-center bg-[#fb923c]\">\r\n+\t\t<h1>Hello,Icon Space</h1>\r\n \t\t<NuxtPage />\r\n \t</div>\r\n </template>\r\n \r\n"
+                },
+                {
+                    "date": 1677750533654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\r\n \t<div class=\"flex justify-center items-center bg-[#fb923c]\">\r\n \t\t<h1>Hello,Icon Space</h1>\r\n-\t\t<NuxtPage />\r\n \t</div>\r\n+\t<NuxtPage />\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n \r\n"
+                },
+                {
+                    "date": 1677750678339,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n <template>\r\n \t<div class=\"flex justify-center items-center bg-[#fb923c]\">\r\n \t\t<h1>Hello,Icon Space</h1>\r\n \t</div>\r\n-\t<NuxtPage />\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n \r\n"
+                },
+                {
+                    "date": 1677829129011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n <template>\r\n-\t<div class=\"flex justify-center items-center bg-[#fb923c]\">\r\n-\t\t<h1>Hello,Icon Space</h1>\r\n-\t</div>\r\n+\t<a-layout class=\"w-full h-full\">\r\n+\t\t<a-layout-header>Header</a-layout-header>\r\n+\t\t<a-layout-content>Content</a-layout-content>\r\n+\t\t<a-layout-footer>Footer</a-layout-footer>\r\n+\t</a-layout>\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n \r\n"
+                },
+                {
+                    "date": 1677829207676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,6 @@\n <template>\r\n-\t<a-layout class=\"w-full h-full\">\r\n-\t\t<a-layout-header>Header</a-layout-header>\r\n-\t\t<a-layout-content>Content</a-layout-content>\r\n-\t\t<a-layout-footer>Footer</a-layout-footer>\r\n-\t</a-layout>\r\n+\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n \r\n"
+                },
+                {
+                    "date": 1677830787623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-\r\n+\t<h1>我试首页</h1>\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n \r\n"
+                }
+            ],
+            "date": 1677749676449,
+            "name": "Commit-0",
+            "content": "<template>\r\n\t<div>\r\n\t\t<NuxtPage />\r\n\t</div>\r\n</template>\r\n\r\n<script setup lang=\"ts\"></script>\r\n\r\n<style scoped></style>\r\n"
+        }
+    ]
+}

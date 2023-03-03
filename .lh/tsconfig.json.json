@@ -1,0 +1,26 @@
+{
+    "sourceFile": "tsconfig.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1677746413150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677833838718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,11 @@\n {\n   \"compilerOptions\": {\n     \"types\": [\n-      \"nuxt-windicss\"\n+      \"nuxt-windicss\",\n+      \"@nuxt/types\",\n+      \"@nuxtjs/dayjs\",\n+      \"dayjs/plugin/relativeTime\",\n     ]\n   },\n   // https://nuxt.com/docs/guide/concepts/typescript\n   \"extends\": \"./.nuxt/tsconfig.json\"\n"
+                },
+                {
+                    "date": 1677833848276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,10 @@\n {\n   \"compilerOptions\": {\n     \"types\": [\n       \"nuxt-windicss\",\n-      \"@nuxt/types\",\n       \"@nuxtjs/dayjs\",\n-      \"dayjs/plugin/relativeTime\",\n+      \"dayjs/plugin/relativeTime\"\n     ]\n   },\n   // https://nuxt.com/docs/guide/concepts/typescript\n   \"extends\": \"./.nuxt/tsconfig.json\"\n"
+                }
+            ],
+            "date": 1677746413150,
+            "name": "Commit-0",
+            "content": "{\n  \"compilerOptions\": {\n    \"types\": [\n      \"nuxt-windicss\"\n    ]\n  },\n  // https://nuxt.com/docs/guide/concepts/typescript\n  \"extends\": \"./.nuxt/tsconfig.json\"\n}"
+        }
+    ]
+}

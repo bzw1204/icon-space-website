@@ -1,0 +1,26 @@
+{
+    "sourceFile": "plugins/dayjs.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1677832296557,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677832301852,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,14 @@\n-mport dayjs from 'dayjs'\r\n+import dayjs from 'dayjs'\r\n import relativeTime from 'dayjs/plugin/relativeTime.js'\r\n import { defineNuxtPlugin } from '#app'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n-  dayjs.extend(relativeTime)\r\n-  nuxtApp.provide('dayjs', dayjs)\r\n+\tdayjs.extend(relativeTime)\r\n+\tnuxtApp.provide('dayjs', dayjs)\r\n })\r\n \r\n declare module '#app' {\r\n-  interface NuxtApp {\r\n\\ No newline at end of file\n-    $dayjs: dayjs.Dayjs\r\n- }\r\n-}\n+\tinterface NuxtApp {\r\n+\t\t$dayjs: dayjs.Dayjs\r\n+\t}\r\n+}\r\n"
+                },
+                {
+                    "date": 1677832365991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,18 @@\n-import dayjs from 'dayjs'\r\n-import relativeTime from 'dayjs/plugin/relativeTime.js'\r\n-import { defineNuxtPlugin } from '#app'\r\n+// ~/plugins/dayjs.ts\r\n+import dayjs from 'dayjs';\r\n+import relativeTime from 'dayjs/plugin/relativeTime';\r\n+import localizedFormat from 'dayjs/plugin/localizedFormat';\r\n+import updateLocale from 'dayjs/plugin/updateLocale';\r\n \r\n-export default defineNuxtPlugin((nuxtApp) => {\r\n-\tdayjs.extend(relativeTime)\r\n-\tnuxtApp.provide('dayjs', dayjs)\r\n-})\r\n+dayjs.extend(relativeTime);\r\n+dayjs.extend(localizedFormat);\r\n+dayjs.extend(updateLocale);\r\n+// OTHER PLUGINS\r\n \r\n-declare module '#app' {\r\n-\tinterface NuxtApp {\r\n-\t\t$dayjs: dayjs.Dayjs\r\n-\t}\r\n-}\r\n+export default defineNuxtPlugin(() => {\r\n+  return {\r\n+    provide: {\r\n+      dayjs,\r\n+    },\r\n+  };\r\n+});\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1677832296557,
+            "name": "Commit-0",
+            "content": "mport dayjs from 'dayjs'\r\nimport relativeTime from 'dayjs/plugin/relativeTime.js'\r\nimport { defineNuxtPlugin } from '#app'\r\n\r\nexport default defineNuxtPlugin((nuxtApp) => {\r\n  dayjs.extend(relativeTime)\r\n  nuxtApp.provide('dayjs', dayjs)\r\n})\r\n\r\ndeclare module '#app' {\r\n  interface NuxtApp {\r\n    $dayjs: dayjs.Dayjs\r\n }\r\n}"
+        }
+    ]
+}

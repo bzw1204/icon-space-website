@@ -1,0 +1,62 @@
+{
+    "sourceFile": "src/components/NuxtExampleLayout.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1677749282271,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677749288108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-  <div>\r\n+  <div class=\"w-full h-full\">\r\n \r\n   </div>\r\n </template>\r\n \r\n"
+                },
+                {
+                    "date": 1677749307885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,9 @@\n <template>\r\n-  <div class=\"w-full h-full\">\r\n-\r\n-  </div>\r\n+\t<div class=\"w-full h-full\">\r\n+\t\t<slot name=\"\"></slot>\r\n+\t</div>\r\n </template>\r\n \r\n-<script setup lang=\"ts\">\r\n+<script setup lang=\"ts\"></script>\r\n \r\n-</script>\r\n\\ No newline at end of file\n-\r\n-<style scoped>\r\n-\r\n-</style>\n+<style scoped></style>\r\n"
+                },
+                {
+                    "date": 1677749316043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<div class=\"w-full h-full\">\r\n-\t\t<slot name=\"\"></slot>\r\n+\t\t<slot name=\"nav\"></slot>\r\n \t</div>\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n"
+                },
+                {
+                    "date": 1677749493305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,13 @@\n <template>\r\n-\t<div class=\"w-full h-full\">\r\n-\t\t<slot name=\"nav\"></slot>\r\n-\t</div>\r\n+  <div>\r\n+\r\n+  </div>\r\n </template>\r\n \r\n-<script setup lang=\"ts\"></script>\r\n+<script setup lang=\"ts\">\r\n \r\n-<style scoped></style>\r\n+</script>\r\n+\r\n+<style scoped>\r\n+\r\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1677749510486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,9 @@\n <template>\r\n-  <div>\r\n-\r\n-  </div>\r\n+\t<div>\r\n+\t\t<NuxtPage />\r\n+\t</div>\r\n </template>\r\n \r\n-<script setup lang=\"ts\">\r\n+<script setup lang=\"ts\"></script>\r\n \r\n-</script>\r\n\\ No newline at end of file\n-\r\n-<style scoped>\r\n-\r\n-</style>\n+<style scoped></style>\r\n"
+                },
+                {
+                    "date": 1677749518956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-\t<div>\r\n+\t<div class=\"w-full h-full\">\r\n \t\t<NuxtPage />\r\n \t</div>\r\n </template>\r\n \r\n"
+                },
+                {
+                    "date": 1677749552412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n <template>\r\n \t<div class=\"w-full h-full\">\r\n \t\t<NuxtPage />\r\n+\t\t<slot name=\"nav\" />\r\n \t</div>\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n"
+                },
+                {
+                    "date": 1677749626144,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n <template>\r\n \t<div class=\"w-full h-full\">\r\n+\t\t<slot name=\"nav\" />\r\n \t\t<NuxtPage />\r\n-\t\t<slot name=\"nav\" />\r\n+\t\t<slot name=\"footer\" />\r\n \t</div>\r\n </template>\r\n \r\n <script setup lang=\"ts\"></script>\r\n"
+                },
+                {
+                    "date": 1677750307114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n <template>\r\n \t<div class=\"w-full h-full\">\r\n \t\t<slot name=\"nav\" />\r\n+\t\t<slot></slot>\r\n \t\t<NuxtPage />\r\n \t\t<slot name=\"footer\" />\r\n \t</div>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1677750314207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n <template>\r\n \t<div class=\"w-full h-full\">\r\n \t\t<slot name=\"nav\" />\r\n \t\t<slot></slot>\r\n-\t\t<NuxtPage />\r\n \t\t<slot name=\"footer\" />\r\n \t</div>\r\n </template>\r\n \r\n"
+                },
+                {
+                    "date": 1677750333431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n <template>\r\n \t<div class=\"w-full h-full\">\r\n \t\t<slot name=\"nav\" />\r\n-\t\t<slot></slot>\r\n+\t\t<slot>\r\n+\t\t\t<NuxtPage />\r\n+\t\t</slot>\r\n \t\t<slot name=\"footer\" />\r\n \t</div>\r\n </template>\r\n \r\n"
+                }
+            ],
+            "date": 1677749282271,
+            "name": "Commit-0",
+            "content": "<template>\r\n  <div>\r\n\r\n  </div>\r\n</template>\r\n\r\n<script setup lang=\"ts\">\r\n\r\n</script>\r\n\r\n<style scoped>\r\n\r\n</style>"
+        }
+    ]
+}

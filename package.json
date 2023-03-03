@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@arco-design/web-vue": "^2.43.2",
+    "@nathanchase/nuxt-dayjs-module": "^1.0.11",
+    "nuxt": "^3.2.3",
+    "nuxt-windicss": "^2.6.0",
+    "unplugin-auto-import": "^0.15.0",
+    "unplugin-vue-components": "^0.24.0",
+    "vite-plugin-style-import": "^2.0.0"
+  },
+  "dependencies": {
+    "@icon-space/vue-next": "^1.0.0",
+    "@nuxtjs/dayjs": "^1.4.1",
+    "@pinia/nuxt": "^0.4.7",
+    "pinia": "^2.0.32"
+  }
+}

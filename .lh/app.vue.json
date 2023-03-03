@@ -1,0 +1,38 @@
+{
+    "sourceFile": "app.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1677746524336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1677747405905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,12 @@\n <template>\n-  <div>\n-    <!-- <NuxtWelcome /> -->\n-    <div class=\"w-100px h-100px bg-#fb923c\"></div>\n-  </div>\n+\t<div>\n+\t\t<!-- <NuxtWelcome /> -->\n+\t\t<div class=\"w-100px h-100px bg-[#fb923c]\"></div>\n+\t</div>\n </template>\n+<script lang=\"ts\" setup>\n+\timport { storeToRefs } from 'pinia'\n+\n+\tconst svgStore = useSvgStore()\n+\tconst { size } = storeToRefs(svgStore)\n+</script>\n"
+                },
+                {
+                    "date": 1677747413372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\n \t<div>\n \t\t<!-- <NuxtWelcome /> -->\n-\t\t<div class=\"w-100px h-100px bg-[#fb923c]\"></div>\n+\t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n \t</div>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n"
+                },
+                {
+                    "date": 1677747552210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n <template>\n \t<div>\n \t\t<!-- <NuxtWelcome /> -->\n \t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n+    <button @click=\"handleAddSize\">改变尺寸</button>\n \t</div>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n"
+                },
+                {
+                    "date": 1677747570743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,16 @@\n <template>\n \t<div>\n \t\t<!-- <NuxtWelcome /> -->\n \t\t<div class=\"w-100px h-100px bg-[#fb923c]\">{{ size }}</div>\n-    <button @click=\"handleAddSize\">改变尺寸</button>\n+\t\t<button @click=\"handleAddSize\">改变尺寸</button>\n \t</div>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n \tconst svgStore = useSvgStore()\n \tconst { size } = storeToRefs(svgStore)\n+\tconst handleAddSize = () => {\n+\t\tsize.value++\n+\t}\n </script>\n"
+                },
+                {
+                    "date": 1677747664293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,12 @@\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n+\tconst appConfig = useAppConfig()\n+\tonMounted(() => {\n+\t\tdocument.title = appConfig.title\n+\t})\n \tconst svgStore = useSvgStore()\n \tconst { size } = storeToRefs(svgStore)\n \tconst handleAddSize = () => {\n \t\tsize.value++\n"
+                }
+            ],
+            "date": 1677746524336,
+            "name": "Commit-0",
+            "content": "<template>\n  <div>\n    <!-- <NuxtWelcome /> -->\n    <div class=\"w-100px h-100px bg-#fb923c\"></div>\n  </div>\n</template>\n"
+        }
+    ]
+}
