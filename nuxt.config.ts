@@ -2,24 +2,17 @@
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
-import configStyleImportPlugin from './plugins/style-import-plugin'
 
 export default defineNuxtConfig({
+	devServer:{
+		port: 23306
+	},
 	srcDir: './src/',
 	runtimeConfig: {},
 	typescript: {
 		shim: false
 	},
-	modules: ['@pinia/nuxt', 'nuxt-windicss', '@nuxtjs/dayjs'],
-	dayjs: {
-    locales: ['en', 'ja'],
-    defaultLocale: 'en',
-    defaultTimeZone: 'Asia/Tokyo',
-    plugins: [
-      'utc', // import 'dayjs/plugin/utc'
-      'timezone' // import 'dayjs/plugin/timezone'
-    ] // Your Day.js plugin
-  },
+	modules: ['@pinia/nuxt', 'nuxt-windicss'],
 	imports: {
 		dirs: ['./store']
 	},
@@ -30,25 +23,11 @@ export default defineNuxtConfig({
 			// exclude: ['dist', '.git', '.github', '.nuxt']
 		}
 	},
+	plugins: ['@/plugins/arco-design'],
 	pinia: {
 		autoImports: ['defineStore', 'acceptHMRUpdate']
 	},
-	build: {
-		transpile: ['@arco-design/web-vue']
-	},
 	vite: {
-		// optimizeDeps: {
-		// 	// 添加该行代码
-		// 	include: [
-		// 		'dayjs/plugin/advancedFormat',
-		// 		'dayjs/plugin/quarterOfYear',
-		// 		'dayjs/plugin/customParseFormat',
-		// 		'dayjs/plugin/isBetween',
-		// 		'dayjs/dayjs.min.js'
-		// 	],
-		// 	// 用于：从预捆绑中排除的依赖项
-		// 	exclude: []
-		// },
 		plugins: [
 			AutoImport({
 				dts: 'types/auto-import.d.ts',
@@ -57,13 +36,8 @@ export default defineNuxtConfig({
 			}),
 			Components({
 				dts: 'types/components.d.ts',
-				resolvers: [
-					ArcoResolver({
-						sideEffect: true
-					})
-				]
-			}),
-			configStyleImportPlugin()
+				resolvers: []
+			})
 		]
 	}
 })

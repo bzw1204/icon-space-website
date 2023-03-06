@@ -1,0 +1,18 @@
+{
+    "sourceFile": "plugins/arco-design.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1678072133991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1678072133991,
+            "name": "Commit-0",
+            "content": "import ArcoVue from \"@arco-design/web-vue\";\r\nimport ArcoVueIcon from \"@arco-design/web-vue/es/icon\";\r\nimport \"@arco-design/web-vue/dist/arco.css\";\r\n\r\nexport default defineNuxtPlugin((nuxtApp) => {\r\n  nuxtApp.vueApp.use(ArcoVue);\r\n  nuxtApp.vueApp.use(ArcoVueIcon);\r\n});\r\n"
+        }
+    ]
+}

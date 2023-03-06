@@ -1,0 +1,18 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1678075544630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1678075544630,
+            "name": "Commit-0",
+            "content": "{\n  \"private\": true,\n  \"scripts\": {\n    \"build\": \"nuxt build\",\n    \"dev\": \"nuxt dev\",\n    \"generate\": \"nuxt generate\",\n    \"preview\": \"nuxt preview\",\n    \"postinstall\": \"nuxt prepare\"\n  },\n  \"devDependencies\": {\n    \"@arco-design/web-vue\": \"^2.43.2\",\n    \"nuxt\": \"^3.2.3\",\n    \"nuxt-windicss\": \"^2.6.0\",\n    \"unplugin-auto-import\": \"^0.15.0\",\n    \"unplugin-vue-components\": \"^0.24.0\",\n    \"vite-plugin-style-import\": \"^2.0.0\"\n  },\n  \"dependencies\": {\n    \"@icon-space/vue-next\": \"^1.0.0\",\n    \"@pinia/nuxt\": \"^0.4.7\",\n    \"pinia\": \"^2.0.32\"\n  }\n}\n"
+        }
+    ]
+}

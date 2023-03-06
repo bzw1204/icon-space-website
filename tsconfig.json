@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
     "types": [
-      "nuxt-windicss",
-      "@nuxtjs/dayjs",
-      "dayjs/plugin/relativeTime"
+      "nuxt-windicss"
     ]
   },
   // https://nuxt.com/docs/guide/concepts/typescript

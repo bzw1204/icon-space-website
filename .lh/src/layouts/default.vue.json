@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 58,
+            "activePatchIndex": 89,
             "patches": [
                 {
                     "date": 1677749878297,
@@ -240,6 +240,130 @@
                 {
                     "date": 1677831917729,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n \t\t\t\t<div class=\"w-full h-full\">\r\n-\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" :menuItemClick=\"handleMenuClick\" :sub-menu-click=\"handleMenuClick\">\r\n+\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menuItemClick=\"handleMenuClick\" @sub-menu-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n \t\t\t\t\t\t\tHome\r\n \t\t\t\t\t\t</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1678072634879,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n \tconst selectedKes = ref<string[]>(['1'])\r\n \r\n \tconst handleMenuClick = (key: string) => {\r\n \t\tconsole.log('key', key)\r\n-\t\t// selectedKes.value = [key]\r\n+\t\tselectedKes.value = [key]\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n"
+                },
+                {
+                    "date": 1678072640741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,8 @@\n <script setup lang=\"ts\">\r\n \tconst selectedKes = ref<string[]>(['1'])\r\n \r\n \tconst handleMenuClick = (key: string) => {\r\n-\t\tconsole.log('key', key)\r\n \t\tselectedKes.value = [key]\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n"
+                },
+                {
+                    "date": 1678072658092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \t\t\t\t<div class=\"w-full h-full\">\r\n \t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menuItemClick=\"handleMenuClick\" @sub-menu-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n-\t\t\t\t\t\t\tHome\r\n+\t\t\t\t\t\t\t首页\r\n \t\t\t\t\t\t</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n \t\t\t\t\t\t<a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1678072683373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,10 @@\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n \t\t\t\t\t\t\t首页\r\n \t\t\t\t\t\t</a-menu-item>\r\n-\t\t\t\t\t\t<a-menu-item key=\"2\">Solution</a-menu-item>\r\n-\t\t\t\t\t\t<a-menu-item key=\"3\">Cloud Service</a-menu-item>\r\n-\t\t\t\t\t\t<a-menu-item key=\"4\">Cooperation</a-menu-item>\r\n+\t\t\t\t\t\t<a-menu-item key=\"2\">官方图标库</a-menu-item>\r\n+\t\t\t\t\t\t<a-menu-item key=\"3\">插画库</a-menu-item>\r\n \t\t\t\t\t</a-menu>\r\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n"
+                },
+                {
+                    "date": 1678072735318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n-\t\t\t\t<div class=\"w-full h-full\">\r\n+\t\t\t\t<div class=\"h-full\">\r\n \t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menuItemClick=\"handleMenuClick\" @sub-menu-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n \t\t\t\t\t\t\t首页\r\n"
+                },
+                {
+                    "date": 1678072754199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n-\t\t\t\t<div class=\"h-full\">\r\n+\t\t\t\t<div class=\"w-220px h-full\">\r\n \t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menuItemClick=\"handleMenuClick\" @sub-menu-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n \t\t\t\t\t\t\t首页\r\n"
+                },
+                {
+                    "date": 1678072763594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n-\t\t\t\t<div class=\"w-220px h-full\">\r\n+\t\t\t\t<div class=\"w-5000px h-full\">\r\n \t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menuItemClick=\"handleMenuClick\" @sub-menu-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n \t\t\t\t\t\t\t首页\r\n"
+                },
+                {
+                    "date": 1678072924587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,12 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n-\t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">Logo</div>\r\n-\t\t\t\t<div class=\"w-5000px h-full\">\r\n+\t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">\r\n+\t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\"/>\r\n+\t\t\t\t</div>\r\n+\t\t\t\t<div class=\"w-500px h-full\">\r\n \t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menuItemClick=\"handleMenuClick\" @sub-menu-click=\"handleMenuClick\">\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n \t\t\t\t\t\t\t首页\r\n"
+                },
+                {
+                    "date": 1678072939789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,18 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n-\t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)]\">\r\n-\t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\"/>\r\n+\t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)] flex justify-center items-center\">\r\n+\t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full\">\r\n-\t\t\t\t\t<a-menu mode=\"horizontal\" :selected-keys=\"selectedKes\" @menuItemClick=\"handleMenuClick\" @sub-menu-click=\"handleMenuClick\">\r\n+\t\t\t\t\t<a-menu\r\n+\t\t\t\t\t\tmode=\"horizontal\"\r\n+\t\t\t\t\t\t:selected-keys=\"selectedKes\"\r\n+\t\t\t\t\t\t@menuItemClick=\"handleMenuClick\"\r\n+\t\t\t\t\t\t@sub-menu-click=\"handleMenuClick\"\r\n+\t\t\t\t\t>\r\n \t\t\t\t\t\t<a-menu-item key=\"1\">\r\n \t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n \t\t\t\t\t\t\t首页\r\n \t\t\t\t\t\t</a-menu-item>\r\n"
+                },
+                {
+                    "date": 1678072946166,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n-\t\t\t\t<div class=\"w-80px h-30px bg-[var(--color-fill-3)] flex justify-center items-center\">\r\n+\t\t\t\t<div class=\"w-80px h-30px flex justify-center items-center\">\r\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full\">\r\n \t\t\t\t\t<a-menu\r\n"
+                },
+                {
+                    "date": 1678072961202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n-\t\t\t\t<div class=\"w-80px h-30px flex justify-center items-center\">\r\n+\t\t\t\t<div class=\"w-80px h-58px flex justify-center items-center\">\r\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full\">\r\n \t\t\t\t\t<a-menu\r\n"
+                },
+                {
+                    "date": 1678072983433,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-80px h-58px flex justify-center items-center\">\r\n-\t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" />\r\n+\t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\"/>\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full\">\r\n \t\t\t\t\t<a-menu\r\n \t\t\t\t\t\tmode=\"horizontal\"\r\n"
+                },
+                {
+                    "date": 1678073098630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n-\t\t\t\t<div class=\"w-80px h-58px flex justify-center items-center\">\r\n+\t\t\t\t<div class=\"w-135px h-58px flex justify-center items-center\">\r\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\"/>\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full\">\r\n \t\t\t\t\t<a-menu\r\n"
+                },
+                {
+                    "date": 1678074941464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,24 +2,16 @@\n \t<a-layout class=\"w-full h-full\">\r\n \t\t<a-layout-header>\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-135px h-58px flex justify-center items-center\">\r\n-\t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\"/>\r\n+\t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full\">\r\n-\t\t\t\t\t<a-menu\r\n-\t\t\t\t\t\tmode=\"horizontal\"\r\n-\t\t\t\t\t\t:selected-keys=\"selectedKes\"\r\n-\t\t\t\t\t\t@menuItemClick=\"handleMenuClick\"\r\n-\t\t\t\t\t\t@sub-menu-click=\"handleMenuClick\"\r\n-\t\t\t\t\t>\r\n-\t\t\t\t\t\t<a-menu-item key=\"1\">\r\n-\t\t\t\t\t\t\t<!-- <NuxtLink to=\"/about\"></NuxtLink> -->\r\n-\t\t\t\t\t\t\t首页\r\n-\t\t\t\t\t\t</a-menu-item>\r\n-\t\t\t\t\t\t<a-menu-item key=\"2\">官方图标库</a-menu-item>\r\n-\t\t\t\t\t\t<a-menu-item key=\"3\">插画库</a-menu-item>\r\n-\t\t\t\t\t</a-menu>\r\n+\t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content>\r\n+\t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n+\t\t\t\t\t</a-tabs>\r\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content>\r\n"
+                },
+                {
+                    "date": 1678075019357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,13 +5,21 @@\n \t\t\t\t<div class=\"w-135px h-58px flex justify-center items-center\">\r\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full\">\r\n-\t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content>\r\n-\t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n-\t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n-\t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n-\t\t\t\t\t</a-tabs>\r\n+\t\t\t\t\t<a-space>\r\n+\t\t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content>\r\n+\t\t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n+\t\t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n+\t\t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n+\t\t\t\t\t\t</a-tabs>\r\n+\t\t\t\t\t\t<a-avatar>\r\n+\t\t\t\t\t\t\t<img\r\n+\t\t\t\t\t\t\t\talt=\"avatar\"\r\n+\t\t\t\t\t\t\t\tsrc=\"https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp\"\r\n+\t\t\t\t\t\t\t/>\r\n+\t\t\t\t\t\t</a-avatar>\r\n+\t\t\t\t\t</a-space>\r\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content>\r\n"
+                },
+                {
+                    "date": 1678075050868,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \t\t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n \t\t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n \t\t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n \t\t\t\t\t\t</a-tabs>\r\n-\t\t\t\t\t\t<a-avatar>\r\n+\t\t\t\t\t\t<a-avatar :size=\"32\">\r\n \t\t\t\t\t\t\t<img\r\n \t\t\t\t\t\t\t\talt=\"avatar\"\r\n \t\t\t\t\t\t\t\tsrc=\"https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp\"\r\n \t\t\t\t\t\t\t/>\r\n"
+                },
+                {
+                    "date": 1678075073825,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-135px h-58px flex justify-center items-center\">\r\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n-\t\t\t\t<div class=\"w-500px h-full\">\r\n+\t\t\t\t<div class=\"w-500px h-full flex justify-end\">\r\n \t\t\t\t\t<a-space>\r\n \t\t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content>\r\n \t\t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n \t\t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n"
+                },
+                {
+                    "date": 1678075087519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-135px h-58px flex justify-center items-center\">\r\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n-\t\t\t\t<div class=\"w-500px h-full flex justify-end\">\r\n+\t\t\t\t<div class=\"w-500px h-full flex justify-between\">\r\n \t\t\t\t\t<a-space>\r\n \t\t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content>\r\n \t\t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n \t\t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n"
+                },
+                {
+                    "date": 1678075115942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n \t\t\t\t<div class=\"w-135px h-58px flex justify-center items-center\">\r\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full flex justify-between\">\r\n-\t\t\t\t\t<a-space>\r\n \t\t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content>\r\n \t\t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n \t\t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n \t\t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n@@ -17,9 +16,8 @@\n \t\t\t\t\t\t\t\talt=\"avatar\"\r\n \t\t\t\t\t\t\t\tsrc=\"https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp\"\r\n \t\t\t\t\t\t\t/>\r\n \t\t\t\t\t\t</a-avatar>\r\n-\t\t\t\t\t</a-space>\r\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content>\r\n"
+                },
+                {
+                    "date": 1678075142233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,19 +5,20 @@\n \t\t\t\t<div class=\"w-135px h-58px flex justify-center items-center\">\r\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full flex justify-between\">\r\n-\t\t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content>\r\n-\t\t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n-\t\t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n-\t\t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n-\t\t\t\t\t\t</a-tabs>\r\n-\t\t\t\t\t\t<a-avatar :size=\"32\">\r\n-\t\t\t\t\t\t\t<img\r\n-\t\t\t\t\t\t\t\talt=\"avatar\"\r\n-\t\t\t\t\t\t\t\tsrc=\"https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp\"\r\n-\t\t\t\t\t\t\t/>\r\n-\t\t\t\t\t\t</a-avatar>\r\n+\t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content>\r\n+\t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"建议反馈\"> </a-tab-pane>\r\n+\t\t\t\t\t</a-tabs>\r\n+\t\t\t\t\t<a-avatar :size=\"32\">\r\n+\t\t\t\t\t\t<img\r\n+\t\t\t\t\t\t\talt=\"avatar\"\r\n+\t\t\t\t\t\t\tsrc=\"https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp\"\r\n+\t\t\t\t\t\t/>\r\n+\t\t\t\t\t</a-avatar>\r\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content>\r\n"
+                },
+                {
+                    "date": 1678075224295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,5 +40,14 @@\n \t// const\r\n \tconsole.log('router.getRoutes()', router.getRoutes())\r\n </script>\r\n \r\n-<style scoped></style>\r\n+<style lang=\"less\" scoped>\r\n+\t.no-select {\r\n+\t\t-webkit-touch-callout: none;\r\n+\t\t-webkit-user-select: none;\r\n+\t\t-khtml-user-select: none;\r\n+\t\t-moz-user-select: none;\r\n+\t\t-ms-user-select: none;\r\n+\t\tuser-select: none;\r\n+\t}\r\n+</style>\r\n"
+                },
+                {
+                    "date": 1678075234610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n-\t\t<a-layout-header>\r\n+\t\t<a-layout-header class=\"no-select\">\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-135px h-58px flex justify-center items-center\">\r\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n"
+                },
+                {
+                    "date": 1678075248621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n \t// const\r\n \tconsole.log('router.getRoutes()', router.getRoutes())\r\n </script>\r\n \r\n-<style lang=\"less\" scoped>\r\n+<style scoped>\r\n \t.no-select {\r\n \t\t-webkit-touch-callout: none;\r\n \t\t-webkit-user-select: none;\r\n \t\t-khtml-user-select: none;\r\n"
+                },
+                {
+                    "date": 1678075706322,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content>\r\n \t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n-\t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"建议反馈\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane key=\"4\" title=\"建议反馈\"> </a-tab-pane>\r\n \t\t\t\t\t</a-tabs>\r\n \t\t\t\t\t<a-avatar :size=\"32\">\r\n \t\t\t\t\t\t<img\r\n \t\t\t\t\t\t\talt=\"avatar\"\r\n"
+                },
+                {
+                    "date": 1678075769807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \t\t\t\t<div class=\"w-135px h-58px flex justify-center items-center\">\r\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full flex justify-between\">\r\n-\t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content>\r\n+\t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content @change=\"handleTabs\">\r\n \t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"4\" title=\"建议反馈\"> </a-tab-pane>\r\n@@ -29,9 +29,9 @@\n \r\n <script setup lang=\"ts\">\r\n \tconst selectedKes = ref<string[]>(['1'])\r\n \r\n-\tconst handleMenuClick = (key: string) => {\r\n+\tconst handleTabs = (key: string | number) => {\r\n \t\tselectedKes.value = [key]\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n"
+                },
+                {
+                    "date": 1678075851873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \t</a-layout>\r\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n-\tconst selectedKes = ref<string[]>(['1'])\r\n+\tconst selectedKes = ref<string | number>('1')\r\n \r\n \tconst handleTabs = (key: string | number) => {\r\n \t\tselectedKes.value = [key]\r\n \t}\r\n"
+                },
+                {
+                    "date": 1678075889585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content @change=\"handleTabs\">\r\n \t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n-\t\t\t\t\t\t<a-tab-pane key=\"4\" title=\"建议反馈\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane key=\"4\" title=\"建议反馈\"></a-tab-pane>\r\n \t\t\t\t\t</a-tabs>\r\n \t\t\t\t\t<a-avatar :size=\"32\">\r\n \t\t\t\t\t\t<img\r\n \t\t\t\t\t\t\talt=\"avatar\"\r\n@@ -30,9 +30,9 @@\n <script setup lang=\"ts\">\r\n \tconst selectedKes = ref<string | number>('1')\r\n \r\n \tconst handleTabs = (key: string | number) => {\r\n-\t\tselectedKes.value = [key]\r\n+\t\tselectedKes.value = key\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n"
+                },
+                {
+                    "date": 1678076107000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,8 +31,11 @@\n \tconst selectedKes = ref<string | number>('1')\r\n \r\n \tconst handleTabs = (key: string | number) => {\r\n \t\tselectedKes.value = key\r\n+\t\tif (key === '4') {\r\n+\t\t\twindow.open('https://github.com/icon-space/IconSpace/issues', '_blank')\r\n+\t\t}\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n"
+                },
+                {
+                    "date": 1678089543005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n \t<a-layout class=\"w-full h-full\">\r\n-\t\t<a-layout-header class=\"no-select\">\r\n+\t\t<a-layout-header class=\"no-select fixed-header\">\r\n \t\t\t<div class=\"flex justify-between items-center px-20px\">\r\n \t\t\t\t<div class=\"w-135px h-58px flex justify-center items-center\">\r\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n@@ -52,5 +52,11 @@\n \t\t-moz-user-select: none;\r\n \t\t-ms-user-select: none;\r\n \t\tuser-select: none;\r\n \t}\r\n+\t.fixed-header {\r\n+\t\tposition: fixed;\r\n+\t\ttop: 0;\r\n+\t\tleft: 0;\r\n+\t\tright: 0;\r\n+\t}\r\n </style>\r\n"
+                },
+                {
+                    "date": 1678089558656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,6 +57,7 @@\n \t\tposition: fixed;\r\n \t\ttop: 0;\r\n \t\tleft: 0;\r\n \t\tright: 0;\r\n+\t\tbackdrop-filter: blur(5px);\r\n \t}\r\n </style>\r\n"
+                },
+                {
+                    "date": 1678089572779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,6 +58,7 @@\n \t\ttop: 0;\r\n \t\tleft: 0;\r\n \t\tright: 0;\r\n \t\tbackdrop-filter: blur(5px);\r\n+\t\tz-index: 999;\r\n \t}\r\n </style>\r\n"
                 }
             ],
             "date": 1677749878297,

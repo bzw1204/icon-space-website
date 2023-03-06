@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 48,
+            "activePatchIndex": 53,
             "patches": [
                 {
                     "date": 1677746251105,
@@ -200,6 +200,26 @@
                 {
                     "date": 1677833903163,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,17 @@\n \ttypescript: {\n \t\tshim: false\n \t},\n \tmodules: ['@pinia/nuxt', 'nuxt-windicss', '@nuxtjs/dayjs'],\n+\tdayjs: {\n+    locales: ['en', 'ja'],\n+    defaultLocale: 'en',\n+    defaultTimeZone: 'Asia/Tokyo',\n+    plugins: [\n+      'utc', // import 'dayjs/plugin/utc'\n+      'timezone' // import 'dayjs/plugin/timezone'\n+    ] // Your Day.js plugin\n+  },\n \timports: {\n \t\tdirs: ['./store']\n \t},\n \twindicss: {\n"
+                },
+                {
+                    "date": 1678072134038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,18 +9,9 @@\n \truntimeConfig: {},\n \ttypescript: {\n \t\tshim: false\n \t},\n-\tmodules: ['@pinia/nuxt', 'nuxt-windicss', '@nuxtjs/dayjs'],\n-\tdayjs: {\n-    locales: ['en', 'ja'],\n-    defaultLocale: 'en',\n-    defaultTimeZone: 'Asia/Tokyo',\n-    plugins: [\n-      'utc', // import 'dayjs/plugin/utc'\n-      'timezone' // import 'dayjs/plugin/timezone'\n-    ] // Your Day.js plugin\n-  },\n+\tmodules: ['@pinia/nuxt', 'nuxt-windicss'],\n \timports: {\n \t\tdirs: ['./store']\n \t},\n \twindicss: {\n@@ -36,20 +27,8 @@\n \tbuild: {\n \t\ttranspile: ['@arco-design/web-vue']\n \t},\n \tvite: {\n-\t\t// optimizeDeps: {\n-\t\t// \t// 添加该行代码\n-\t\t// \tinclude: [\n-\t\t// \t\t'dayjs/plugin/advancedFormat',\n-\t\t// \t\t'dayjs/plugin/quarterOfYear',\n-\t\t// \t\t'dayjs/plugin/customParseFormat',\n-\t\t// \t\t'dayjs/plugin/isBetween',\n-\t\t// \t\t'dayjs/dayjs.min.js'\n-\t\t// \t],\n-\t\t// \t// 用于：从预捆绑中排除的依赖项\n-\t\t// \texclude: []\n-\t\t// },\n \t\tplugins: [\n \t\t\tAutoImport({\n \t\t\t\tdts: 'types/auto-import.d.ts',\n \t\t\t\tinclude: [/\\.[tj]sx?$/, /\\.vue$/, /\\.vue\\?vue/, /\\.md$/],\n"
+                },
+                {
+                    "date": 1678072158740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}']\n \t\t\t// exclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n+\tplugins: [\"@/plugins/arco-design\"],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n \t},\n \tbuild: {\n"
+                },
+                {
+                    "date": 1678072193941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n // https://nuxt.com/docs/api/configuration/nuxt-config\n import AutoImport from 'unplugin-auto-import/vite'\n import Components from 'unplugin-vue-components/vite'\n import { ArcoResolver } from 'unplugin-vue-components/resolvers'\n-import configStyleImportPlugin from './plugins/style-import-plugin'\n \n export default defineNuxtConfig({\n \tsrcDir: './src/',\n \truntimeConfig: {},\n@@ -20,9 +19,9 @@\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}']\n \t\t\t// exclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n-\tplugins: [\"@/plugins/arco-design\"],\n+\tplugins: ['@/plugins/arco-design'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n \t},\n \tbuild: {\n@@ -36,14 +35,9 @@\n \t\t\t\tresolvers: [ArcoResolver()]\n \t\t\t}),\n \t\t\tComponents({\n \t\t\t\tdts: 'types/components.d.ts',\n-\t\t\t\tresolvers: [\n-\t\t\t\t\tArcoResolver({\n-\t\t\t\t\t\tsideEffect: true\n-\t\t\t\t\t})\n-\t\t\t\t]\n-\t\t\t}),\n-\t\t\tconfigStyleImportPlugin()\n+\t\t\t\tresolvers: []\n+\t\t\t})\n \t\t]\n \t}\n })\n"
+                },
+                {
+                    "date": 1678072322403,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,11 +23,8 @@\n \tplugins: ['@/plugins/arco-design'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n \t},\n-\tbuild: {\n-\t\ttranspile: ['@arco-design/web-vue']\n-\t},\n \tvite: {\n \t\tplugins: [\n \t\t\tAutoImport({\n \t\t\t\tdts: 'types/auto-import.d.ts',\n"
+                },
+                {
+                    "date": 1678072574805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,11 @@\n import Components from 'unplugin-vue-components/vite'\n import { ArcoResolver } from 'unplugin-vue-components/resolvers'\n \n export default defineNuxtConfig({\n+\tdevServer:{\n+\t\tport: 23306\n+\t},\n \tsrcDir: './src/',\n \truntimeConfig: {},\n \ttypescript: {\n \t\tshim: false\n"
                 }
             ],
             "date": 1677746251105,

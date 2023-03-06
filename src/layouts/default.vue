@@ -1,18 +1,23 @@
 <template>
 	<a-layout class="w-full h-full">
-		<a-layout-header>
+		<a-layout-header class="no-select fixed-header">
 			<div class="flex justify-between items-center px-20px">
-				<div class="w-80px h-30px bg-[var(--color-fill-3)]">Logo</div>
-				<div class="w-full h-full">
-					<a-menu mode="horizontal" :selected-keys="selectedKes" @menuItemClick="handleMenuClick" @sub-menu-click="handleMenuClick">
-						<a-menu-item key="1">
-							<!-- <NuxtLink to="/about"></NuxtLink> -->
-							Home
-						</a-menu-item>
-						<a-menu-item key="2">Solution</a-menu-item>
-						<a-menu-item key="3">Cloud Service</a-menu-item>
-						<a-menu-item key="4">Cooperation</a-menu-item>
-					</a-menu>
+				<div class="w-135px h-58px flex justify-center items-center">
+					<img src="@/assets/logo.svg" alt="logo" width="100%" height="100%" />
+				</div>
+				<div class="w-500px h-full flex justify-between">
+					<a-tabs v-model="selectedKes" type="text" hide-content @change="handleTabs">
+						<a-tab-pane key="1" title="首页"> </a-tab-pane>
+						<a-tab-pane key="2" title="官方图标库"> </a-tab-pane>
+						<a-tab-pane key="3" title="插画库"> </a-tab-pane>
+						<a-tab-pane key="4" title="建议反馈"></a-tab-pane>
+					</a-tabs>
+					<a-avatar :size="32">
+						<img
+							alt="avatar"
+							src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp"
+						/>
+					</a-avatar>
 				</div>
 			</div>
 		</a-layout-header>
@@ -23,11 +28,13 @@
 </template>
 
 <script setup lang="ts">
-	const selectedKes = ref<string[]>(['1'])
+	const selectedKes = ref<string | number>('1')
 
-	const handleMenuClick = (key: string) => {
-		console.log('key', key)
-		// selectedKes.value = [key]
+	const handleTabs = (key: string | number) => {
+		selectedKes.value = key
+		if (key === '4') {
+			window.open('https://github.com/icon-space/IconSpace/issues', '_blank')
+		}
 	}
 
 	const route = useRoute()
@@ -37,4 +44,21 @@
 	console.log('router.getRoutes()', router.getRoutes())
 </script>
 
-<style scoped></style>
+<style scoped>
+	.no-select {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	.fixed-header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		backdrop-filter: blur(5px);
+		z-index: 999;
+	}
+</style>
