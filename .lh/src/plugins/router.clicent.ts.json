@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/plugins/router.clicent.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1678152575862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1678152575862,
+            "name": "Commit-0",
+            "content": "\r\nexport default defineNuxtPlugin(() => {\r\n  const router = useRouter();\r\n  const routes = router.getRoutes();\r\n\r\n  // router.afterEach(async (to) => {\r\n\r\n  //   if (token) {\r\n  //     if (to.path === \"/login\") {\r\n  //       router.push({ path: \"/\" });\r\n  //     }\r\n  //   } else {\r\n  //     if (to.path !== \"/login\") {\r\n  //       router.push(`/login?redirect=${to.path}`);\r\n  //     }\r\n  //   }\r\n  // });\r\n  // router.afterEach(() => {\r\n  //   done();\r\n  // });\r\n});\r\n"
+        }
+    ]
+}

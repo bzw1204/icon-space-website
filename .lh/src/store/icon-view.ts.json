@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/store/icon-view.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1678173772786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678173793997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,6 @@\n-export const useMainStore = defineStore('main', {\r\n-\tstate: () =>\r\n-\t\tuseLocalStorage('icon-view', {\r\n-\t\t\tcount: 1\r\n-\t\t}),\r\n+export const useMainStore = defineStore('icon-view', {\r\n+\tstate: () => ({}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => state.count * 2\r\n \t}\r\n"
+                },
+                {
+                    "date": 1678173815728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n export const useMainStore = defineStore('icon-view', {\r\n-\tstate: () => ({}),\r\n+\tstate: () => ({\r\n+\t\tactive: ''\r\n+\t}),\r\n \tpersist: true,\r\n-\tgetters: {\r\n-\t\tdoubleCount: (state) => state.count * 2\r\n-\t}\r\n+\tgetters: {}\r\n })\r\n"
+                },
+                {
+                    "date": 1678173870799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,6 +2,7 @@\n \tstate: () => ({\r\n \t\tactive: ''\r\n \t}),\r\n \tpersist: true,\r\n-\tgetters: {}\r\n+\tgetters: {\r\n+\t}\r\n })\r\n"
+                },
+                {
+                    "date": 1678173882564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-export const useMainStore = defineStore('icon-view', {\r\n+export const useIconStore = defineStore('icon-view', {\r\n \tstate: () => ({\r\n \t\tactive: ''\r\n \t}),\r\n \tpersist: true,\r\n"
+                },
+                {
+                    "date": 1678173921296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n export const useIconStore = defineStore('icon-view', {\r\n \tstate: () => ({\r\n-\t\tactive: ''\r\n+\t\tactiveKey: ''\r\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t}\r\n"
+                },
+                {
+                    "date": 1678173979193,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n export const useIconStore = defineStore('icon-view', {\r\n \tstate: () => ({\r\n-\t\tactiveKey: ''\r\n+\t\tactiveKey: null\r\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t}\r\n"
+                },
+                {
+                    "date": 1678174120769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n export const useIconStore = defineStore('icon-view', {\r\n \tstate: () => ({\r\n-\t\tactiveKey: null\r\n+\t\tactiveKey: ''\r\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t}\r\n"
+                }
+            ],
+            "date": 1678173772786,
+            "name": "Commit-0",
+            "content": "export const useMainStore = defineStore('main', {\r\n\tstate: () =>\r\n\t\tuseLocalStorage('icon-view', {\r\n\t\t\tcount: 1\r\n\t\t}),\r\n\tpersist: true,\r\n\tgetters: {\r\n\t\tdoubleCount: (state) => state.count * 2\r\n\t}\r\n})\r\n"
+        }
+    ]
+}

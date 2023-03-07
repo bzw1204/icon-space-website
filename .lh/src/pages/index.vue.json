@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 55,
+            "activePatchIndex": 56,
             "patches": [
                 {
                     "date": 1677749676449,
@@ -228,6 +228,10 @@
                 {
                     "date": 1678089303418,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -128,22 +128,30 @@\n \t\t\t\t\tdisplay: flex;\r\n \t\t\t\t\tjustify-content: space-between;\r\n \t\t\t\t}\r\n \t\t\t}\r\n-\t\t\t.styles_albumShadowTitle__3BFS0 {\r\n-  width: 100%;\r\n-  height: 64px;\r\n-  line-height: 64px;\r\n-  background: #fff;\r\n-  padding: 0 24px;\r\n-  -moz-border-radius-bottomleft: 16px;\r\n-  -moz-border-radius-bottomright: 16px;\r\n-  border-bottom-left-radius: 16px;\r\n-  border-bottom-right-radius: 16px;\r\n-  position: absolute;\r\n-  bottom: 0;\r\n-  display: flex;\r\n-  justify-content: space-between;\r\n-}\r\n+\t\t\t.styles_albumKeyline__1OxUR {\r\n+\t\t\t\twidth: 384px;\r\n+\t\t\t\theight: 360px;\r\n+\t\t\t\tbox-shadow: 0 6px 24px rgba(53, 66, 85, 0.08);\r\n+\t\t\t\tborder-radius: 16px;\r\n+\t\t\t\tposition: relative;\r\n+\r\n+\t\t\t\t.styles_albumShadowTitle__3BFS0 {\r\n+\t\t\t\t\twidth: 100%;\r\n+\t\t\t\t\theight: 64px;\r\n+\t\t\t\t\tline-height: 64px;\r\n+\t\t\t\t\tbackground: #fff;\r\n+\t\t\t\t\tpadding: 0 24px;\r\n+\t\t\t\t\t-moz-border-radius-bottomleft: 16px;\r\n+\t\t\t\t\t-moz-border-radius-bottomright: 16px;\r\n+\t\t\t\t\tborder-bottom-left-radius: 16px;\r\n+\t\t\t\t\tborder-bottom-right-radius: 16px;\r\n+\t\t\t\t\tposition: absolute;\r\n+\t\t\t\t\tbottom: 0;\r\n+\t\t\t\t\tdisplay: flex;\r\n+\t\t\t\t\tjustify-content: space-between;\r\n+\t\t\t\t}\r\n+\t\t\t}\r\n \t\t}\r\n \t}\r\n </style>\r\n"
+                },
+                {
+                    "date": 1678097553392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \t\t<a-carousel class=\"w-full h-480px\" :auto-play=\"false\" indicator-type=\"dot\" show-arrow=\"hover\">\r\n \t\t\t<a-carousel-item>\r\n \t\t\t\t<div class=\"banner-1\">\r\n \t\t\t\t\t<img src=\"@/assets/images/main_banner_2.png\" :style=\"{ width: '100%', height: '100%' }\" />\r\n-\t\t\t\t\t<div class=\"text-40px mb-12px font-600\">IconPark资源站</div>\r\n+\t\t\t\t\t<div class=\"text-40px mb-12px font-600\">IconSpace资源站</div>\r\n \t\t\t\t\t<p class=\"text-16px font-300 w-432px mb-40px\">这里有你需要的图标，也有属于你的风格，让工作变得更轻松</p>\r\n \t\t\t\t</div>\r\n \t\t\t</a-carousel-item>\r\n \t\t\t<a-carousel-item>\r\n"
                 }
             ],
             "date": 1677749676449,

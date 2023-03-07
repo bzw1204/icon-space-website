@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/plugins/pinia.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1678151736074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678151749652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n import { createPinia } from 'pinia'\r\n import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'\r\n+\r\n const pinia = createPinia()\r\n pinia.use(piniaPluginPersistedstate)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678151961567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,9 @@\n import { createPinia } from 'pinia'\r\n import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'\r\n \r\n const pinia = createPinia()\r\n-pinia.use(piniaPluginPersistedstate)\n\\ No newline at end of file\n+pinia.use(piniaPluginPersistedstate)\r\n+\r\n+export default defineNuxtPlugin((nuxtApp) => {\r\n+\tnuxtApp.vueApp.use(pinia)\r\n+})\r\n"
+                },
+                {
+                    "date": 1678151974764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n import { createPinia } from 'pinia'\r\n import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'\r\n \r\n-const pinia = createPinia()\r\n-pinia.use(piniaPluginPersistedstate)\r\n-\r\n export default defineNuxtPlugin((nuxtApp) => {\r\n+\tconst pinia = createPinia()\r\n+\tpinia.use(piniaPluginPersistedstate)\r\n \tnuxtApp.vueApp.use(pinia)\r\n })\r\n"
+                },
+                {
+                    "date": 1678158540976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import { createPinia } from 'pinia'\r\n-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'\r\n+import persistedstate from 'pinia-plugin-persistedstate'\r\n \r\n+const pinia = createPinia()\r\n+\r\n+pinia.use(persistedstate)\r\n export default defineNuxtPlugin((nuxtApp) => {\r\n-\tconst pinia = createPinia()\r\n-\tpinia.use(piniaPluginPersistedstate)\r\n \tnuxtApp.vueApp.use(pinia)\r\n })\r\n"
+                }
+            ],
+            "date": 1678151736074,
+            "name": "Commit-0",
+            "content": "import { createPinia } from 'pinia'\r\nimport piniaPluginPersistedstate from 'pinia-plugin-persistedstate'\r\nconst pinia = createPinia()\r\npinia.use(piniaPluginPersistedstate)"
+        }
+    ]
+}

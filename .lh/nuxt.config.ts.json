@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 53,
+            "activePatchIndex": 77,
             "patches": [
                 {
                     "date": 1677746251105,
@@ -220,6 +220,102 @@
                 {
                     "date": 1678072574805,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,11 @@\n import Components from 'unplugin-vue-components/vite'\n import { ArcoResolver } from 'unplugin-vue-components/resolvers'\n \n export default defineNuxtConfig({\n+\tdevServer:{\n+\t\tport: 23306\n+\t},\n \tsrcDir: './src/',\n \truntimeConfig: {},\n \ttypescript: {\n \t\tshim: false\n"
+                },
+                {
+                    "date": 1678090397869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import Components from 'unplugin-vue-components/vite'\n import { ArcoResolver } from 'unplugin-vue-components/resolvers'\n \n export default defineNuxtConfig({\n-\tdevServer:{\n+\tdevServer: {\n \t\tport: 23306\n \t},\n \tsrcDir: './src/',\n \truntimeConfig: {},\n@@ -22,9 +22,9 @@\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}']\n \t\t\t// exclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n-\tplugins: ['@/plugins/arco-design'],\n+\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n \t},\n \tvite: {\n"
+                },
+                {
+                    "date": 1678151736077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}']\n \t\t\t// exclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n-\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space'],\n+\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space','@/plugins/pinia'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n \t},\n \tvite: {\n"
+                },
+                {
+                    "date": 1678152226124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \truntimeConfig: {},\n \ttypescript: {\n \t\tshim: false\n \t},\n-\tmodules: ['@pinia/nuxt', 'nuxt-windicss'],\n+\tmodules: ['@pinia/nuxt', 'nuxt-windicss', '@pinia-plugin-persistedstate/nuxt'],\n \timports: {\n \t\tdirs: ['./store']\n \t},\n \twindicss: {\n@@ -22,9 +22,9 @@\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}']\n \t\t\t// exclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n-\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space','@/plugins/pinia'],\n+\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n \t},\n \tvite: {\n"
+                },
+                {
+                    "date": 1678155608762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \twindicss: {\n \t\tscan: {\n \t\t\tdirs: ['./'],\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}']\n-\t\t\t// exclude: ['dist', '.git', '.github', '.nuxt']\n+\t\t\texclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n \tplugins: ['@/plugins/arco-design', '@/plugins/icon-space'],\n \tpinia: {\n@@ -30,8 +30,9 @@\n \tvite: {\n \t\tplugins: [\n \t\t\tAutoImport({\n \t\t\t\tdts: 'types/auto-import.d.ts',\n+\t\t\t\timports: [],\n \t\t\t\tinclude: [/\\.[tj]sx?$/, /\\.vue$/, /\\.vue\\?vue/, /\\.md$/],\n \t\t\t\tresolvers: [ArcoResolver()]\n \t\t\t}),\n \t\t\tComponents({\n"
+                },
+                {
+                    "date": 1678155635956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,27 +18,13 @@\n \t},\n \twindicss: {\n \t\tscan: {\n \t\t\tdirs: ['./'],\n-\t\t\tinclude: ['**/*.{vue,html,jsx,tsx}']\n+\t\t\tinclude: ['**/*.{vue,html,jsx,tsx}'],\n \t\t\texclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n \tplugins: ['@/plugins/arco-design', '@/plugins/icon-space'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n-\t},\n-\tvite: {\n-\t\tplugins: [\n-\t\t\tAutoImport({\n-\t\t\t\tdts: 'types/auto-import.d.ts',\n-\t\t\t\timports: [],\n-\t\t\t\tinclude: [/\\.[tj]sx?$/, /\\.vue$/, /\\.vue\\?vue/, /\\.md$/],\n-\t\t\t\tresolvers: [ArcoResolver()]\n-\t\t\t}),\n-\t\t\tComponents({\n-\t\t\t\tdts: 'types/components.d.ts',\n-\t\t\t\tresolvers: []\n-\t\t\t})\n-\t\t]\n-\t}\n+\t}\\\n })\n"
+                },
+                {
+                    "date": 1678155942201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,5 @@\n // https://nuxt.com/docs/api/configuration/nuxt-config\n-import AutoImport from 'unplugin-auto-import/vite'\n-import Components from 'unplugin-vue-components/vite'\n-import { ArcoResolver } from 'unplugin-vue-components/resolvers'\n \n export default defineNuxtConfig({\n \tdevServer: {\n \t\tport: 23306\n@@ -25,6 +22,6 @@\n \t},\n \tplugins: ['@/plugins/arco-design', '@/plugins/icon-space'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n-\t}\\\n+\t}\n })\n"
+                },
+                {
+                    "date": 1678157976151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,18 @@\n \t\tport: 23306\n \t},\n \tsrcDir: './src/',\n \truntimeConfig: {},\n+\tmodules: ['@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', 'nuxt-windicss'],\n \ttypescript: {\n \t\tshim: false\n \t},\n-\tmodules: ['@pinia/nuxt', 'nuxt-windicss', '@pinia-plugin-persistedstate/nuxt'],\n+\tpiniaPersistedstate: {\n+\t\tcookieOptions: {\n+\t\t\tsameSite: 'strict'\n+\t\t},\n+\t\tstorage: 'localStorage'\n+\t},\n \timports: {\n \t\tdirs: ['./store']\n \t},\n \twindicss: {\n"
+                },
+                {
+                    "date": 1678158097771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,11 @@\n \t\tport: 23306\n \t},\n \tsrcDir: './src/',\n \truntimeConfig: {},\n+\tappConfig:{\n+\t\ttitle: 'Icon Space'\n+\t},\n \tmodules: ['@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', 'nuxt-windicss'],\n \ttypescript: {\n \t\tshim: false\n \t},\n"
+                },
+                {
+                    "date": 1678158107055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \t\tport: 23306\n \t},\n \tsrcDir: './src/',\n \truntimeConfig: {},\n-\tappConfig:{\n+\tappConfig: {\n \t\ttitle: 'Icon Space'\n \t},\n \tmodules: ['@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', 'nuxt-windicss'],\n \ttypescript: {\n"
+                },
+                {
+                    "date": 1678158121982,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,10 @@\n \t},\n \tsrcDir: './src/',\n \truntimeConfig: {},\n \tappConfig: {\n-\t\ttitle: 'Icon Space'\n+\t\ttitle: 'Icon Space',\n+\t\tlanguage: '中文'\n \t},\n \tmodules: ['@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', 'nuxt-windicss'],\n \ttypescript: {\n \t\tshim: false\n"
+                },
+                {
+                    "date": 1678158560013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}'],\n \t\t\texclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n-\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space'],\n+\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space','@/plugins/pinia'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n \t}\n })\n"
+                },
+                {
+                    "date": 1678159167636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \tappConfig: {\n \t\ttitle: 'Icon Space',\n \t\tlanguage: '中文'\n \t},\n-\tmodules: ['@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', 'nuxt-windicss'],\n+\tmodules: ['@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', 'nuxt-windicss', '@vueuse/nuxt'],\n \ttypescript: {\n \t\tshim: false\n \t},\n \tpiniaPersistedstate: {\n@@ -29,9 +29,9 @@\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}'],\n \t\t\texclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n-\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space','@/plugins/pinia'],\n+\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space', '@/plugins/pinia'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n \t}\n })\n"
+                },
+                {
+                    "date": 1678159438972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}'],\n \t\t\texclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n-\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space', '@/plugins/pinia'],\n+\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n \t}\n })\n"
+                },
+                {
+                    "date": 1678159519987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}'],\n \t\t\texclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n-\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space'],\n+\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space','@/plugins/pinia-persisted'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n \t}\n })\n"
+                },
+                {
+                    "date": 1678159993437,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,14 +13,8 @@\n \tmodules: ['@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', 'nuxt-windicss', '@vueuse/nuxt'],\n \ttypescript: {\n \t\tshim: false\n \t},\n-\tpiniaPersistedstate: {\n-\t\tcookieOptions: {\n-\t\t\tsameSite: 'strict'\n-\t\t},\n-\t\tstorage: 'localStorage'\n-\t},\n \timports: {\n \t\tdirs: ['./store']\n \t},\n \twindicss: {\n"
+                },
+                {
+                    "date": 1678160155508,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}'],\n \t\t\texclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n-\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space','@/plugins/pinia-persisted'],\n+\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space','@/plugins/pinia-persisted.client'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n \t}\n })\n"
+                },
+                {
+                    "date": 1678160165359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}'],\n \t\t\texclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n-\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space','@/plugins/pinia-persisted.client'],\n+\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n \t}\n })\n"
+                },
+                {
+                    "date": 1678160270836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,14 @@\n \t\ttitle: 'Icon Space',\n \t\tlanguage: '中文'\n \t},\n \tmodules: ['@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', 'nuxt-windicss', '@vueuse/nuxt'],\n+\tpiniaPersistedstate: {\n+    cookieOptions: {\n+      sameSite: 'strict',\n+    },\n+    storage: 'localStorage'\n+  },\n \ttypescript: {\n \t\tshim: false\n \t},\n \timports: {\n"
+                },
+                {
+                    "date": 1678161537047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,15 +9,25 @@\n \tappConfig: {\n \t\ttitle: 'Icon Space',\n \t\tlanguage: '中文'\n \t},\n-\tmodules: ['@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', 'nuxt-windicss', '@vueuse/nuxt'],\n+\tmodules: [\n+\t\t[\n+\t\t\t'@pinia/nuxt',\n+\t\t\t{\n+\t\t\t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n+\t\t\t}\n+\t\t],\n+\t\t'@pinia-plugin-persistedstate/nuxt',\n+\t\t'nuxt-windicss',\n+\t\t'@vueuse/nuxt'\n+\t],\n \tpiniaPersistedstate: {\n-    cookieOptions: {\n-      sameSite: 'strict',\n-    },\n-    storage: 'localStorage'\n-  },\n+\t\tcookieOptions: {\n+\t\t\tsameSite: 'strict'\n+\t\t},\n+\t\tstorage: 'localStorage'\n+\t},\n \ttypescript: {\n \t\tshim: false\n \t},\n \timports: {\n"
+                },
+                {
+                    "date": 1678161561165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n \tmodules: [\n \t\t[\n \t\t\t'@pinia/nuxt',\n \t\t\t{\n-\t\t\t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n+\t\t\t\tautoImports: ['defineStore','storeToRefs', 'acceptHMRUpdate']\n \t\t\t}\n \t\t],\n \t\t'@pinia-plugin-persistedstate/nuxt',\n \t\t'nuxt-windicss',\n"
+                },
+                {
+                    "date": 1678162936436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n // https://nuxt.com/docs/api/configuration/nuxt-config\n \n export default defineNuxtConfig({\n+\tssr: false,\n \tdevServer: {\n \t\tport: 23306\n \t},\n \tsrcDir: './src/',\n@@ -13,9 +14,9 @@\n \tmodules: [\n \t\t[\n \t\t\t'@pinia/nuxt',\n \t\t\t{\n-\t\t\t\tautoImports: ['defineStore','storeToRefs', 'acceptHMRUpdate']\n+\t\t\t\tautoImports: ['defineStore', 'storeToRefs', 'acceptHMRUpdate']\n \t\t\t}\n \t\t],\n \t\t'@pinia-plugin-persistedstate/nuxt',\n \t\t'nuxt-windicss',\n"
+                },
+                {
+                    "date": 1678163125990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n // https://nuxt.com/docs/api/configuration/nuxt-config\n \n export default defineNuxtConfig({\n-\tssr: false,\n \tdevServer: {\n \t\tport: 23306\n \t},\n \tsrcDir: './src/',\n"
+                },
+                {
+                    "date": 1678172873962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n // https://nuxt.com/docs/api/configuration/nuxt-config\n \n export default defineNuxtConfig({\n+\tssr: false,\n \tdevServer: {\n \t\tport: 23306\n \t},\n \tsrcDir: './src/',\n"
+                },
+                {
+                    "date": 1678178418341,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}'],\n \t\t\texclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n-\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space'],\n+\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space','@/plugins/color-picker'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n \t}\n })\n"
                 }
             ],
             "date": 1677746251105,

@@ -1,43 +1,48 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineNuxtConfig({
-	devServer:{
+	ssr: false,
+	devServer: {
 		port: 23306
 	},
 	srcDir: './src/',
 	runtimeConfig: {},
+	appConfig: {
+		title: 'Icon Space',
+		language: '中文'
+	},
+	modules: [
+		[
+			'@pinia/nuxt',
+			{
+				autoImports: ['defineStore', 'storeToRefs', 'acceptHMRUpdate']
+			}
+		],
+		'@pinia-plugin-persistedstate/nuxt',
+		'nuxt-windicss',
+		'@vueuse/nuxt'
+	],
+	piniaPersistedstate: {
+		cookieOptions: {
+			sameSite: 'strict'
+		},
+		storage: 'localStorage'
+	},
 	typescript: {
 		shim: false
 	},
-	modules: ['@pinia/nuxt', 'nuxt-windicss'],
 	imports: {
 		dirs: ['./store']
 	},
 	windicss: {
 		scan: {
 			dirs: ['./'],
-			include: ['**/*.{vue,html,jsx,tsx}']
-			// exclude: ['dist', '.git', '.github', '.nuxt']
+			include: ['**/*.{vue,html,jsx,tsx}'],
+			exclude: ['dist', '.git', '.github', '.nuxt']
 		}
 	},
-	plugins: ['@/plugins/arco-design'],
+	plugins: ['@/plugins/arco-design', '@/plugins/icon-space','@/plugins/color-picker'],
 	pinia: {
 		autoImports: ['defineStore', 'acceptHMRUpdate']
-	},
-	vite: {
-		plugins: [
-			AutoImport({
-				dts: 'types/auto-import.d.ts',
-				include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
-				resolvers: [ArcoResolver()]
-			}),
-			Components({
-				dts: 'types/components.d.ts',
-				resolvers: []
-			})
-		]
 	}
 })

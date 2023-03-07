@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 30,
+            "activePatchIndex": 33,
             "patches": [
                 {
                     "date": 1677748419969,
@@ -128,6 +128,18 @@
                 {
                     "date": 1677830702436,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\n-\t<NuxtLayout>\n+\t<NuxtLayout name=\"default\">\n \t\t<h1>Hello</h1>\n \t\t<a-button type=\"primary\">按钮</a-button>\n \t</NuxtLayout>\n </template>\n"
+                },
+                {
+                    "date": 1678089819687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,11 @@\n <template>\n \t<NuxtLayout name=\"default\">\n-\t\t<h1>Hello</h1>\n-\t\t<a-button type=\"primary\">按钮</a-button>\n \t</NuxtLayout>\n </template>\n <script lang=\"ts\" setup>\n \timport { storeToRefs } from 'pinia'\n \n-\n \tconst layout = 'default'\n \tconst route = useRoute()\n \tconst { title, language } = useAppConfig()\n \tonMounted(() => {\n"
+                },
+                {
+                    "date": 1678163161394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,8 @@\n <template>\n-\t<NuxtLayout name=\"default\">\n-\t</NuxtLayout>\n+\t<NuxtLayout name=\"default\"></NuxtLayout>\n </template>\n <script lang=\"ts\" setup>\n-\timport { storeToRefs } from 'pinia'\n \n \tconst layout = 'default'\n \tconst route = useRoute()\n \tconst { title, language } = useAppConfig()\n"
+                },
+                {
+                    "date": 1678163166605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n <script lang=\"ts\" setup>\n \n \tconst layout = 'default'\n \tconst route = useRoute()\n-\tconst { title, language } = useAppConfig()\n+\tconst { title } = useAppConfig()\n \tonMounted(() => {\n \t\tdocument.title = title\n \t})\n \tconst svgStore = useSvgStore()\n"
                 }
             ],
             "date": 1677748419969,

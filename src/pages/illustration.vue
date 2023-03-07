@@ -1,6 +1,6 @@
 <template>
   <div>
-guanbi
+插画库
   </div>
 </template>
 

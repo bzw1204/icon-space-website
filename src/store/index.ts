@@ -8,7 +8,7 @@ export interface IconSpaceProps {
 	strokeLinecap: string
 }
 
-export const useSvgStore = defineStore('counter', {
+export const useSvgStore = defineStore('app', {
 	state: (): IconSpaceProps => ({
 		strokeWidth: 2,
 		size: 24,
@@ -16,9 +16,7 @@ export const useSvgStore = defineStore('counter', {
 		colors: ['#666', '#2F88FF', '#FFF', '#43CCF8'],
 		strokeLinejoin: 'miter',
 		strokeLinecap: 'square'
-	}),
-
-	actions: {}
+	})
 })
 
 if (import.meta.hot) {

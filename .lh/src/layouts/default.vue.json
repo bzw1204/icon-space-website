@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 89,
+            "activePatchIndex": 133,
             "patches": [
                 {
                     "date": 1677749878297,
@@ -364,6 +364,182 @@
                 {
                     "date": 1678089572779,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,6 +58,7 @@\n \t\ttop: 0;\r\n \t\tleft: 0;\r\n \t\tright: 0;\r\n \t\tbackdrop-filter: blur(5px);\r\n+\t\tz-index: 999;\r\n \t}\r\n </style>\r\n"
+                },
+                {
+                    "date": 1678089775553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full flex justify-between\">\r\n \t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content @change=\"handleTabs\">\r\n \t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n-\t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane key=\"/icon-pack\" title=\"官方图标库\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"4\" title=\"建议反馈\"></a-tab-pane>\r\n \t\t\t\t\t</a-tabs>\r\n \t\t\t\t\t<a-avatar :size=\"32\">\r\n"
+                },
+                {
+                    "date": 1678089802655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full flex justify-between\">\r\n \t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content @change=\"handleTabs\">\r\n-\t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane key=\"/home\" title=\"首页\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"/icon-pack\" title=\"官方图标库\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"4\" title=\"建议反馈\"></a-tab-pane>\r\n \t\t\t\t\t</a-tabs>\r\n"
+                },
+                {
+                    "date": 1678089872350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,18 +29,19 @@\n \r\n <script setup lang=\"ts\">\r\n \tconst selectedKes = ref<string | number>('1')\r\n \r\n+\tconst router = useRouter()\r\n \tconst handleTabs = (key: string | number) => {\r\n \t\tselectedKes.value = key\r\n+\t\trouter.push({ path: key })\r\n \t\tif (key === '4') {\r\n \t\t\twindow.open('https://github.com/icon-space/IconSpace/issues', '_blank')\r\n \t\t}\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n-\tconst router = useRouter()\r\n \t// const\r\n \tconsole.log('router.getRoutes()', router.getRoutes())\r\n </script>\r\n \r\n"
+                },
+                {
+                    "date": 1678089887327,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,12 +32,12 @@\n \r\n \tconst router = useRouter()\r\n \tconst handleTabs = (key: string | number) => {\r\n \t\tselectedKes.value = key\r\n-\t\trouter.push({ path: key })\r\n \t\tif (key === '4') {\r\n \t\t\twindow.open('https://github.com/icon-space/IconSpace/issues', '_blank')\r\n \t\t}\r\n+\t\trouter.push({ path: key as string })\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n"
+                },
+                {
+                    "date": 1678089899190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,10 +34,11 @@\n \tconst handleTabs = (key: string | number) => {\r\n \t\tselectedKes.value = key\r\n \t\tif (key === '4') {\r\n \t\t\twindow.open('https://github.com/icon-space/IconSpace/issues', '_blank')\r\n+\t\t} else {\r\n+\t\t\trouter.push({ path: key as string })\r\n \t\t}\r\n-\t\trouter.push({ path: key as string })\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n \tconst { title, language } = useAppConfig()\r\n"
+                },
+                {
+                    "date": 1678089998510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,6 +61,7 @@\n \t\tleft: 0;\r\n \t\tright: 0;\r\n \t\tbackdrop-filter: blur(5px);\r\n \t\tz-index: 999;\r\n+\t\tmargin-bottom: 60px;\r\n \t}\r\n </style>\r\n"
+                },
+                {
+                    "date": 1678090005140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,7 +61,6 @@\n \t\tleft: 0;\r\n \t\tright: 0;\r\n \t\tbackdrop-filter: blur(5px);\r\n \t\tz-index: 999;\r\n-\t\tmargin-bottom: 60px;\r\n \t}\r\n </style>\r\n"
+                },
+                {
+                    "date": 1678090020545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \t\t\t\t\t</a-avatar>\r\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n-\t\t<a-layout-content>\r\n+\t\t<a-layout-content class=\"mb-60px\">\r\n \t\t\t<NuxtPage />\r\n \t\t</a-layout-content>\r\n \t</a-layout>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1678090119134,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,8 +59,9 @@\n \t\tposition: fixed;\r\n \t\ttop: 0;\r\n \t\tleft: 0;\r\n \t\tright: 0;\r\n+\t\t-webkit-backdrop-filter: blur(5px);\r\n \t\tbackdrop-filter: blur(5px);\r\n \t\tz-index: 999;\r\n \t}\r\n </style>\r\n"
+                },
+                {
+                    "date": 1678090192518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \t\t\t\t\t</a-avatar>\r\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n-\t\t<a-layout-content class=\"mb-60px\">\r\n+\t\t<a-layout-content class=\"mt-60px\">\r\n \t\t\t<NuxtPage />\r\n \t\t</a-layout-content>\r\n \t</a-layout>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1678090993315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \t\t\t\t\t</a-avatar>\r\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n-\t\t<a-layout-content class=\"mt-60px\">\r\n+\t\t<a-layout-content class=\"mt-60px h-[calc(100vh_-_60px)]\">\r\n \t\t\t<NuxtPage />\r\n \t\t</a-layout-content>\r\n \t</a-layout>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1678091037967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,12 @@\n \t\t\t\t\t</a-avatar>\r\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n-\t\t<a-layout-content class=\"mt-60px h-[calc(100vh_-_60px)]\">\r\n-\t\t\t<NuxtPage />\r\n+\t\t<a-layout-content class=\"mt-60px \">\r\n+\t\t\t<a-scrollbar class=\"h-[calc(100vh_-_60px)]\" style=\"height: 200px; overflow: auto\">\r\n+\t\t\t\t<NuxtPage />\r\n+\t\t\t</a-scrollbar>\r\n \t\t</a-layout-content>\r\n \t</a-layout>\r\n </template>\r\n \r\n"
+                },
+                {
+                    "date": 1678091073210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full flex justify-between\">\r\n \t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content @change=\"handleTabs\">\r\n-\t\t\t\t\t\t<a-tab-pane key=\"/home\" title=\"首页\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane key=\"/\" title=\"首页\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"/icon-pack\" title=\"官方图标库\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"4\" title=\"建议反馈\"></a-tab-pane>\r\n \t\t\t\t\t</a-tabs>\r\n"
+                },
+                {
+                    "date": 1678091088004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content class=\"mt-60px \">\r\n-\t\t\t<a-scrollbar class=\"h-[calc(100vh_-_60px)]\" style=\"height: 200px; overflow: auto\">\r\n+\t\t\t<a-scrollbar class=\"h-[calc(100vh_-_60px)]\" style=\"overflow: auto\">\r\n \t\t\t\t<NuxtPage />\r\n \t\t\t</a-scrollbar>\r\n \t\t</a-layout-content>\r\n \t</a-layout>\r\n"
+                },
+                {
+                    "date": 1678091102462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \t\t\t\t\t</a-avatar>\r\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n-\t\t<a-layout-content class=\"mt-60px \">\r\n+\t\t<a-layout-content class=\"mt-60px\">\r\n \t\t\t<a-scrollbar class=\"h-[calc(100vh_-_60px)]\" style=\"overflow: auto\">\r\n \t\t\t\t<NuxtPage />\r\n \t\t\t</a-scrollbar>\r\n \t\t</a-layout-content>\r\n"
+                },
+                {
+                    "date": 1678091110168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content class=\"mt-60px\">\r\n-\t\t\t<a-scrollbar class=\"h-[calc(100vh_-_60px)]\" style=\"overflow: auto\">\r\n+\t\t\t<a-scrollbar class=\"h-[calc(100vh_-_60px)] overflow-auto\">\r\n \t\t\t\t<NuxtPage />\r\n \t\t\t</a-scrollbar>\r\n \t\t</a-layout-content>\r\n \t</a-layout>\r\n"
+                },
+                {
+                    "date": 1678092240726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,11 @@\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content class=\"mt-60px\">\r\n-\t\t\t<a-scrollbar class=\"h-[calc(100vh_-_60px)] overflow-auto\">\r\n+\t\t\t<!-- <a-scrollbar class=\"h-[calc(100vh_-_60px)] overflow-auto\"> -->\r\n \t\t\t\t<NuxtPage />\r\n-\t\t\t</a-scrollbar>\r\n+\t\t\t<!-- </a-scrollbar> -->\r\n \t\t</a-layout-content>\r\n \t</a-layout>\r\n </template>\r\n \r\n"
+                },
+                {
+                    "date": 1678092272094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,11 @@\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content class=\"mt-60px\">\r\n-\t\t\t<!-- <a-scrollbar class=\"h-[calc(100vh_-_60px)] overflow-auto\"> -->\r\n+\t\t\t<a-scrollbar class=\"h-[calc(100vh_-_60px)] overflow-auto\">\r\n \t\t\t\t<NuxtPage />\r\n-\t\t\t<!-- </a-scrollbar> -->\r\n+\t\t\t</a-scrollbar>\r\n \t\t</a-layout-content>\r\n \t</a-layout>\r\n </template>\r\n \r\n"
+                },
+                {
+                    "date": 1678092554208,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,11 @@\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content class=\"mt-60px\">\r\n-\t\t\t<a-scrollbar class=\"h-[calc(100vh_-_60px)] overflow-auto\">\r\n+\t\t\t<!-- <a-scrollbar class=\"h-[calc(100vh_-_60px)] overflow-auto\"> -->\r\n \t\t\t\t<NuxtPage />\r\n-\t\t\t</a-scrollbar>\r\n+\t\t\t<!-- </a-scrollbar> -->\r\n \t\t</a-layout-content>\r\n \t</a-layout>\r\n </template>\r\n \r\n"
+                },
+                {
+                    "date": 1678092612066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \t\t\t\t\t</a-avatar>\r\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n-\t\t<a-layout-content class=\"mt-60px\">\r\n+\t\t<a-layout-content class=\"mt-60px h-[calc(100vh_-_60px)] max-h-[calc(100vh_-_60px)]\">\r\n \t\t\t<!-- <a-scrollbar class=\"h-[calc(100vh_-_60px)] overflow-auto\"> -->\r\n \t\t\t\t<NuxtPage />\r\n \t\t\t<!-- </a-scrollbar> -->\r\n \t\t</a-layout-content>\r\n"
+                },
+                {
+                    "date": 1678092633031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,11 @@\n \t\t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</a-layout-header>\r\n \t\t<a-layout-content class=\"mt-60px h-[calc(100vh_-_60px)] max-h-[calc(100vh_-_60px)]\">\r\n-\t\t\t<!-- <a-scrollbar class=\"h-[calc(100vh_-_60px)] overflow-auto\"> -->\r\n+\t\t\t<a-scrollbar class=\"h-[calc(100vh_-_60px)] overflow-auto\">\r\n \t\t\t\t<NuxtPage />\r\n-\t\t\t<!-- </a-scrollbar> -->\r\n+\t\t\t</a-scrollbar>\r\n \t\t</a-layout-content>\r\n \t</a-layout>\r\n </template>\r\n \r\n"
+                },
+                {
+                    "date": 1678095011531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,11 +42,8 @@\n \t\t}\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n-\tconst { title, language } = useAppConfig()\r\n-\t// const\r\n-\tconsole.log('router.getRoutes()', router.getRoutes())\r\n </script>\r\n \r\n <style scoped>\r\n \t.no-select {\r\n"
+                },
+                {
+                    "date": 1678095033227,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,9 @@\n \t\t}\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n+\tconsole.log(route)\r\n </script>\r\n \r\n <style scoped>\r\n \t.no-select {\r\n"
+                },
+                {
+                    "date": 1678095106141,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,11 @@\n \t\t}\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n+\twatchEffect(() => {\r\n+\t\tselectedKes.value = route.path\r\n+\t})\r\n \tconsole.log(route)\r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1678095709969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full flex justify-between\">\r\n \t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content @change=\"handleTabs\">\r\n-\t\t\t\t\t\t<a-tab-pane key=\"/\" title=\"首页\"> </a-tab-pane>\r\n-\t\t\t\t\t\t<a-tab-pane key=\"/icon-pack\" title=\"官方图标库\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n \t\t\t\t\t\t<a-tab-pane key=\"4\" title=\"建议反馈\"></a-tab-pane>\r\n \t\t\t\t\t</a-tabs>\r\n \t\t\t\t\t<a-avatar :size=\"32\">\r\n"
+                },
+                {
+                    "date": 1678095803522,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,16 +30,16 @@\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n \tconst selectedKes = ref<string | number>('1')\r\n-\r\n+\tconst routeJSON:Record<string,any> = { '1': '/', '2': '/icon-pack', '': '' }\r\n \tconst router = useRouter()\r\n \tconst handleTabs = (key: string | number) => {\r\n \t\tselectedKes.value = key\r\n \t\tif (key === '4') {\r\n \t\t\twindow.open('https://github.com/icon-space/IconSpace/issues', '_blank')\r\n \t\t} else {\r\n-\t\t\trouter.push({ path: key as string })\r\n+\t\t\trouter.push({ path: routeJSON[key as string] })\r\n \t\t}\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n"
+                },
+                {
+                    "date": 1678097097050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n \tconst selectedKes = ref<string | number>('1')\r\n-\tconst routeJSON:Record<string,any> = { '1': '/', '2': '/icon-pack', '': '' }\r\n+\tconst routeJSON: Record<string, any> = { '1': '/', '2': '/icon-pack' }\r\n \tconst router = useRouter()\r\n \tconst handleTabs = (key: string | number) => {\r\n \t\tselectedKes.value = key\r\n \t\tif (key === '4') {\r\n"
+                },
+                {
+                    "date": 1678097288628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,8 +31,9 @@\n \r\n <script setup lang=\"ts\">\r\n \tconst selectedKes = ref<string | number>('1')\r\n \tconst routeJSON: Record<string, any> = { '1': '/', '2': '/icon-pack' }\r\n+\tconst routeJSONReverse: Record<string, any> = { '/': 1 '/icon-pack': '2' }\r\n \tconst router = useRouter()\r\n \tconst handleTabs = (key: string | number) => {\r\n \t\tselectedKes.value = key\r\n \t\tif (key === '4') {\r\n@@ -43,9 +44,9 @@\n \t}\r\n \r\n \tconst route = useRoute()\r\n \twatchEffect(() => {\r\n-\t\tselectedKes.value = route.path\r\n+\t\tselectedKes.value = routeJSONReverse[route.path]\r\n \t})\r\n \tconsole.log(route)\r\n </script>\r\n \r\n"
+                },
+                {
+                    "date": 1678097334918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,10 +30,10 @@\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n \tconst selectedKes = ref<string | number>('1')\r\n-\tconst routeJSON: Record<string, any> = { '1': '/', '2': '/icon-pack' }\r\n-\tconst routeJSONReverse: Record<string, any> = { '/': 1 '/icon-pack': '2' }\r\n+\tconst routeJSON: Record<string, any> = { '1': '/', '2': '/icon-pack', '3': '/illustration' }\r\n+\tconst routeJSONReverse: Record<string, any> = { '/': 1, '/icon-pack': '2', '/illustration': '3' }\r\n \tconst router = useRouter()\r\n \tconst handleTabs = (key: string | number) => {\r\n \t\tselectedKes.value = key\r\n \t\tif (key === '4') {\r\n"
+                },
+                {
+                    "date": 1678156933183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n \tconst route = useRoute()\r\n \twatchEffect(() => {\r\n \t\tselectedKes.value = routeJSONReverse[route.path]\r\n \t})\r\n-\tconsole.log(route)\r\n+\tconsole.log(route.path,selectedKes.value)\r\n </script>\r\n \r\n <style scoped>\r\n \t.no-select {\r\n"
+                },
+                {
+                    "date": 1678156964736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,12 +6,12 @@\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full flex justify-between\">\r\n \t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content @change=\"handleTabs\">\r\n-\t\t\t\t\t\t<a-tab-pane key=\"1\" title=\"首页\"> </a-tab-pane>\r\n-\t\t\t\t\t\t<a-tab-pane key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n-\t\t\t\t\t\t<a-tab-pane key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n-\t\t\t\t\t\t<a-tab-pane key=\"4\" title=\"建议反馈\"></a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane :key=\"1\" title=\"首页\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane :key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane :key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane :key=\"4\" title=\"建议反馈\"></a-tab-pane>\r\n \t\t\t\t\t</a-tabs>\r\n \t\t\t\t\t<a-avatar :size=\"32\">\r\n \t\t\t\t\t\t<img\r\n \t\t\t\t\t\t\talt=\"avatar\"\r\n"
+                },
+                {
+                    "date": 1678156987534,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,11 +29,11 @@\n \t</a-layout>\r\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n-\tconst selectedKes = ref<string | number>('1')\r\n-\tconst routeJSON: Record<string, any> = { '1': '/', '2': '/icon-pack', '3': '/illustration' }\r\n-\tconst routeJSONReverse: Record<string, any> = { '/': 1, '/icon-pack': '2', '/illustration': '3' }\r\n+\tconst selectedKes = ref<string | number>(1)\r\n+\tconst routeJSON: Record<string, any> = { 1: '/', 2: '/icon-pack', 3: '/illustration' }\r\n+\tconst routeJSONReverse: Record<string, any> = { '/': 1, '/icon-pack': 2, '/illustration': 3 }\r\n \tconst router = useRouter()\r\n \tconst handleTabs = (key: string | number) => {\r\n \t\tselectedKes.value = key\r\n \t\tif (key === '4') {\r\n@@ -46,9 +46,9 @@\n \tconst route = useRoute()\r\n \twatchEffect(() => {\r\n \t\tselectedKes.value = routeJSONReverse[route.path]\r\n \t})\r\n-\tconsole.log(route.path,selectedKes.value)\r\n+\tconsole.log(route.path, selectedKes.value)\r\n </script>\r\n \r\n <style scoped>\r\n \t.no-select {\r\n"
+                },
+                {
+                    "date": 1678157000966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n \t</a-layout>\r\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n-\tconst selectedKes = ref<string | number>(1)\r\n+\tconst selectedKes = ref<string | number>(2)\r\n \tconst routeJSON: Record<string, any> = { 1: '/', 2: '/icon-pack', 3: '/illustration' }\r\n \tconst routeJSONReverse: Record<string, any> = { '/': 1, '/icon-pack': 2, '/illustration': 3 }\r\n \tconst router = useRouter()\r\n \tconst handleTabs = (key: string | number) => {\r\n"
+                },
+                {
+                    "date": 1678157025817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,12 +6,12 @@\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full flex justify-between\">\r\n \t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content @change=\"handleTabs\">\r\n-\t\t\t\t\t\t<a-tab-pane :key=\"1\" title=\"首页\"> </a-tab-pane>\r\n-\t\t\t\t\t\t<a-tab-pane :key=\"2\" title=\"官方图标库\"> </a-tab-pane>\r\n-\t\t\t\t\t\t<a-tab-pane :key=\"3\" title=\"插画库\"> </a-tab-pane>\r\n-\t\t\t\t\t\t<a-tab-pane :key=\"4\" title=\"建议反馈\"></a-tab-pane>\r\n+\t\t\t\t\t\t<a-tab-pane :key=\"1\" title=\"首页\" />\r\n+\t\t\t\t\t\t<a-tab-pane :key=\"2\" title=\"官方图标库\" />\r\n+\t\t\t\t\t\t<a-tab-pane :key=\"3\" title=\"插画库\" />\r\n+\t\t\t\t\t\t<a-tab-pane :key=\"4\" title=\"建议反馈\" />\r\n \t\t\t\t\t</a-tabs>\r\n \t\t\t\t\t<a-avatar :size=\"32\">\r\n \t\t\t\t\t\t<img\r\n \t\t\t\t\t\t\talt=\"avatar\"\r\n"
+                },
+                {
+                    "date": 1678157080363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \t\t\t\t<div class=\"w-135px h-58px flex justify-center items-center\">\r\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full flex justify-between\">\r\n-\t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" hide-content @change=\"handleTabs\">\r\n+\t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" lazy-load hide-content @change=\"handleTabs\">\r\n \t\t\t\t\t\t<a-tab-pane :key=\"1\" title=\"首页\" />\r\n \t\t\t\t\t\t<a-tab-pane :key=\"2\" title=\"官方图标库\" />\r\n \t\t\t\t\t\t<a-tab-pane :key=\"3\" title=\"插画库\" />\r\n \t\t\t\t\t\t<a-tab-pane :key=\"4\" title=\"建议反馈\" />\r\n"
+                },
+                {
+                    "date": 1678157096951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \t\t\t\t<div class=\"w-135px h-58px flex justify-center items-center\">\r\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full flex justify-between\">\r\n-\t\t\t\t\t<a-tabs v-model=\"selectedKes\" type=\"text\" lazy-load hide-content @change=\"handleTabs\">\r\n+\t\t\t\t\t<a-tabs v-model:active-key=\"selectedKes\" type=\"text\" lazy-load hide-content @change=\"handleTabs\">\r\n \t\t\t\t\t\t<a-tab-pane :key=\"1\" title=\"首页\" />\r\n \t\t\t\t\t\t<a-tab-pane :key=\"2\" title=\"官方图标库\" />\r\n \t\t\t\t\t\t<a-tab-pane :key=\"3\" title=\"插画库\" />\r\n \t\t\t\t\t\t<a-tab-pane :key=\"4\" title=\"建议反馈\" />\r\n"
+                },
+                {
+                    "date": 1678157117216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,8 @@\n \tconst route = useRoute()\r\n \twatchEffect(() => {\r\n \t\tselectedKes.value = routeJSONReverse[route.path]\r\n \t})\r\n-\tconsole.log(route.path, selectedKes.value)\r\n </script>\r\n \r\n <style scoped>\r\n \t.no-select {\r\n"
+                },
+                {
+                    "date": 1678157175900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,12 +6,12 @@\n \t\t\t\t\t<img src=\"@/assets/logo.svg\" alt=\"logo\" width=\"100%\" height=\"100%\" />\r\n \t\t\t\t</div>\r\n \t\t\t\t<div class=\"w-500px h-full flex justify-between\">\r\n \t\t\t\t\t<a-tabs v-model:active-key=\"selectedKes\" type=\"text\" lazy-load hide-content @change=\"handleTabs\">\r\n-\t\t\t\t\t\t<a-tab-pane :key=\"1\" title=\"首页\" />\r\n-\t\t\t\t\t\t<a-tab-pane :key=\"2\" title=\"官方图标库\" />\r\n-\t\t\t\t\t\t<a-tab-pane :key=\"3\" title=\"插画库\" />\r\n-\t\t\t\t\t\t<a-tab-pane :key=\"4\" title=\"建议反馈\" />\r\n+\t\t\t\t\t\t<a-tab-pane key=\"/\" title=\"首页\" />\r\n+\t\t\t\t\t\t<a-tab-pane key=\"/icon-pack\" title=\"官方图标库\" />\r\n+\t\t\t\t\t\t<a-tab-pane key=\"/illustration\" title=\"插画库\" />\r\n+\t\t\t\t\t\t<a-tab-pane key=\"4\" title=\"建议反馈\" />\r\n \t\t\t\t\t</a-tabs>\r\n \t\t\t\t\t<a-avatar :size=\"32\">\r\n \t\t\t\t\t\t<img\r\n \t\t\t\t\t\t\talt=\"avatar\"\r\n"
+                },
+                {
+                    "date": 1678157181669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n \t</a-layout>\r\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n-\tconst selectedKes = ref<string | number>(2)\r\n+\tconst selectedKes = ref<string | number>('/')\r\n \tconst routeJSON: Record<string, any> = { 1: '/', 2: '/icon-pack', 3: '/illustration' }\r\n \tconst routeJSONReverse: Record<string, any> = { '/': 1, '/icon-pack': 2, '/illustration': 3 }\r\n \tconst router = useRouter()\r\n \tconst handleTabs = (key: string | number) => {\r\n"
+                },
+                {
+                    "date": 1678157192766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n \t\tselectedKes.value = key\r\n \t\tif (key === '4') {\r\n \t\t\twindow.open('https://github.com/icon-space/IconSpace/issues', '_blank')\r\n \t\t} else {\r\n-\t\t\trouter.push({ path: routeJSON[key as string] })\r\n+\t\t\trouter.push({ path: key as string })\r\n \t\t}\r\n \t}\r\n \r\n \tconst route = useRoute()\r\n"
+                },
+                {
+                    "date": 1678157201192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n \t}\r\n \r\n \tconst route = useRoute()\r\n \twatchEffect(() => {\r\n-\t\tselectedKes.value = routeJSONReverse[route.path]\r\n+\t\tselectedKes.value = route.path\r\n \t})\r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1678157222501,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,10 +30,8 @@\n </template>\r\n \r\n <script setup lang=\"ts\">\r\n \tconst selectedKes = ref<string | number>('/')\r\n-\tconst routeJSON: Record<string, any> = { 1: '/', 2: '/icon-pack', 3: '/illustration' }\r\n-\tconst routeJSONReverse: Record<string, any> = { '/': 1, '/icon-pack': 2, '/illustration': 3 }\r\n \tconst router = useRouter()\r\n \tconst handleTabs = (key: string | number) => {\r\n \t\tselectedKes.value = key\r\n \t\tif (key === '4') {\r\n"
+                },
+                {
+                    "date": 1678157241980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \t\t\t\t\t<a-tabs v-model:active-key=\"selectedKes\" type=\"text\" lazy-load hide-content @change=\"handleTabs\">\r\n \t\t\t\t\t\t<a-tab-pane key=\"/\" title=\"首页\" />\r\n \t\t\t\t\t\t<a-tab-pane key=\"/icon-pack\" title=\"官方图标库\" />\r\n \t\t\t\t\t\t<a-tab-pane key=\"/illustration\" title=\"插画库\" />\r\n-\t\t\t\t\t\t<a-tab-pane key=\"4\" title=\"建议反馈\" />\r\n+\t\t\t\t\t\t<a-tab-pane key=\"https://github.com/icon-space/IconSpace/issues\" title=\"建议反馈\" />\r\n \t\t\t\t\t</a-tabs>\r\n \t\t\t\t\t<a-avatar :size=\"32\">\r\n \t\t\t\t\t\t<img\r\n \t\t\t\t\t\t\talt=\"avatar\"\r\n@@ -34,9 +34,9 @@\n \tconst router = useRouter()\r\n \tconst handleTabs = (key: string | number) => {\r\n \t\tselectedKes.value = key\r\n \t\tif (key === '4') {\r\n-\t\t\twindow.open('https://github.com/icon-space/IconSpace/issues', '_blank')\r\n+\t\t\twindow.open('', '_blank')\r\n \t\t} else {\r\n \t\t\trouter.push({ path: key as string })\r\n \t\t}\r\n \t}\r\n"
+                },
+                {
+                    "date": 1678157304666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,10 +33,10 @@\n \tconst selectedKes = ref<string | number>('/')\r\n \tconst router = useRouter()\r\n \tconst handleTabs = (key: string | number) => {\r\n \t\tselectedKes.value = key\r\n-\t\tif (key === '4') {\r\n-\t\t\twindow.open('', '_blank')\r\n+\t\tif ((key as string).includes('https')) {\r\n+\t\t\twindow.open(key as string, '_blank')\r\n \t\t} else {\r\n \t\t\trouter.push({ path: key as string })\r\n \t\t}\r\n \t}\r\n"
                 }
             ],
             "date": 1677749878297,

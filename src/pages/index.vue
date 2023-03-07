@@ -6,7 +6,7 @@
 			<a-carousel-item>
 				<div class="banner-1">
 					<img src="@/assets/images/main_banner_2.png" :style="{ width: '100%', height: '100%' }" />
-					<div class="text-40px mb-12px font-600">IconPark资源站</div>
+					<div class="text-40px mb-12px font-600">IconSpace资源站</div>
 					<p class="text-16px font-300 w-432px mb-40px">这里有你需要的图标，也有属于你的风格，让工作变得更轻松</p>
 				</div>
 			</a-carousel-item>

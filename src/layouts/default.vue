@@ -6,11 +6,11 @@
 					<img src="@/assets/logo.svg" alt="logo" width="100%" height="100%" />
 				</div>
 				<div class="w-500px h-full flex justify-between">
-					<a-tabs v-model="selectedKes" type="text" hide-content @change="handleTabs">
-						<a-tab-pane key="1" title="首页"> </a-tab-pane>
-						<a-tab-pane key="2" title="官方图标库"> </a-tab-pane>
-						<a-tab-pane key="3" title="插画库"> </a-tab-pane>
-						<a-tab-pane key="4" title="建议反馈"></a-tab-pane>
+					<a-tabs v-model:active-key="selectedKes" type="text" lazy-load hide-content @change="handleTabs">
+						<a-tab-pane key="/" title="首页" />
+						<a-tab-pane key="/icon-pack" title="官方图标库" />
+						<a-tab-pane key="/illustration" title="插画库" />
+						<a-tab-pane key="https://github.com/icon-space/IconSpace/issues" title="建议反馈" />
 					</a-tabs>
 					<a-avatar :size="32">
 						<img
@@ -21,27 +21,30 @@
 				</div>
 			</div>
 		</a-layout-header>
-		<a-layout-content>
-			<NuxtPage />
+		<a-layout-content class="mt-60px h-[calc(100vh_-_60px)] max-h-[calc(100vh_-_60px)]">
+			<a-scrollbar class="h-[calc(100vh_-_60px)] overflow-auto">
+				<NuxtPage />
+			</a-scrollbar>
 		</a-layout-content>
 	</a-layout>
 </template>
 
 <script setup lang="ts">
-	const selectedKes = ref<string | number>('1')
-
+	const selectedKes = ref<string | number>('/')
+	const router = useRouter()
 	const handleTabs = (key: string | number) => {
 		selectedKes.value = key
-		if (key === '4') {
-			window.open('https://github.com/icon-space/IconSpace/issues', '_blank')
+		if ((key as string).includes('https')) {
+			window.open(key as string, '_blank')
+		} else {
+			router.push({ path: key as string })
 		}
 	}
 
 	const route = useRoute()
-	const { title, language } = useAppConfig()
-	const router = useRouter()
-	// const
-	console.log('router.getRoutes()', router.getRoutes())
+	watchEffect(() => {
+		selectedKes.value = route.path
+	})
 </script>
 
 <style scoped>
@@ -58,6 +61,7 @@
 		top: 0;
 		left: 0;
 		right: 0;
+		-webkit-backdrop-filter: blur(5px);
 		backdrop-filter: blur(5px);
 		z-index: 999;
 	}

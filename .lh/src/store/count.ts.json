@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/store/count.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1678156381710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678156390536,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n export const useStore = defineStore('main', {\r\n-  state: () => ({\r\n-    count: 0,\r\n-  }),\r\n-  getters: {\r\n-    doubleCount: (state) => state.count * 2,\r\n-  },\r\n-})\n\\ No newline at end of file\n+\tstate: () => ({\r\n+\t\tcount: 0\r\n+\t}),\r\n+  persist: true,\r\n+\tgetters: {\r\n+\t\tdoubleCount: (state) => state.count * 2\r\n+\t}\r\n+})\r\n"
+                },
+                {
+                    "date": 1678156398389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n-export const useStore = defineStore('main', {\r\n+export const useMainStore = defineStore('main', {\r\n \tstate: () => ({\r\n \t\tcount: 0\r\n \t}),\r\n-  persist: true,\r\n+\tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => state.count * 2\r\n \t}\r\n })\r\n"
+                },
+                {
+                    "date": 1678156463564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n export const useMainStore = defineStore('main', {\r\n \tstate: () => ({\r\n-\t\tcount: 0\r\n+\t\tcount: 1\r\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => state.count * 2\r\n"
+                },
+                {
+                    "date": 1678161118997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,17 @@\n export const useMainStore = defineStore('main', {\r\n \tstate: () => ({\r\n \t\tcount: 1\r\n \t}),\r\n-\tpersist: true,\r\n+\tpersist: {\r\n+\t\tenabled: true,\r\n+\t\tstrategies: [\r\n+\t\t\t{\r\n+\t\t\t\tkey: 'USER-INFO',\r\n+\t\t\t\tstorage: process.client ? localStorage : null\r\n+\t\t\t}\r\n+\t\t]\r\n+\t},\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => state.count * 2\r\n \t}\r\n })\r\n"
+                },
+                {
+                    "date": 1678161227869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n \tstate: () => ({\r\n \t\tcount: 1\r\n \t}),\r\n \tpersist: {\r\n-\t\tenabled: true,\r\n \t\tstrategies: [\r\n \t\t\t{\r\n \t\t\t\tkey: 'USER-INFO',\r\n \t\t\t\tstorage: process.client ? localStorage : null\r\n"
+                },
+                {
+                    "date": 1678161276411,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,9 @@\n export const useMainStore = defineStore('main', {\r\n \tstate: () => ({\r\n \t\tcount: 1\r\n \t}),\r\n-\tpersist: {\r\n-\t\tstrategies: [\r\n-\t\t\t{\r\n-\t\t\t\tkey: 'USER-INFO',\r\n-\t\t\t\tstorage: process.client ? localStorage : null\r\n-\t\t\t}\r\n-\t\t]\r\n-\t},\r\n+\tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => state.count * 2\r\n \t}\r\n })\r\n"
+                },
+                {
+                    "date": 1678162051045,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n export const useMainStore = defineStore('main', {\r\n-\tstate: () => ({\r\n-\t\tcount: 1\r\n-\t}),\r\n+\tstate: () =>\r\n+\t\tuseLocalStorage('main', {\r\n+\t\t\tcount: 1\r\n+\t\t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => state.count * 2\r\n \t}\r\n"
+                }
+            ],
+            "date": 1678156381710,
+            "name": "Commit-0",
+            "content": "export const useStore = defineStore('main', {\r\n  state: () => ({\r\n    count: 0,\r\n  }),\r\n  getters: {\r\n    doubleCount: (state) => state.count * 2,\r\n  },\r\n})"
+        }
+    ]
+}

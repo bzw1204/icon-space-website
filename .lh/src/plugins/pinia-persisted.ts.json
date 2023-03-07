@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/plugins/pinia-persisted.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1678158856368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678158950293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { createNuxtPersistedState } from 'pinia-plugin-persistedstate'\r\n+import { createNuxtPersistedState } from '@pinia-plugin-persistedstate/nuxt'\r\n \r\n-export default defineNuxtPlugin(nuxtApp => {\r\n- nuxtApp.$pinia.use(createNuxtPersistedState(useCookie))\r\n\\ No newline at end of file\n-})\n+export default defineNuxtPlugin((nuxtApp) => {\r\n+\tnuxtApp.$pinia.use(createNuxtPersistedState(useCookie))\r\n+})\r\n"
+                },
+                {
+                    "date": 1678159004197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { createNuxtPersistedState } from '@pinia-plugin-persistedstate/nuxt'\r\n+import { createPersistedState } from 'pinia-plugin-persistedstate'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n-\tnuxtApp.$pinia.use(createNuxtPersistedState(useCookie))\r\n+\tnuxtApp.$pinia.use(createPersistedState(useCookie))\r\n })\r\n"
+                },
+                {
+                    "date": 1678159152798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { createPersistedState } from 'pinia-plugin-persistedstate'\r\n+import { useLocalStorage } from '@vueuse/core'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n-\tnuxtApp.$pinia.use(createPersistedState(useCookie))\r\n+\tnuxtApp.$pinia.use(createPersistedState(useLocalStorage))\r\n })\r\n"
+                },
+                {
+                    "date": 1678159438974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { createPersistedState } from 'pinia-plugin-persistedstate'\r\n import { useLocalStorage } from '@vueuse/core'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n-\tnuxtApp.$pinia.use(createPersistedState(useLocalStorage))\r\n+\tnuxtApp.$pinia.use(createPersistedState(useLocalStorage('app-settings',{})))\r\n })\r\n"
+                },
+                {
+                    "date": 1678159450145,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { createPersistedState } from 'pinia-plugin-persistedstate'\r\n import { useLocalStorage } from '@vueuse/core'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n-\tnuxtApp.$pinia.use(createPersistedState(useLocalStorage('app-settings',{})))\r\n+\tnuxtApp.$pinia.use(createPersistedState(useCookie))\r\n })\r\n"
+                },
+                {
+                    "date": 1678159493603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { createPersistedState } from 'pinia-plugin-persistedstate'\r\n import { useLocalStorage } from '@vueuse/core'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n-\tnuxtApp.$pinia.use(createPersistedState(useCookie))\r\n+\tnuxtApp.$pinia.use(createPersistedState())\r\n })\r\n"
+                },
+                {
+                    "date": 1678159882597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { createPersistedState } from 'pinia-plugin-persistedstate'\r\n-import { useLocalStorage } from '@vueuse/core'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n+\tconst local = useLocalStorage()\r\n \tnuxtApp.$pinia.use(createPersistedState())\r\n })\r\n"
+                },
+                {
+                    "date": 1678159903036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { createPersistedState } from 'pinia-plugin-persistedstate'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n-\tconst local = useLocalStorage()\r\n+\tconst local = useLocalStorage('app-settings','123123123')\r\n \tnuxtApp.$pinia.use(createPersistedState())\r\n })\r\n"
+                },
+                {
+                    "date": 1678159937785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n-import { createPersistedState } from 'pinia-plugin-persistedstate'\r\n+import piniaPersistedState from 'pinia-plugin-persistedstate'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n \tconst local = useLocalStorage('app-settings','123123123')\r\n-\tnuxtApp.$pinia.use(createPersistedState())\r\n+\tnuxtApp.$pinia.use(piniaPersistedState)\r\n })\r\n"
+                }
+            ],
+            "date": 1678158856368,
+            "name": "Commit-0",
+            "content": "import { createNuxtPersistedState } from 'pinia-plugin-persistedstate'\r\n\r\nexport default defineNuxtPlugin(nuxtApp => {\r\n nuxtApp.$pinia.use(createNuxtPersistedState(useCookie))\r\n})"
+        }
+    ]
+}

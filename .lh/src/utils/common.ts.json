@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/utils/common.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1678090836718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678098261379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,12 @@\n export function groupBy<T, K extends keyof T>(arr: T[], key: K): Record<any, any> {\r\n \t// 根据数组对象中某一属性进行分组\r\n \tconst result: Record<any, any> = {}\r\n-\treturn arr.reduce((total, item) => {\r\n-\t\t// @ts-ignore\r\n-\t\t;(total[item[key]] = total[item[key]] || []).push(item)\r\n-\t\treturn total\r\n-\t}, result)\r\n+\tnew Promise<any>((resolve, reject) => {\r\n+\t\tconst array = arr.reduce((total, item) => {\r\n+\t\t\t// @ts-ignore\r\n+\t\t\t;(total[item[key]] = total[item[key]] || []).push(item)\r\n+\t\t\treturn total\r\n+\t\t}, result)\r\n+\t\tresolve(array)\r\n+\t})\r\n }\r\n"
+                },
+                {
+                    "date": 1678098301620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,9 @@\n export function groupBy<T, K extends keyof T>(arr: T[], key: K): Record<any, any> {\r\n \t// 根据数组对象中某一属性进行分组\r\n \tconst result: Record<any, any> = {}\r\n-\tnew Promise<any>((resolve, reject) => {\r\n-\t\tconst array = arr.reduce((total, item) => {\r\n-\t\t\t// @ts-ignore\r\n-\t\t\t;(total[item[key]] = total[item[key]] || []).push(item)\r\n-\t\t\treturn total\r\n-\t\t}, result)\r\n-\t\tresolve(array)\r\n-\t})\r\n+\treturn arr.reduce((total, item) => {\r\n+\t\t// @ts-ignore\r\n+\t\t;(total[item[key]] = total[item[key]] || []).push(item)\r\n+\t\treturn total\r\n+\t}, result)\r\n }\r\n"
+                }
+            ],
+            "date": 1678090836718,
+            "name": "Commit-0",
+            "content": "export function groupBy<T, K extends keyof T>(arr: T[], key: K): Record<any, any> {\r\n\t// 根据数组对象中某一属性进行分组\r\n\tconst result: Record<any, any> = {}\r\n\treturn arr.reduce((total, item) => {\r\n\t\t// @ts-ignore\r\n\t\t;(total[item[key]] = total[item[key]] || []).push(item)\r\n\t\treturn total\r\n\t}, result)\r\n}\r\n"
+        }
+    ]
+}

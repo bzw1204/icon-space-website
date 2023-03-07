@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/plugins/icon-space.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1678090377373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1678090377373,
+            "name": "Commit-0",
+            "content": "import { install } from '@icon-space/vue-next/es/all'\r\n\r\nexport default defineNuxtPlugin((nuxtApp) => {\r\n  install(nuxtApp.vueApp,'i')\r\n})\r\n"
+        }
+    ]
+}

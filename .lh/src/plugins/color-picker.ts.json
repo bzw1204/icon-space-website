@@ -1,0 +1,58 @@
+{
+    "sourceFile": "src/plugins/color-picker.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1678178386908,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678178464899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { VueColor } from 'vue-color-next'\r\n-\timport 'vue-color-next/dist/index.css'\r\n+import '@vue-color-next/dist/index.css'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n-  nuxtApp.vueApp.use(VueColor);\r\n-});\r\n+\tnuxtApp.vueApp.use(VueColor)\r\n+})\r\n"
+                },
+                {
+                    "date": 1678178474490,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { VueColor } from 'vue-color-next'\r\n-import '@vue-color-next/dist/index.css'\r\n+import '~vue-color-next/dist/index.css'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n \tnuxtApp.vueApp.use(VueColor)\r\n })\r\n"
+                },
+                {
+                    "date": 1678178526230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { VueColor } from 'vue-color-next'\r\n-import '~vue-color-next/dist/index.css'\r\n+import '../../vue-color-next/dist/index.css'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n \tnuxtApp.vueApp.use(VueColor)\r\n })\r\n"
+                },
+                {
+                    "date": 1678178541860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { VueColor } from 'vue-color-next'\r\n-import '../../vue-color-next/dist/index.css'\r\n+import 'node_modules/vue-color-next/dist/index.css'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n \tnuxtApp.vueApp.use(VueColor)\r\n })\r\n"
+                },
+                {
+                    "date": 1678178625841,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { VueColor } from 'vue-color-next'\r\n-import 'node_modules/vue-color-next/dist/index.css'\r\n+import '/node_modules/vue-color-next/dist/index.css'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n \tnuxtApp.vueApp.use(VueColor)\r\n })\r\n"
+                },
+                {
+                    "date": 1678178710677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { VueColor } from 'vue-color-next'\r\n-import '/node_modules/vue-color-next/dist/index.css'\r\n+import '~~/vue-color-next/dist/index.css'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n \tnuxtApp.vueApp.use(VueColor)\r\n })\r\n"
+                },
+                {
+                    "date": 1678178760604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { VueColor } from 'vue-color-next'\r\n-import '~~/vue-color-next/dist/index.css'\r\n+import '~~/node_modules/vue-color-next/dist/index.css'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n \tnuxtApp.vueApp.use(VueColor)\r\n })\r\n"
+                },
+                {
+                    "date": 1678178887904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n-import { VueColor } from 'vue-color-next'\r\n-import '~~/node_modules/vue-color-next/dist/index.css'\r\n+import Vue3ColorPicker  from 'vue3-colorpicker'\r\n+import '~~/node_modules/vue3-colorpicker/style.css'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n-\tnuxtApp.vueApp.use(VueColor)\r\n+\tnuxtApp.vueApp.use(Vue3ColorPicker)\r\n })\r\n"
+                },
+                {
+                    "date": 1678179016230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n-import Vue3ColorPicker  from 'vue3-colorpicker'\r\n-import '~~/node_modules/vue3-colorpicker/style.css'\r\n+import ColorPicker from 'colorpicker-v3'\r\n+import '~~/node_modules/colorpicker-v3/style.css'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n-\tnuxtApp.vueApp.use(Vue3ColorPicker)\r\n+\tnuxtApp.vueApp.use(ColorPicker)\r\n })\r\n"
+                },
+                {
+                    "date": 1678179129148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import ColorPicker from 'colorpicker-v3'\r\n import '~~/node_modules/colorpicker-v3/style.css'\r\n+import '@/assets/css/index.css'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n \tnuxtApp.vueApp.use(ColorPicker)\r\n })\r\n"
+                }
+            ],
+            "date": 1678178386908,
+            "name": "Commit-0",
+            "content": "import { VueColor } from 'vue-color-next'\r\n\timport 'vue-color-next/dist/index.css'\r\n\r\nexport default defineNuxtPlugin((nuxtApp) => {\r\n  nuxtApp.vueApp.use(VueColor);\r\n});\r\n"
+        }
+    ]
+}

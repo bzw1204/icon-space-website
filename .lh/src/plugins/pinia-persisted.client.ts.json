@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/plugins/pinia-persisted.client.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1678161227867,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678161254736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import piniaPersistedState from 'pinia-plugin-persistedstate'\r\n+import piniaPersist from 'pinia-plugin-persistedstate'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n-\tnuxtApp.$pinia.use(piniaPersistedState)\r\n+\tnuxtApp.$pinia.use(piniaPersist)\r\n })\r\n"
+                }
+            ],
+            "date": 1678161227867,
+            "name": "Commit-0",
+            "content": "import piniaPersistedState from 'pinia-plugin-persistedstate'\r\n\r\nexport default defineNuxtPlugin((nuxtApp) => {\r\n\tnuxtApp.$pinia.use(piniaPersistedState)\r\n})\r\n"
+        }
+    ]
+}

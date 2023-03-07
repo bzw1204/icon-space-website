@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 73,
             "patches": [
                 {
                     "date": 1677747249044,
@@ -20,6 +20,286 @@
                 {
                     "date": 1677747311196,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,4 @@\n-const delay = (t: number) => new Promise((r) => setTimeout(r, t))\r\n-\r\n export type Theme = 'outline' | 'filled' | 'two-tone' | 'multi-color'\r\n export interface IconSpaceProps {\r\n \tstrokeWidth: number\r\n \tsize: number\r\n@@ -9,9 +7,9 @@\n \tstrokeLinejoin: string\r\n \tstrokeLinecap: string\r\n }\r\n \r\n-export const useCounter = defineStore('counter', {\r\n+export const useSvgStore = defineStore('counter', {\r\n \tstate: (): IconSpaceProps => ({\r\n \t\tstrokeWidth: 2,\r\n \t\tsize: 24,\r\n \t\ttheme: 'multi-color',\r\n@@ -23,6 +21,6 @@\n \tactions: {}\r\n })\r\n \r\n if (import.meta.hot) {\r\n-\timport.meta.hot.accept(acceptHMRUpdate(useCounter, import.meta.hot))\r\n+\timport.meta.hot.accept(acceptHMRUpdate(useSvgStore, import.meta.hot))\r\n }\r\n"
+                },
+                {
+                    "date": 1678097853887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n \ttheme: Theme\r\n \tcolors: string | string[]\r\n \tstrokeLinejoin: string\r\n \tstrokeLinecap: string\r\n+\ticonList: []\r\n }\r\n \r\n export const useSvgStore = defineStore('counter', {\r\n \tstate: (): IconSpaceProps => ({\r\n@@ -14,9 +15,10 @@\n \t\tsize: 24,\r\n \t\ttheme: 'multi-color',\r\n \t\tcolors: ['#666', '#2F88FF', '#FFF', '#43CCF8'],\r\n \t\tstrokeLinejoin: 'miter',\r\n-\t\tstrokeLinecap: 'square'\r\n+\t\tstrokeLinecap: 'square',\r\n+\t\ticonList: []\r\n \t}),\r\n \r\n \tactions: {}\r\n })\r\n"
+                },
+                {
+                    "date": 1678097866805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \ttheme: Theme\r\n \tcolors: string | string[]\r\n \tstrokeLinejoin: string\r\n \tstrokeLinecap: string\r\n-\ticonList: []\r\n+\ticonList: Record<string, any>[]\r\n }\r\n \r\n export const useSvgStore = defineStore('counter', {\r\n \tstate: (): IconSpaceProps => ({\r\n"
+                },
+                {
+                    "date": 1678097889174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import IconJSON from '@icon-space/vue-next/icons.json'\r\n+\r\n export type Theme = 'outline' | 'filled' | 'two-tone' | 'multi-color'\r\n export interface IconSpaceProps {\r\n \tstrokeWidth: number\r\n \tsize: number\r\n"
+                },
+                {
+                    "date": 1678097999974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,13 @@\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n \t\ticonList: []\r\n \t}),\r\n-\r\n+\tgetters: {\r\n+\t\tgroupIconList(): Record<string, any>[] {\r\n+\t\t\treturn this.iconList || []\r\n+\t\t}\r\n+\t},\r\n \tactions: {}\r\n })\r\n \r\n if (import.meta.hot) {\r\n"
+                },
+                {
+                    "date": 1678098059603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \ttheme: Theme\r\n \tcolors: string | string[]\r\n \tstrokeLinejoin: string\r\n \tstrokeLinecap: string\r\n-\ticonList: Record<string, any>[]\r\n+\ticonList: Record<string, any>\r\n }\r\n \r\n export const useSvgStore = defineStore('counter', {\r\n \tstate: (): IconSpaceProps => ({\r\n@@ -21,9 +21,12 @@\n \t\tstrokeLinecap: 'square',\r\n \t\ticonList: []\r\n \t}),\r\n \tgetters: {\r\n-\t\tgroupIconList(): Record<string, any>[] {\r\n+\t\tgroupIconList(): Record<string, any> {\r\n+\t\t\tif (this.iconList.length === 0) {\r\n+\t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n+\t\t\t}\r\n \t\t\treturn this.iconList || []\r\n \t\t}\r\n \t},\r\n \tactions: {}\r\n"
+                },
+                {
+                    "date": 1678098079188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,9 @@\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tif (this.iconList.length === 0) {\r\n \t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n \t\t\t}\r\n-\t\t\treturn this.iconList || []\r\n-\t\t}\r\n+\t\t\treturn this.iconList || {}\r\n \t},\r\n \tactions: {}\r\n })\r\n \r\n"
+                },
+                {
+                    "date": 1678098158158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \ttheme: Theme\r\n \tcolors: string | string[]\r\n \tstrokeLinejoin: string\r\n \tstrokeLinecap: string\r\n-\ticonList: Record<string, any>\r\n+\ticonList: Record<any, any>\r\n }\r\n \r\n export const useSvgStore = defineStore('counter', {\r\n \tstate: (): IconSpaceProps => ({\r\n@@ -18,12 +18,12 @@\n \t\ttheme: 'multi-color',\r\n \t\tcolors: ['#666', '#2F88FF', '#FFF', '#43CCF8'],\r\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n-\t\ticonList: []\r\n+\t\ticonList: {}\r\n \t}),\r\n \tgetters: {\r\n-\t\tgroupIconList(): Record<string, any> {\r\n+\t\tgroupIconList(): Record<any, any> {\r\n \t\t\tif (this.iconList.length === 0) {\r\n \t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n \t\t\t}\r\n \t\t\treturn this.iconList || {}\r\n"
+                },
+                {
+                    "date": 1678098182756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \ttheme: Theme\r\n \tcolors: string | string[]\r\n \tstrokeLinejoin: string\r\n \tstrokeLinecap: string\r\n-\ticonList: Record<any, any>\r\n+\ticonList: Record<string, any>\r\n }\r\n \r\n export const useSvgStore = defineStore('counter', {\r\n \tstate: (): IconSpaceProps => ({\r\n@@ -26,8 +26,9 @@\n \t\t\tif (this.iconList.length === 0) {\r\n \t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n \t\t\t}\r\n \t\t\treturn this.iconList || {}\r\n+\t\t}\r\n \t},\r\n \tactions: {}\r\n })\r\n \r\n"
+                },
+                {
+                    "date": 1678098354094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,13 +21,17 @@\n \t\tstrokeLinecap: 'square',\r\n \t\ticonList: {}\r\n \t}),\r\n \tgetters: {\r\n-\t\tgroupIconList(): Record<any, any> {\r\n-\t\t\tif (this.iconList.length === 0) {\r\n-\t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\t}\r\n-\t\t\treturn this.iconList || {}\r\n+\t\tasync groupIconList(): Record<string, any> {\r\n+\t\t\treturn (\r\n+\t\t\t\tnew Promise((resolve, reject) => {\r\n+\t\t\t\t\tif (this.iconList.length === 0) {\r\n+\t\t\t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n+\t\t\t\t\t}\r\n+\t\t\t\t\tthis.iconList\r\n+\t\t\t\t}) || {}\r\n+\t\t\t)\r\n \t\t}\r\n \t},\r\n \tactions: {}\r\n })\r\n"
+                },
+                {
+                    "date": 1678098396089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,17 +21,15 @@\n \t\tstrokeLinecap: 'square',\r\n \t\ticonList: {}\r\n \t}),\r\n \tgetters: {\r\n-\t\tasync groupIconList(): Record<string, any> {\r\n-\t\t\treturn (\r\n-\t\t\t\tnew Promise((resolve, reject) => {\r\n-\t\t\t\t\tif (this.iconList.length === 0) {\r\n-\t\t\t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\t\t\t}\r\n-\t\t\t\t\tthis.iconList\r\n-\t\t\t\t}) || {}\r\n-\t\t\t)\r\n+\t\tasync groupIconList() {\r\n+\t\t\treturn new Promise((resolve, reject) => {\r\n+\t\t\t\tif (this.iconList.length === 0) {\r\n+\t\t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n+\t\t\t\t}\r\n+\t\t\t\tresolve(this.iconList)\r\n+\t\t\t})\r\n \t\t}\r\n \t},\r\n \tactions: {}\r\n })\r\n"
+                },
+                {
+                    "date": 1678098478699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,12 @@\n \tgetters: {\r\n \t\tasync groupIconList() {\r\n \t\t\treturn new Promise((resolve, reject) => {\r\n \t\t\t\tif (this.iconList.length === 0) {\r\n-\t\t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n+\t\t\t\t\tthis.iconList = await new Promise((resolve, reject) => {\r\n+\t\t\t\t\t\tconst result = groupBy(IconJSON, 'categoryCN')\r\n+\t\t\t\t\t\tresolve(result)\r\n+\t\t\t\t\t})\r\n \t\t\t\t}\r\n \t\t\t\tresolve(this.iconList)\r\n \t\t\t})\r\n \t\t}\r\n"
+                },
+                {
+                    "date": 1678098491571,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n \t\ticonList: {}\r\n \t}),\r\n \tgetters: {\r\n \t\tasync groupIconList() {\r\n-\t\t\treturn new Promise((resolve, reject) => {\r\n+\t\t\treturn new Promise(async (resolve, reject) => {\r\n \t\t\t\tif (this.iconList.length === 0) {\r\n \t\t\t\t\tthis.iconList = await new Promise((resolve, reject) => {\r\n \t\t\t\t\t\tconst result = groupBy(IconJSON, 'categoryCN')\r\n \t\t\t\t\t\tresolve(result)\r\n"
+                },
+                {
+                    "date": 1678151539227,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,12 +24,9 @@\n \tgetters: {\r\n \t\tasync groupIconList() {\r\n \t\t\treturn new Promise(async (resolve, reject) => {\r\n \t\t\t\tif (this.iconList.length === 0) {\r\n-\t\t\t\t\tthis.iconList = await new Promise((resolve, reject) => {\r\n-\t\t\t\t\t\tconst result = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\t\t\t\tresolve(result)\r\n-\t\t\t\t\t})\r\n+\t\t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n \t\t\t\t}\r\n \t\t\t\tresolve(this.iconList)\r\n \t\t\t})\r\n \t\t}\r\n"
+                },
+                {
+                    "date": 1678151736079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n \t\ticonList: {}\r\n \t}),\r\n+\tpersist: true,\r\n \tgetters: {\r\n \t\tasync groupIconList() {\r\n \t\t\treturn new Promise(async (resolve, reject) => {\r\n \t\t\t\tif (this.iconList.length === 0) {\r\n"
+                },
+                {
+                    "date": 1678152061299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,16 +22,16 @@\n \t\ticonList: {}\r\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n-\t\tasync groupIconList() {\r\n-\t\t\treturn new Promise(async (resolve, reject) => {\r\n-\t\t\t\tif (this.iconList.length === 0) {\r\n-\t\t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\t\t}\r\n-\t\t\t\tresolve(this.iconList)\r\n-\t\t\t})\r\n-\t\t}\r\n+\t\t// async groupIconList() {\r\n+\t\t// \treturn new Promise(async (resolve, reject) => {\r\n+\t\t// \t\tif (this.iconList.length === 0) {\r\n+\t\t// \t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n+\t\t// \t\t}\r\n+\t\t// \t\tresolve(this.iconList)\r\n+\t\t// \t})\r\n+\t\t// }\r\n \t},\r\n \tactions: {}\r\n })\r\n \r\n"
+                },
+                {
+                    "date": 1678152601109,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \tstrokeLinecap: string\r\n \ticonList: Record<string, any>\r\n }\r\n \r\n-export const useSvgStore = defineStore('counter', {\r\n+export const useSvgStore = defineStore('app', {\r\n \tstate: (): IconSpaceProps => ({\r\n \t\tstrokeWidth: 2,\r\n \t\tsize: 24,\r\n \t\ttheme: 'multi-color',\r\n"
+                },
+                {
+                    "date": 1678156143101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,16 +22,16 @@\n \t\ticonList: {}\r\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n-\t\t// async groupIconList() {\r\n-\t\t// \treturn new Promise(async (resolve, reject) => {\r\n-\t\t// \t\tif (this.iconList.length === 0) {\r\n-\t\t// \t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n-\t\t// \t\t}\r\n-\t\t// \t\tresolve(this.iconList)\r\n-\t\t// \t})\r\n-\t\t// }\r\n+\t\tasync groupIconList() {\r\n+\t\t\treturn new Promise(async (resolve, reject) => {\r\n+\t\t\t\tif (this.iconList.length === 0) {\r\n+\t\t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n+\t\t\t\t}\r\n+\t\t\t\tresolve(this.iconList)\r\n+\t\t\t})\r\n+\t\t}\r\n \t},\r\n \tactions: {}\r\n })\r\n \r\n"
+                },
+                {
+                    "date": 1678156259565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,15 +22,14 @@\n \t\ticonList: {}\r\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n-\t\tasync groupIconList() {\r\n-\t\t\treturn new Promise(async (resolve, reject) => {\r\n-\t\t\t\tif (this.iconList.length === 0) {\r\n-\t\t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\t\t}\r\n-\t\t\t\tresolve(this.iconList)\r\n-\t\t\t})\r\n+\t\tgroupIconList(): Record<string, any> {\r\n+\t\t\tif (this.iconList.length === 0) {\r\n+\t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n+\t\t\t\treturn this.iconList\r\n+\t\t\t}\r\n+\t\t\treturn this.iconList\r\n \t\t}\r\n \t},\r\n \tactions: {}\r\n })\r\n"
+                },
+                {
+                    "date": 1678156296664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n \tgetters: {\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tif (this.iconList.length === 0) {\r\n \t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n+\t\t\t\tconsole.log(this.iconList.length)\r\n \t\t\t\treturn this.iconList\r\n \t\t\t}\r\n \t\t\treturn this.iconList\r\n \t\t}\r\n"
+                },
+                {
+                    "date": 1678156506051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,16 @@\n \t\ticonList: {}\r\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n+\t\tdoubleCount: (state) => {\r\n+\t\t\tif (this.iconList.length === 0) {\r\n+\t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n+\t\t\t\tconsole.log(this.iconList.length)\r\n+\t\t\t\treturn this.iconList\r\n+\t\t\t}\r\n+\t\t\treturn this.iconList\r\n+\t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tif (this.iconList.length === 0) {\r\n \t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n \t\t\t\tconsole.log(this.iconList.length)\r\n"
+                },
+                {
+                    "date": 1678156513418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,14 +23,14 @@\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n-\t\t\tif (this.iconList.length === 0) {\r\n-\t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\t\tconsole.log(this.iconList.length)\r\n-\t\t\t\treturn this.iconList\r\n+\t\t\tif (state.iconList.length === 0) {\r\n+\t\t\t\tstate.iconList = groupBy(IconJSON, 'categoryCN')\r\n+\t\t\t\tconsole.log(state.iconList.length)\r\n+\t\t\t\treturn state.iconList\r\n \t\t\t}\r\n-\t\t\treturn this.iconList\r\n+\t\t\treturn state.iconList\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tif (this.iconList.length === 0) {\r\n \t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n"
+                },
+                {
+                    "date": 1678156567411,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,8 @@\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tif (state.iconList.length === 0) {\r\n \t\t\t\tstate.iconList = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\t\tconsole.log(state.iconList.length)\r\n \t\t\t\treturn state.iconList\r\n \t\t\t}\r\n \t\t\treturn state.iconList\r\n \t\t},\r\n"
+                },
+                {
+                    "date": 1678156644473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,8 +31,9 @@\n \t\t\treturn state.iconList\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tif (this.iconList.length === 0) {\r\n+\t\t\t\tconsole.log('执行')\r\n \t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n \t\t\t\tconsole.log(this.iconList.length)\r\n \t\t\t\treturn this.iconList\r\n \t\t\t}\r\n"
+                },
+                {
+                    "date": 1678156656557,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,16 +24,17 @@\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tif (state.iconList.length === 0) {\r\n+\t\t\t\tconsole.log('执行')\r\n \t\t\t\tstate.iconList = groupBy(IconJSON, 'categoryCN')\r\n \t\t\t\treturn state.iconList\r\n \t\t\t}\r\n \t\t\treturn state.iconList\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tif (this.iconList.length === 0) {\r\n-\t\t\t\tconsole.log('执行')\r\n+\r\n \t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n \t\t\t\tconsole.log(this.iconList.length)\r\n \t\t\t\treturn this.iconList\r\n \t\t\t}\r\n"
+                },
+                {
+                    "date": 1678156665706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,8 @@\n \t\t\treturn state.iconList\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tif (this.iconList.length === 0) {\r\n-\r\n \t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n \t\t\t\tconsole.log(this.iconList.length)\r\n \t\t\t\treturn this.iconList\r\n \t\t\t}\r\n"
+                },
+                {
+                    "date": 1678156712170,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,8 @@\n \t\t\t\tconsole.log('执行')\r\n \t\t\t\tstate.iconList = groupBy(IconJSON, 'categoryCN')\r\n \t\t\t\treturn state.iconList\r\n \t\t\t}\r\n-\t\t\treturn state.iconList\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tif (this.iconList.length === 0) {\r\n \t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n"
+                },
+                {
+                    "date": 1678156770526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,13 +23,9 @@\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n-\t\t\tif (state.iconList.length === 0) {\r\n-\t\t\t\tconsole.log('执行')\r\n-\t\t\t\tstate.iconList = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\t\treturn state.iconList\r\n-\t\t\t}\r\n+\t\t\treturn state.iconList.length === 0 ? groupBy(IconJSON, 'categoryCN') : state.iconList\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tif (this.iconList.length === 0) {\r\n \t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n"
+                },
+                {
+                    "date": 1678156885301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import IconJSON from '@icon-space/vue-next/icons.json'\r\n+import { groupBy } from '@/utils/common'\r\n \r\n export type Theme = 'outline' | 'filled' | 'two-tone' | 'multi-color'\r\n export interface IconSpaceProps {\r\n \tstrokeWidth: number\r\n"
+                },
+                {
+                    "date": 1678157357021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,9 @@\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n+\t\t\tconsole.log('hello')\r\n \t\t\treturn state.iconList.length === 0 ? groupBy(IconJSON, 'categoryCN') : state.iconList\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tif (this.iconList.length === 0) {\r\n"
+                },
+                {
+                    "date": 1678157370240,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n-\t\t\tconsole.log('hello')\r\n+\t\t\tconsole.log('hello', groupBy(IconJSON, 'categoryCN'))\r\n \t\t\treturn state.iconList.length === 0 ? groupBy(IconJSON, 'categoryCN') : state.iconList\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tif (this.iconList.length === 0) {\r\n"
+                },
+                {
+                    "date": 1678157397396,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,11 @@\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n-\t\t\tconsole.log('hello', groupBy(IconJSON, 'categoryCN'))\r\n-\t\t\treturn state.iconList.length === 0 ? groupBy(IconJSON, 'categoryCN') : state.iconList\r\n+\t\t\tconst result = state.iconList.length === 0 ? groupBy(IconJSON, 'categoryCN') : state.iconList\r\n+\t\t\tconsole.log('hello', groupBy(IconJSON, 'categoryCN'),result)\r\n+\t\t\treturn result\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tif (this.iconList.length === 0) {\r\n \t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n"
+                },
+                {
+                    "date": 1678157437828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,11 @@\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n-\t\t\tconst result = state.iconList.length === 0 ? groupBy(IconJSON, 'categoryCN') : state.iconList\r\n-\t\t\tconsole.log('hello', groupBy(IconJSON, 'categoryCN'),result)\r\n+\t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n+\t\t\tconst result = state.iconList.length === 0 ? groupResult : state.iconList\r\n+\t\t\tconsole.log('hello', groupResult, result)\r\n \t\t\treturn result\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tif (this.iconList.length === 0) {\r\n"
+                },
+                {
+                    "date": 1678157512927,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n+\t\t\tstate.iconList = groupResult\r\n \t\t\tconst result = state.iconList.length === 0 ? groupResult : state.iconList\r\n \t\t\tconsole.log('hello', groupResult, result)\r\n \t\t\treturn result\r\n \t\t},\r\n"
+                },
+                {
+                    "date": 1678157547465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,9 @@\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\tstate.iconList = groupResult\r\n-\t\t\tconst result = state.iconList.length === 0 ? groupResult : state.iconList\r\n+\t\t\tconst result = !state ? groupResult : state.iconList\r\n \t\t\tconsole.log('hello', groupResult, result)\r\n \t\t\treturn result\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n"
+                },
+                {
+                    "date": 1678157562175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \ttheme: Theme\r\n \tcolors: string | string[]\r\n \tstrokeLinejoin: string\r\n \tstrokeLinecap: string\r\n-\ticonList: Record<string, any>\r\n+\ticonList: Record<string, any> | undefined\r\n }\r\n \r\n export const useSvgStore = defineStore('app', {\r\n \tstate: (): IconSpaceProps => ({\r\n@@ -19,9 +19,9 @@\n \t\ttheme: 'multi-color',\r\n \t\tcolors: ['#666', '#2F88FF', '#FFF', '#43CCF8'],\r\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n-\t\ticonList: {}\r\n+\t\ticonList: undefined\r\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n"
+                },
+                {
+                    "date": 1678157576500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,19 +25,17 @@\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\tconst result = !state ? groupResult : state.iconList\r\n+\t\t\tconst result = state === undefined ? groupResult : state.iconList\r\n \t\t\tconsole.log('hello', groupResult, result)\r\n \t\t\treturn result\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n-\t\t\tif (this.iconList.length === 0) {\r\n-\t\t\t\tthis.iconList = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\t\tconsole.log(this.iconList.length)\r\n-\t\t\t\treturn this.iconList\r\n-\t\t\t}\r\n-\t\t\treturn this.iconList\r\n+\t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n+\t\t\tconst result = state === undefined ? groupResult : state.iconList\r\n+\t\t\tconsole.log('hello', groupResult, result)\r\n+\t\t\treturn result\r\n \t\t}\r\n \t},\r\n \tactions: {}\r\n })\r\n"
+                },
+                {
+                    "date": 1678157592404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,15 +25,15 @@\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\tconst result = state === undefined ? groupResult : state.iconList\r\n+\t\t\tconst result = state.iconList === undefined ? groupResult : state.iconList\r\n \t\t\tconsole.log('hello', groupResult, result)\r\n \t\t\treturn result\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\tconst result = state === undefined ? groupResult : state.iconList\r\n+\t\t\tconst result = this.iconList === undefined ? groupResult : state.iconList\r\n \t\t\tconsole.log('hello', groupResult, result)\r\n \t\t\treturn result\r\n \t\t}\r\n \t},\r\n"
+                },
+                {
+                    "date": 1678157601427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n \t\t\treturn result\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\tconst result = this.iconList === undefined ? groupResult : state.iconList\r\n+\t\t\tconst result = this.iconList === undefined ? groupResult : this.iconList\r\n \t\t\tconsole.log('hello', groupResult, result)\r\n \t\t\treturn result\r\n \t\t}\r\n \t},\r\n"
+                },
+                {
+                    "date": 1678157635025,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,9 @@\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n-\t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\tconst result = state.iconList === undefined ? groupResult : state.iconList\r\n+\t\t\tconst result = state.iconList === undefined ? groupBy(IconJSON, 'categoryCN') : state.iconList\r\n \t\t\tconsole.log('hello', groupResult, result)\r\n \t\t\treturn result\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n"
+                },
+                {
+                    "date": 1678157640792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,11 +24,9 @@\n \t}),\r\n \tpersist: true,\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n-\t\t\tconst result = state.iconList === undefined ? groupBy(IconJSON, 'categoryCN') : state.iconList\r\n-\t\t\tconsole.log('hello', groupResult, result)\r\n-\t\t\treturn result\r\n+\t\t\treturn state.iconList === undefined ? groupBy(IconJSON, 'categoryCN') : state.iconList\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n \t\t\tconst result = this.iconList === undefined ? groupResult : this.iconList\r\n"
+                },
+                {
+                    "date": 1678158264148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n+import { groupBy } from '@/utils/common'\r\n import IconJSON from '@icon-space/vue-next/icons.json'\r\n-import { groupBy } from '@/utils/common'\r\n \r\n export type Theme = 'outline' | 'filled' | 'two-tone' | 'multi-color'\r\n export interface IconSpaceProps {\r\n \tstrokeWidth: number\r\n"
+                },
+                {
+                    "date": 1678161118999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,18 @@\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n \t\ticonList: undefined\r\n \t}),\r\n-\tpersist: true,\r\n+\tpersist: {\r\n+    enabled: true,\r\n+    strategies: [\r\n+      {\r\n+        key: \"USER-INFO\",\r\n+        storage: process.client ? localStorage : null,\r\n+      },\r\n+    ],\r\n+  },\r\n+\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\treturn state.iconList === undefined ? groupBy(IconJSON, 'categoryCN') : state.iconList\r\n \t\t},\r\n"
+                },
+                {
+                    "date": 1678161268740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,17 +21,9 @@\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n \t\ticonList: undefined\r\n \t}),\r\n-\tpersist: {\r\n-    enabled: true,\r\n-    strategies: [\r\n-      {\r\n-        key: \"USER-INFO\",\r\n-        storage: process.client ? localStorage : null,\r\n-      },\r\n-    ],\r\n-  },\r\n+\tpersist: true,\r\n \r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\treturn state.iconList === undefined ? groupBy(IconJSON, 'categoryCN') : state.iconList\r\n"
+                },
+                {
+                    "date": 1678162449957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,8 @@\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n \t\ticonList: undefined\r\n \t}),\r\n-\tpersist: true,\r\n-\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\treturn state.iconList === undefined ? groupBy(IconJSON, 'categoryCN') : state.iconList\r\n \t\t},\r\n"
+                },
+                {
+                    "date": 1678162602343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,10 @@\n \t\ticonList: undefined\r\n \t}),\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n-\t\t\treturn state.iconList === undefined ? groupBy(IconJSON, 'categoryCN') : state.iconList\r\n+\t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n+\t\t\treturn state.iconList === undefined ? localStorage.getItem('icon-data') : state.iconList\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n \t\t\tconst result = this.iconList === undefined ? groupResult : this.iconList\r\n"
+                },
+                {
+                    "date": 1678162619669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \t\ttheme: 'multi-color',\r\n \t\tcolors: ['#666', '#2F88FF', '#FFF', '#43CCF8'],\r\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n-\t\ticonList: undefined\r\n+\t\ticonList:  localStorage.getItem('icon-data')\r\n \t}),\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n"
+                },
+                {
+                    "date": 1678162644028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \t\ttheme: 'multi-color',\r\n \t\tcolors: ['#666', '#2F88FF', '#FFF', '#43CCF8'],\r\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n-\t\ticonList:  localStorage.getItem('icon-data')\r\n+\t\ticonList: localStorage.getItem('icon-data') as any\r\n \t}),\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n"
+                },
+                {
+                    "date": 1678163011111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \t\ttheme: 'multi-color',\r\n \t\tcolors: ['#666', '#2F88FF', '#FFF', '#43CCF8'],\r\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n-\t\ticonList: localStorage.getItem('icon-data') as any\r\n+\t\ticonList: JSON.parse(localStorage.getItem('icon-data'))\r\n \t}),\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n"
+                },
+                {
+                    "date": 1678163021447,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \t\ttheme: 'multi-color',\r\n \t\tcolors: ['#666', '#2F88FF', '#FFF', '#43CCF8'],\r\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n-\t\ticonList: JSON.parse(localStorage.getItem('icon-data'))\r\n+\t\ticonList: JSON.parse(localStorage.getItem('icon-data') as string) as Record<string, any>\r\n \t}),\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n"
+                },
+                {
+                    "date": 1678163052309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,14 +19,14 @@\n \t\ttheme: 'multi-color',\r\n \t\tcolors: ['#666', '#2F88FF', '#FFF', '#43CCF8'],\r\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n-\t\ticonList: JSON.parse(localStorage.getItem('icon-data') as string) as Record<string, any>\r\n+\t\ticonList: JSON.parse(localStorage.getItem('icon-data') as string)\r\n \t}),\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n-\t\t\treturn state.iconList === undefined ? localStorage.getItem('icon-data') : state.iconList\r\n+\t\t\treturn state.iconList === undefined ? JSON.parse(localStorage.getItem('icon-data') as string) : state.iconList\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n \t\t\tconst result = this.iconList === undefined ? groupResult : this.iconList\r\n"
+                },
+                {
+                    "date": 1678163080750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,10 @@\n \t}),\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n-\t\t\treturn state.iconList === undefined ? JSON.parse(localStorage.getItem('icon-data') as string) : state.iconList\r\n+\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n+\t\t\treturn state.iconList === undefined && result ? JSON.parse(result) : state.iconList\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n \t\t\tconst result = this.iconList === undefined ? groupResult : this.iconList\r\n"
+                },
+                {
+                    "date": 1678163088433,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n \t\t\tconst result = localStorage.getItem('icon-data') as string\r\n-\t\t\treturn state.iconList === undefined && result ? JSON.parse(result) : state.iconList\r\n+\t\t\treturn state.iconList === undefined && !result ? JSON.parse(result) : state.iconList\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n \t\t\tconst result = this.iconList === undefined ? groupResult : this.iconList\r\n"
+                },
+                {
+                    "date": 1678163276820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \t\ttheme: 'multi-color',\r\n \t\tcolors: ['#666', '#2F88FF', '#FFF', '#43CCF8'],\r\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n-\t\ticonList: JSON.parse(localStorage.getItem('icon-data') as string)\r\n+\t\ticonList: process.client && JSON.parse(localStorage.getItem('icon-data') as string)\r\n \t}),\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n"
+                },
+                {
+                    "date": 1678163284798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n \t}),\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n-\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n+\t\t\tconst result = process.client && localStorage.getItem('icon-data') as string\r\n \t\t\treturn state.iconList === undefined && !result ? JSON.parse(result) : state.iconList\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n"
+                },
+                {
+                    "date": 1678163312849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,12 @@\n \t}),\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n-\t\t\tconst result = process.client && localStorage.getItem('icon-data') as string\r\n-\t\t\treturn state.iconList === undefined && !result ? JSON.parse(result) : state.iconList\r\n+\t\t\tif (process.client) {\r\n+\t\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n+\t\t\t\treturn state.iconList === undefined && !result ? JSON.parse(result) : state.iconList\r\n+\t\t\t}\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n \t\t\tconst result = this.iconList === undefined ? groupResult : this.iconList\r\n"
+                },
+                {
+                    "date": 1678163752183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n \t}),\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n \t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n-\t\t\tif (process.client) {\r\n+\t\t\tif (typeof window !== \"undefined\") {\r\n \t\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n \t\t\t\treturn state.iconList === undefined && !result ? JSON.parse(result) : state.iconList\r\n \t\t\t}\r\n \t\t},\r\n"
+                },
+                {
+                    "date": 1678163791088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,12 +23,12 @@\n \t\ticonList: process.client && JSON.parse(localStorage.getItem('icon-data') as string)\r\n \t}),\r\n \tgetters: {\r\n \t\tdoubleCount: (state) => {\r\n-\t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n-\t\t\tif (typeof window !== \"undefined\") {\r\n+\t\t\tif (typeof window !== 'undefined') {\r\n+\t\t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n \t\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n-\t\t\t\treturn state.iconList === undefined && !result ? JSON.parse(result) : state.iconList\r\n+\t\t\t\treturn state.iconList === undefined  JSON.parse(result) : state.iconList\r\n \t\t\t}\r\n \t\t},\r\n \t\tgroupIconList(): Record<string, any> {\r\n \t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n"
+                },
+                {
+                    "date": 1678163807124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,20 +22,14 @@\n \t\tstrokeLinecap: 'square',\r\n \t\ticonList: process.client && JSON.parse(localStorage.getItem('icon-data') as string)\r\n \t}),\r\n \tgetters: {\r\n-\t\tdoubleCount: (state) => {\r\n+\t\tgroupIconList: (state) => {\r\n \t\t\tif (typeof window !== 'undefined') {\r\n \t\t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n \t\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n-\t\t\t\treturn state.iconList === undefined  JSON.parse(result) : state.iconList\r\n+\t\t\t\treturn state.iconList === undefined ? JSON.parse(result) : state.iconList\r\n \t\t\t}\r\n-\t\t},\r\n-\t\tgroupIconList(): Record<string, any> {\r\n-\t\t\tconst groupResult = groupBy(IconJSON, 'categoryCN')\r\n-\t\t\tconst result = this.iconList === undefined ? groupResult : this.iconList\r\n-\t\t\tconsole.log('hello', groupResult, result)\r\n-\t\t\treturn result\r\n \t\t}\r\n \t},\r\n \tactions: {}\r\n })\r\n"
+                },
+                {
+                    "date": 1678163833567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n \t\t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n \t\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n \t\t\t\treturn state.iconList === undefined ? JSON.parse(result) : state.iconList\r\n \t\t\t}\r\n+\t\t\treturn state.iconList\r\n \t\t}\r\n \t},\r\n \tactions: {}\r\n })\r\n"
+                },
+                {
+                    "date": 1678163846797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \t\ttheme: 'multi-color',\r\n \t\tcolors: ['#666', '#2F88FF', '#FFF', '#43CCF8'],\r\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n-\t\ticonList: process.client && JSON.parse(localStorage.getItem('icon-data') as string)\r\n+\t\ticonList: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('icon-data') as string)\r\n \t}),\r\n \tgetters: {\r\n \t\tgroupIconList: (state) => {\r\n \t\t\tif (typeof window !== 'undefined') {\r\n"
+                },
+                {
+                    "date": 1678163860492,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \t\ttheme: 'multi-color',\r\n \t\tcolors: ['#666', '#2F88FF', '#FFF', '#43CCF8'],\r\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n-\t\ticonList: typeof window !== 'undefined' && JSON.parse(localStorage.getItem('icon-data') as string)\r\n+\t\ticonList: {}\r\n \t}),\r\n \tgetters: {\r\n \t\tgroupIconList: (state) => {\r\n \t\t\tif (typeof window !== 'undefined') {\r\n"
+                },
+                {
+                    "date": 1678164356140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,9 @@\n \t}),\r\n \tgetters: {\r\n \t\tgroupIconList: (state) => {\r\n \t\t\tif (typeof window !== 'undefined') {\r\n+\t\t\t\tconsole.log('jinlaile ')\r\n \t\t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n \t\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n \t\t\t\treturn state.iconList === undefined ? JSON.parse(result) : state.iconList\r\n \t\t\t}\r\n"
+                },
+                {
+                    "date": 1678164382015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n \t\t\tif (typeof window !== 'undefined') {\r\n \t\t\t\tconsole.log('jinlaile ')\r\n \t\t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n \t\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n+\t\t\t\tconsole.log('state.iconList', state.iconList)\r\n \t\t\t\treturn state.iconList === undefined ? JSON.parse(result) : state.iconList\r\n \t\t\t}\r\n \t\t\treturn state.iconList\r\n \t\t}\r\n"
+                },
+                {
+                    "date": 1678164391359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \t\t\tif (typeof window !== 'undefined') {\r\n \t\t\t\tconsole.log('jinlaile ')\r\n \t\t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n \t\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n-\t\t\t\tconsole.log('state.iconList', state.iconList)\r\n+\t\t\t\tconsole.log('state.iconList',result, state.iconList)\r\n \t\t\t\treturn state.iconList === undefined ? JSON.parse(result) : state.iconList\r\n \t\t\t}\r\n \t\t\treturn state.iconList\r\n \t\t}\r\n"
+                },
+                {
+                    "date": 1678164396679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \t\t\tif (typeof window !== 'undefined') {\r\n \t\t\t\tconsole.log('jinlaile ')\r\n \t\t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n \t\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n-\t\t\t\tconsole.log('state.iconList',result, state.iconList)\r\n+\t\t\t\tconsole.log('state.iconList', result, state.iconList)\r\n \t\t\t\treturn state.iconList === undefined ? JSON.parse(result) : state.iconList\r\n \t\t\t}\r\n \t\t\treturn state.iconList\r\n \t\t}\r\n"
+                },
+                {
+                    "date": 1678164405902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n \t\t\t\tconsole.log('jinlaile ')\r\n \t\t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n \t\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n \t\t\t\tconsole.log('state.iconList', result, state.iconList)\r\n-\t\t\t\treturn state.iconList === undefined ? JSON.parse(result) : state.iconList\r\n+\t\t\t\treturn !state.iconList ? JSON.parse(result) : state.iconList\r\n \t\t\t}\r\n \t\t\treturn state.iconList\r\n \t\t}\r\n \t},\r\n"
+                },
+                {
+                    "date": 1678164444543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,18 +19,18 @@\n \t\ttheme: 'multi-color',\r\n \t\tcolors: ['#666', '#2F88FF', '#FFF', '#43CCF8'],\r\n \t\tstrokeLinejoin: 'miter',\r\n \t\tstrokeLinecap: 'square',\r\n-\t\ticonList: {}\r\n+\t\ticonList: undefined\r\n \t}),\r\n \tgetters: {\r\n \t\tgroupIconList: (state) => {\r\n \t\t\tif (typeof window !== 'undefined') {\r\n \t\t\t\tconsole.log('jinlaile ')\r\n \t\t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n \t\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n \t\t\t\tconsole.log('state.iconList', result, state.iconList)\r\n-\t\t\t\treturn !state.iconList ? JSON.parse(result) : state.iconList\r\n+\t\t\t\treturn state.iconList ===  ? JSON.parse(result) : state.iconList\r\n \t\t\t}\r\n \t\t\treturn state.iconList\r\n \t\t}\r\n \t},\r\n"
+                },
+                {
+                    "date": 1678164464526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,13 +24,11 @@\n \t}),\r\n \tgetters: {\r\n \t\tgroupIconList: (state) => {\r\n \t\t\tif (typeof window !== 'undefined') {\r\n-\t\t\t\tconsole.log('jinlaile ')\r\n \t\t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n \t\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n-\t\t\t\tconsole.log('state.iconList', result, state.iconList)\r\n-\t\t\t\treturn state.iconList ===  ? JSON.parse(result) : state.iconList\r\n+\t\t\t\treturn state.iconList === undefined ? JSON.parse(result) : state.iconList\r\n \t\t\t}\r\n \t\t\treturn state.iconList\r\n \t\t}\r\n \t},\r\n"
+                },
+                {
+                    "date": 1678164545006,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n \t\t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n \t\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n \t\t\t\treturn state.iconList === undefined ? JSON.parse(result) : state.iconList\r\n \t\t\t}\r\n-\t\t\treturn state.iconList\r\n+\t\t\treturn {}\r\n \t\t}\r\n \t},\r\n \tactions: {}\r\n })\r\n"
+                },
+                {
+                    "date": 1678174162096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,12 @@\n-import { groupBy } from '@/utils/common'\r\n-import IconJSON from '@icon-space/vue-next/icons.json'\r\n-\r\n export type Theme = 'outline' | 'filled' | 'two-tone' | 'multi-color'\r\n export interface IconSpaceProps {\r\n \tstrokeWidth: number\r\n \tsize: number\r\n \ttheme: Theme\r\n \tcolors: string | string[]\r\n \tstrokeLinejoin: string\r\n \tstrokeLinecap: string\r\n-\ticonList: Record<string, any> | undefined\r\n }\r\n \r\n export const useSvgStore = defineStore('app', {\r\n \tstate: (): IconSpaceProps => ({\r\n@@ -18,22 +14,10 @@\n \t\tsize: 24,\r\n \t\ttheme: 'multi-color',\r\n \t\tcolors: ['#666', '#2F88FF', '#FFF', '#43CCF8'],\r\n \t\tstrokeLinejoin: 'miter',\r\n-\t\tstrokeLinecap: 'square',\r\n-\t\ticonList: undefined\r\n-\t}),\r\n-\tgetters: {\r\n-\t\tgroupIconList: (state) => {\r\n-\t\t\tif (typeof window !== 'undefined') {\r\n-\t\t\t\tuseLocalStorage('icon-data', groupBy(IconJSON, 'categoryCN'))\r\n-\t\t\t\tconst result = localStorage.getItem('icon-data') as string\r\n-\t\t\t\treturn state.iconList === undefined ? JSON.parse(result) : state.iconList\r\n-\t\t\t}\r\n-\t\t\treturn {}\r\n-\t\t}\r\n-\t},\r\n-\tactions: {}\r\n+\t\tstrokeLinecap: 'square'\r\n+\t})\r\n })\r\n \r\n if (import.meta.hot) {\r\n \timport.meta.hot.accept(acceptHMRUpdate(useSvgStore, import.meta.hot))\r\n"
                 }
             ],
             "date": 1677747249044,
