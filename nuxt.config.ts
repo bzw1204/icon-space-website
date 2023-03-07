@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-	ssr: false,
+	ssr: true,
 	devServer: {
 		port: 23306
 	},
@@ -41,8 +41,13 @@ export default defineNuxtConfig({
 			exclude: ['dist', '.git', '.github', '.nuxt']
 		}
 	},
-	plugins: ['@/plugins/arco-design', '@/plugins/icon-space','@/plugins/color-picker'],
+	plugins: ['@/plugins/arco-design', '@/plugins/icon-space', '@/plugins/color-picker'],
 	pinia: {
 		autoImports: ['defineStore', 'acceptHMRUpdate']
+	},
+	nitro: {
+		prerender: {
+			routes: ['/', '/icon-pack']
+		}
 	}
 })

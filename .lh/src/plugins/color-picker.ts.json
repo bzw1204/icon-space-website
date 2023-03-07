@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 10,
+            "activePatchIndex": 11,
             "patches": [
                 {
                     "date": 1678178386908,
@@ -48,6 +48,10 @@
                 {
                     "date": 1678179129148,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import ColorPicker from 'colorpicker-v3'\r\n import '~~/node_modules/colorpicker-v3/style.css'\r\n+import '@/assets/css/index.css'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n \tnuxtApp.vueApp.use(ColorPicker)\r\n })\r\n"
+                },
+                {
+                    "date": 1678183111319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import ColorPicker from 'colorpicker-v3'\r\n-import '~~/node_modules/colorpicker-v3/style.css'\r\n+import 'colorpicker-v3/style.css'\r\n import '@/assets/css/index.css'\r\n \r\n export default defineNuxtPlugin((nuxtApp) => {\r\n \tnuxtApp.vueApp.use(ColorPicker)\r\n"
                 }
             ],
             "date": 1678178386908,
