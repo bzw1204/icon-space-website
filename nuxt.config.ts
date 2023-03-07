@@ -2,6 +2,9 @@
 
 export default defineNuxtConfig({
 	ssr: true,
+	app:{
+		baseURL: '/icon-space-website/'
+	},
 	devServer: {
 		port: 23306
 	},

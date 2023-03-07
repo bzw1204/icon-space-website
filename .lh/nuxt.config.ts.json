@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 79,
+            "activePatchIndex": 80,
             "patches": [
                 {
                     "date": 1677746251105,
@@ -324,6 +324,10 @@
                 {
                     "date": 1678180602695,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,14 @@\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}'],\n \t\t\texclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n-\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space','@/plugins/color-picker'],\n+\tplugins: ['@/plugins/arco-design', '@/plugins/icon-space', '@/plugins/color-picker'],\n \tpinia: {\n \t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n+\t},\n+\tnitro: {\n+\t\tprerender: {\n+\t\t\troutes: ['/', '/icon-pack']\n+\t\t}\n \t}\n })\n"
+                },
+                {
+                    "date": 1678184671175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,11 @@\n // https://nuxt.com/docs/api/configuration/nuxt-config\n \n export default defineNuxtConfig({\n \tssr: true,\n+\tapp:{\n+\t\tbaseURL: '/icon-space-website/'\n+\t},\n \tdevServer: {\n \t\tport: 23306\n \t},\n \tsrcDir: './src/',\n"
                 }
             ],
             "date": 1677746251105,
