@@ -7,17 +7,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install Dependencies by pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 6
-          run_install: true
+      - name: actions/checkout
+        uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v2
+      - name: Build Project
+        uses: actions/setup-node@master
         with:
-          node-version: "16.x"
+          node-version: '16.x'
+      - run: npm install
 
       - name: Build
         run: npm run generate
@@ -25,6 +22,6 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
+          github_token: ${{ secrets.DEPLOY_TOKEN  }}
           publish_dir: ".output/public"
           force_orphan: true
