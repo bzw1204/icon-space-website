@@ -3,7 +3,7 @@
 		<a-layout-header class="no-select fixed-header">
 			<div class="flex justify-between items-center px-20px">
 				<div class="w-135px h-58px flex justify-center items-center">
-					<img src="@/assets/logo.svg" alt="logo" width="100%" height="100%" />
+					<img src="@/assets/logo.svg" alt="logo" width="135" height="58" class="w-full h-full"/>
 				</div>
 				<div class="w-500px h-full flex justify-between">
 					<a-tabs v-model:active-key="selectedKes" type="text" lazy-load hide-content @change="handleTabs">

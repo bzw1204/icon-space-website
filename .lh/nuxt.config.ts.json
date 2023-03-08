@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 80,
+            "activePatchIndex": 92,
             "patches": [
                 {
                     "date": 1677746251105,
@@ -328,6 +328,54 @@
                 {
                     "date": 1678184671175,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,11 @@\n // https://nuxt.com/docs/api/configuration/nuxt-config\n \n export default defineNuxtConfig({\n \tssr: true,\n+\tapp:{\n+\t\tbaseURL: '/icon-space-website/'\n+\t},\n \tdevServer: {\n \t\tport: 23306\n \t},\n \tsrcDir: './src/',\n"
+                },
+                {
+                    "date": 1678185720602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export default defineNuxtConfig({\n \tssr: true,\n \tapp:{\n-\t\tbaseURL: '/icon-space-website/'\n+\t\tbaseURL: process.env. '/icon-space-website/'\n \t},\n \tdevServer: {\n \t\tport: 23306\n \t},\n"
+                },
+                {
+                    "date": 1678185752549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n // https://nuxt.com/docs/api/configuration/nuxt-config\n \n export default defineNuxtConfig({\n \tssr: true,\n-\tapp:{\n-\t\tbaseURL: process.env. '/icon-space-website/'\n+\tapp: {\n+\t\tbaseURL: process.env.NUXT_PUBLIC_API_BASE_URL\n \t},\n \tdevServer: {\n \t\tport: 23306\n \t},\n"
+                },
+                {
+                    "date": 1678186063162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export default defineNuxtConfig({\n \tssr: true,\n \tapp: {\n-\t\tbaseURL: process.env.NUXT_PUBLIC_API_BASE_URL\n+\t\tbaseURL: process.env.NODE_ENV\n \t},\n \tdevServer: {\n \t\tport: 23306\n \t},\n"
+                },
+                {
+                    "date": 1678238792129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export default defineNuxtConfig({\n \tssr: true,\n \tapp: {\n-\t\tbaseURL: process.env.NODE_ENV\n+\t\tbaseURL: '/'\n \t},\n \tdevServer: {\n \t\tport: 23306\n \t},\n"
+                },
+                {
+                    "date": 1678242154206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export default defineNuxtConfig({\n \tssr: true,\n \tapp: {\n-\t\tbaseURL: '/'\n+\t\tbaseURL: process.env.NODE_ENV\n \t},\n \tdevServer: {\n \t\tport: 23306\n \t},\n"
+                },
+                {
+                    "date": 1678242360611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export default defineNuxtConfig({\n \tssr: true,\n \tapp: {\n-\t\tbaseURL: process.env.NODE_ENV\n+\t\tbaseURL: process.env.API_BASE_URL\n \t},\n \tdevServer: {\n \t\tport: 23306\n \t},\n"
+                },
+                {
+                    "date": 1678242378168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export default defineNuxtConfig({\n \tssr: true,\n \tapp: {\n-\t\tbaseURL: process.env.API_BASE_URL\n+\t\tbaseURL: process.env.NUXT_BASE_URL\n \t},\n \tdevServer: {\n \t\tport: 23306\n \t},\n"
+                },
+                {
+                    "date": 1678242580556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export default defineNuxtConfig({\n \tssr: true,\n \tapp: {\n-\t\tbaseURL: process.env.NUXT_BASE_URL\n+\t\tbaseURL: process.env.NODE_ENV === 'development' ? '':'/icon-space-website'\n \t},\n \tdevServer: {\n \t\tport: 23306\n \t},\n"
+                },
+                {
+                    "date": 1678242586351,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export default defineNuxtConfig({\n \tssr: true,\n \tapp: {\n-\t\tbaseURL: process.env.NODE_ENV === 'development' ? '':'/icon-space-website'\n+\t\tbaseURL: process.env.NODE_ENV === 'development' ? '/av' : '/icon-space-website'\n \t},\n \tdevServer: {\n \t\tport: 23306\n \t},\n"
+                },
+                {
+                    "date": 1678243313026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export default defineNuxtConfig({\n \tssr: true,\n \tapp: {\n-\t\tbaseURL: process.env.NODE_ENV === 'development' ? '/av' : '/icon-space-website'\n+\t\tbaseURL: process.env.NODE_ENV === 'development' ? '/' : '/icon-space-website'\n \t},\n \tdevServer: {\n \t\tport: 23306\n \t},\n"
+                },
+                {
+                    "date": 1678258648891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n \t\tdirs: ['./store']\n \t},\n \twindicss: {\n \t\tscan: {\n-\t\t\tdirs: ['./'],\n+\t\t\tdirs: ['./src/'],\n \t\t\tinclude: ['**/*.{vue,html,jsx,tsx}'],\n \t\t\texclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n"
+                },
+                {
+                    "date": 1678258676286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,11 +44,8 @@\n \t\t\texclude: ['dist', '.git', '.github', '.nuxt']\n \t\t}\n \t},\n \tplugins: ['@/plugins/arco-design', '@/plugins/icon-space', '@/plugins/color-picker'],\n-\tpinia: {\n-\t\tautoImports: ['defineStore', 'acceptHMRUpdate']\n-\t},\n \tnitro: {\n \t\tprerender: {\n \t\t\troutes: ['/', '/icon-pack']\n \t\t}\n"
                 }
             ],
             "date": 1677746251105,

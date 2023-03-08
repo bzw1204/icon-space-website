@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/store/icon-options.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1678245122279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678245261221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,67 @@\n import { IIconConfig } from '@icon-space/vue-next/lib/runtime'\r\n \r\n type IOptionProps = IIconConfig & { size: number }\r\n \r\n-export const useIconOptionStore = defineStore('icon-view', {\r\n-\tstate: () => ({\r\n-\t\tactiveKey: ''\r\n+const defaultOptionProps = {\r\n+\tsize: 24,\r\n+\tstrokeWidth: 4,\r\n+\ttheme: 'outline',\r\n+\tstrokeLinecap: 'round',\r\n+\tstrokeLinejoin: 'round',\r\n+\tcolors: {\r\n+\t\toutline: {\r\n+\t\t\tfill: '#333',\r\n+\t\t\tbackground: 'transparent'\r\n+\t\t},\r\n+\t\tfilled: {\r\n+\t\t\tfill: '#333',\r\n+\t\t\tbackground: '#FFF'\r\n+\t\t},\r\n+\t\ttwoTone: {\r\n+\t\t\tfill: '#333',\r\n+\t\t\ttwoTone: '#2F88FF'\r\n+\t\t},\r\n+\t\tmultiColor: {\r\n+\t\t\toutStrokeColor: '#333',\r\n+\t\t\toutFillColor: '#2F88FF',\r\n+\t\t\tinnerStrokeColor: '#FFF',\r\n+\t\t\tinnerFillColor: '#43CCF8'\r\n+\t\t}\r\n+\t},\r\n+\trtl: false,\r\n+\tprefix: 'i'\r\n+}\r\n+\r\n+export const useIconOptionStore = defineStore('icon-option', {\r\n+\tstate: (): IOptionProps => ({\r\n+\t\tsize: defaultOptionProps.size,\r\n+\t\tstrokeWidth: defaultOptionProps.strokeWidth,\r\n+\t\ttheme: defaultOptionProps.theme,\r\n+\t\tstrokeLinecap: defaultOptionProps.strokeLinecap,\r\n+\t\tstrokeLinejoin: defaultOptionProps.strokeLinejoin,\r\n+\t\tcolors: {\r\n+\t\t\toutline: {\r\n+\t\t\t\tfill: defaultOptionProps.colors.outline.fill,\r\n+\t\t\t\tbackground: defaultOptionProps.colors.outline.background\r\n+\t\t\t},\r\n+\t\t\tfilled: {\r\n+\t\t\t\tfill: defaultOptionProps.colors.filled.fill,\r\n+\t\t\t\tbackground: defaultOptionProps.colors.filled.background\r\n+\t\t\t},\r\n+\t\t\ttwoTone: {\r\n+\t\t\t\tfill: defaultOptionProps.colors.twoTone.fill,\r\n+\t\t\t\ttwoTone: defaultOptionProps.colors.twoTone.twoTone\r\n+\t\t\t},\r\n+\t\t\tmultiColor: {\r\n+\t\t\t\toutStrokeColor: defaultOptionProps.colors.multiColor.outStrokeColor,\r\n+\t\t\t\toutFillColor: defaultOptionProps.colors.multiColor.outFillColor,\r\n+\t\t\t\tinnerStrokeColor: defaultOptionProps.colors.multiColor.innerStrokeColor,\r\n+\t\t\t\tinnerFillColor: defaultOptionProps.colors.multiColor.innerFillColor\r\n+\t\t\t}\r\n+\t\t},\r\n+\t\trtl: defaultOptionProps.rtl,\r\n+\t\tprefix: defaultOptionProps.prefix\r\n \t}),\r\n \tpersist: true,\r\n \tgetters: {}\r\n })\r\n"
+                },
+                {
+                    "date": 1678245284855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { IIconConfig } from '@icon-space/vue-next/lib/runtime'\r\n \r\n type IOptionProps = IIconConfig & { size: number }\r\n \r\n-const defaultOptionProps = {\r\n+const defaultOptionProps: IOptionProps = {\r\n \tsize: 24,\r\n \tstrokeWidth: 4,\r\n \ttheme: 'outline',\r\n \tstrokeLinecap: 'round',\r\n"
+                },
+                {
+                    "date": 1678255784152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n type IOptionProps = IIconConfig & { size: number }\r\n \r\n const defaultOptionProps: IOptionProps = {\r\n-\tsize: 24,\r\n+\tsize: 48,\r\n \tstrokeWidth: 4,\r\n \ttheme: 'outline',\r\n \tstrokeLinecap: 'round',\r\n \tstrokeLinejoin: 'round',\r\n"
+                },
+                {
+                    "date": 1678258532760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n type IOptionProps = IIconConfig & { size: number }\r\n \r\n const defaultOptionProps: IOptionProps = {\r\n-\tsize: 48,\r\n+\tsize: 12,\r\n \tstrokeWidth: 4,\r\n \ttheme: 'outline',\r\n \tstrokeLinecap: 'round',\r\n \tstrokeLinejoin: 'round',\r\n"
+                }
+            ],
+            "date": 1678245122279,
+            "name": "Commit-0",
+            "content": "import { IIconConfig } from '@icon-space/vue-next/lib/runtime'\r\n\r\ntype IOptionProps = IIconConfig & { size: number }\r\n\r\nexport const useIconOptionStore = defineStore('icon-view', {\r\n\tstate: () => ({\r\n\t\tactiveKey: ''\r\n\t}),\r\n\tpersist: true,\r\n\tgetters: {}\r\n})\r\n"
+        }
+    ]
+}

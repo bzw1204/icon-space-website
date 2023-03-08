@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1678179096841,
@@ -20,6 +20,10 @@
                 {
                     "date": 1678179901446,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,9 @@\n }\r\n .zs-color-picker[data-v-87d63fa8]{\r\n   width: 100%;\r\n   height: 32px;\r\n+}\r\n+.zs-color-picker-btn[data-v-87d63fa8]{\r\n+  width: 100%;\r\n+  height: 100%\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678259354257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,14 @@\n .zs-color-picker-panel[data-v-87d63fa8] {\r\n   left: -190px;\r\n   z-index: 999;\r\n }\r\n-.zs-color-picker[data-v-87d63fa8]{\r\n-  width: 100%;\r\n+\r\n+.zs-color-picker[data-v-87d63fa8] {\r\n+  width: 32px;\r\n   height: 32px;\r\n }\r\n-.zs-color-picker-btn[data-v-87d63fa8]{\r\n+\r\n+.zs-color-picker-btn[data-v-87d63fa8] {\r\n   width: 100%;\r\n-  height: 100%\r\n+  height: 100%;\r\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1678179096841,

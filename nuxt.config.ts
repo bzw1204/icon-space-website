@@ -2,8 +2,8 @@
 
 export default defineNuxtConfig({
 	ssr: true,
-	app:{
-		baseURL: '/icon-space-website/'
+	app: {
+		baseURL: process.env.NODE_ENV === 'development' ? '/' : '/icon-space-website'
 	},
 	devServer: {
 		port: 23306
@@ -39,15 +39,12 @@ export default defineNuxtConfig({
 	},
 	windicss: {
 		scan: {
-			dirs: ['./'],
+			dirs: ['./src/'],
 			include: ['**/*.{vue,html,jsx,tsx}'],
 			exclude: ['dist', '.git', '.github', '.nuxt']
 		}
 	},
 	plugins: ['@/plugins/arco-design', '@/plugins/icon-space', '@/plugins/color-picker'],
-	pinia: {
-		autoImports: ['defineStore', 'acceptHMRUpdate']
-	},
 	nitro: {
 		prerender: {
 			routes: ['/', '/icon-pack']

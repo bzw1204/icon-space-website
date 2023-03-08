@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 33,
+            "activePatchIndex": 34,
             "patches": [
                 {
                     "date": 1677748419969,
@@ -140,6 +140,10 @@
                 {
                     "date": 1678163166605,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n <script lang=\"ts\" setup>\n \n \tconst layout = 'default'\n \tconst route = useRoute()\n-\tconst { title, language } = useAppConfig()\n+\tconst { title } = useAppConfig()\n \tonMounted(() => {\n \t\tdocument.title = title\n \t})\n \tconst svgStore = useSvgStore()\n"
+                },
+                {
+                    "date": 1678249457014,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,16 +2,9 @@\n \t<NuxtLayout name=\"default\"></NuxtLayout>\n </template>\n <script lang=\"ts\" setup>\n \n-\tconst layout = 'default'\n-\tconst route = useRoute()\n \tconst { title } = useAppConfig()\n \tonMounted(() => {\n \t\tdocument.title = title\n \t})\n-\tconst svgStore = useSvgStore()\n-\tconst { size } = storeToRefs(svgStore)\n-\tconst handleAddSize = () => {\n-\t\tsize.value++\n-\t}\n </script>\n"
                 }
             ],
             "date": 1677748419969,

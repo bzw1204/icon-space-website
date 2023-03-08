@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1678075544630,
@@ -16,6 +16,18 @@
                 {
                     "date": 1678179968985,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,7 @@\n     \"colorpicker-v3\": \"^2.10.2\",\n     \"i\": \"^0.3.7\",\n     \"less\": \"^4.1.3\",\n     \"pinia\": \"^2.0.32\",\n-    \"pinia-plugin-persistedstate\": \"^3.1.0\",\n-    \"vue3-colorpicker\": \"^2.1.2\"\n+    \"pinia-plugin-persistedstate\": \"^3.1.0\"\n   }\n }\n"
+                },
+                {
+                    "date": 1678185813943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   \"private\": true,\n   \"scripts\": {\n     \"build\": \"nuxt build\",\n     \"dev\": \"nuxt dev\",\n-    \"generate\": \"nuxt generate\",\n+    \"generate\": \"nuxt generate --mode=prod\",\n     \"preview\": \"nuxt preview\",\n     \"postinstall\": \"nuxt prepare\"\n   },\n   \"devDependencies\": {\n"
+                },
+                {
+                    "date": 1678186080178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   \"private\": true,\n   \"scripts\": {\n     \"build\": \"nuxt build\",\n     \"dev\": \"nuxt dev\",\n-    \"generate\": \"nuxt generate --mode=prod\",\n+    \"generate\": \"nuxt generate NODE_ENV=prod\",\n     \"preview\": \"nuxt preview\",\n     \"postinstall\": \"nuxt prepare\"\n   },\n   \"devDependencies\": {\n"
+                },
+                {
+                    "date": 1678242609313,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   \"private\": true,\n   \"scripts\": {\n     \"build\": \"nuxt build\",\n     \"dev\": \"nuxt dev\",\n-    \"generate\": \"nuxt generate NODE_ENV=prod\",\n+    \"generate\": \"nuxt generate\",\n     \"preview\": \"nuxt preview\",\n     \"postinstall\": \"nuxt prepare\"\n   },\n   \"devDependencies\": {\n"
                 }
             ],
             "date": 1678075544630,
