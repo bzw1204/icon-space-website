@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper.c27b6911.js";import{o,h as r}from"./entry.d92a86fa.js";const t={};function c(n,s){return o(),r("div",null," 插画库 ")}const l=e(t,[["render",c]]);export{l as default};
